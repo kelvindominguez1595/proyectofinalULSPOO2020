@@ -11,7 +11,7 @@
                   <h6 class="m-0 font-weight-bold text-primary">Editar producto</h6>
                 </div>
                 <div class="card-body">
-                    <form action="?view=Productos&action=ActualizarPro" method="post" class="user">
+                    <form action="?view=Productos&action=ActualizarPro" method="post" class="user" enctype="multipart/form-data">
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <input type="hidden" name="id_producto" value="<?php echo $data->id_producto; ?>">
