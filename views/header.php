@@ -70,13 +70,13 @@
 </li>
 
 <li class="nav-item">
-  <a class="nav-link" href="?view=Productos">
+  <a class="nav-link" href="?view=Usuarios">
     <i class="fas fa-fw fa-user"></i>
     <span>Usuarios</span></a>
 </li>
 
 <li class="nav-item">
-  <a class="nav-link" href="?view=Productos">
+  <a class="nav-link" href="?view=Clientes">
     <i class="fas fa-fw fa-user-astronaut"></i>
     <span>Clientes</span></a>
 </li>
