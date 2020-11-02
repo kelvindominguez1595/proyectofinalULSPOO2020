@@ -25,13 +25,13 @@
                   <thead>
                     <tr>                       
                       <th>#</th>
-                      <th>Categoria</th>
-                      <th>Marca</th>
                       <th>Productos</th>
-                      <th>Imagen</th>
+                      <th>Categoria</th>
                       <th>Cantidad</th>
                       <th>P. Compra</th>
                       <th>P. Venta</th>
+                      <th>Marca</th>
+                      <th>Imagen</th>
                       <th>Fecha Compra</th>
                       <th>Opciones</th>
                     </tr>
@@ -39,13 +39,13 @@
                   <tfoot>
                     <tr>
                       <th>#</th>
-                      <th>Categoria</th>
-                      <th>Marca</th>
                       <th>Productos</th>
-                      <th>Imagen</th>
                       <th>Cantidad</th>
                       <th>P. Compra</th>
                       <th>P. Venta</th>
+                      <th>Categoria</th>
+                      <th>Marca</th>
+                      <th>Imagen</th>
                       <th>Fecha Compra</th>
                       <th>Opciones</th>
                     </tr>
@@ -56,14 +56,16 @@
                   foreach($this->model->ListarProductos() as $item){  ?>                
                     <tr>
                       <td><?php echo $i; ?></td>
-                      <td><?php echo $item->id_categoria; ?></td>
-                      <td><?php echo $item->id_marca_producto; ?></td>
                       <td><?php echo $item->NombreProducto; ?></td>
-                      <td><?php echo $item->imagen; ?></td>
                       <td><?php echo $item->cantidad; ?></td>
-                      <td><?php echo $item->precioVenta; ?></td>
-                      <td><?php echo $item->precioCompra; ?></td>
-                      <td><?php echo $item->fechaCompra; ?></td>
+                      <td>$ <?php echo number_format($item->precioVenta, 2); ?></td>
+                      <td>$ <?php echo number_format($item->precioCompra, 2); ?></td>
+                      <td><?php echo $item->categoria; ?></td>
+                      <td><?php echo $item->nombre_marca; ?></td>
+                      <td>
+                        <img src="assets/img/<?php echo $item->imagen; ?>" width="70px" class="img-fluid" alt="">
+                      </td>
+                      <td><?php echo date('d-m-Y h:m:s', strtotime($item->fechaCompra)); ?></td>
                       <td>
                           
                         <a href="?view=Productos&action=EditarProduct&id=<?php echo $item->id_producto;?>" class="btn btn-primary btn-circle"> <i class="fas fa-pencil-alt" data-toggle="tooltip" data-placement="left" title="Editar Registro"></i></a>

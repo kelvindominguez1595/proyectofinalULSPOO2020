@@ -28,7 +28,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-4">
-                            <input type="text" name="imagen" id="" class="form-control form-control-user" required placeholder="Imagen">
+                            <input type="file" name="imagen" id="" class="form-control" required placeholder="Imagen">
                         </div>
                         <div class="col-sm-4">
                             <select name="id_categoria" id="" class="form-control" required>

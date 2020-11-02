@@ -44,23 +44,39 @@ class ProductosController{
     /** Metodos CRUD */   
     public function CrearProducto(){
         // capturo los valores enviados por post o get
-        $this->model->id_categoria        = $_REQUEST['id_categoria'];
-        $this->model->id_marca_producto   = $_REQUEST['id_marca_producto'];
-        $this->model->NombreProducto      = $_REQUEST['NombreProducto'];
-        $this->model->imagen              = $_REQUEST['imagen'];
-        $this->model->cantidad            = $_REQUEST['cantidad'];
-        $this->model->precioVenta         = $_REQUEST['precioCompra'];
-        $this->model->precioCompra        = $_REQUEST['precioVenta'];
-        // utilizamos el metodo de guardar de SQL
-        if($this->model->RegistrarProducto($this->model)){
-            $texto = "Registro exitosamente";
-            $tipo = "success";
-            $this->model->SesionesMessage($texto, $tipo);
-        }else{
-            $texto = "Ocurrio un error";
-            $tipo = "error";
-            $this->model->SesionesMessage($texto, $tipo);
+        
+        if(count($_FILES) > 0){
+            $this->model->id_categoria        = $_REQUEST['id_categoria'];
+            $this->model->id_marca_producto   = $_REQUEST['id_marca_producto'];
+            $this->model->NombreProducto      = $_REQUEST['NombreProducto'];    
+            $this->model->cantidad            = $_REQUEST['cantidad'];
+            $this->model->precioVenta         = $_REQUEST['precioCompra'];
+            $this->model->precioCompra        = $_REQUEST['precioVenta'];
+    
+            $nameImgan = $_FILES['imagen']['name'];
+            $typeImagen = $_FILES['imagen']['type'];
+            $tmpImagen = $_FILES['imagen']['tmp_name'];
+            if($typeImagen == 'image/jpeg' || $typeImagen == 'image/jpg' || $typeImagen == 'image/png' || $typeImagen == 'image/gif'){
+                // ruta de donde guardaremos la imagen
+                $res = explode(".", $nameImgan);
+                $extension = $res[count($res)-1];
+                $newNameImagen = date('s').rand(1,99).".".$extension;
+                $destino = "assets/img/".$newNameImagen;
+                copy($tmpImagen, $destino); // copiamos los archivos al destino
+                $this->model->imagen              = $newNameImagen;// llenamos el cmapo imagen
+                // utilizamos el metodo de guardar de SQL
+                if($this->model->RegistrarProducto($this->model)){
+                    $texto = "Registro exitosamente";
+                    $tipo = "success";
+                    $this->model->SesionesMessage($texto, $tipo);
+                }else{
+                    $texto = "Ocurrio un error";
+                    $tipo = "error";
+                    $this->model->SesionesMessage($texto, $tipo);
+                }
+            }
         }
+
     }
 
     public function ActualizarPro(){
