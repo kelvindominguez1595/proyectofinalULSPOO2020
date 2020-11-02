@@ -20,7 +20,7 @@ class UsuariosController{
         require_once 'views/footer.php';
     }
 
-    public function NuevoProducto(){
+    public function NuevoUsuario(){
         require_once 'views/header.php';
         require_once 'views/usuarios/crear.php';
         require_once 'views/footer.php';
