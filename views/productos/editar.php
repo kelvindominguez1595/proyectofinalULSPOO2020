@@ -28,22 +28,48 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-sm-4">
-                            <input type="text" name="imagen" id="" class="form-control form-control-user" required placeholder="Imagen" value="<?php echo $data->imagen; ?>" >
-                        </div>
-                        <div class="col-sm-4">
+                    <div class="col-sm-4">
+                            <label for="categoria">Categoria</label>
                             <select name="id_categoria" id="" class="form-control" required>
                                     <option value="0">Seleccione categoria</option>
-                                    <option value="1">Mouse</option>
-                                    <option value="2">Case</option>
+                                    <?php
+                                        foreach($this->modelCategorias->ListarCategorias() as $item){
+                                            if($item->id_categoria == $data->id_categoria){
+                                           
+                                    ?>
+                                        <option selected value="<?php echo $item->id_categoria; ?>"><?php echo $item->categoria; ?></option>
+                                    <?php  }?>
+                                        <option value="<?php echo $item->id_categoria; ?>"><?php echo $item->categoria; ?></option>
+                                    <?php
+
+                                        }
+                                    ?>
+                                    
                             </select>
                         </div>
                         <div class="col-sm-4">
+                            <label for="categoria">Marca</label>
                             <select name="id_marca_producto" id="" class="form-control" required>
                                 <option value="0">Seleccione marca</option>
-                                <option value="1">HP</option>
-                                <option value="2">Leonovo</option>
+                                <?php
+                                    foreach($this->modelMarcas->ListarMarcas() as $item){
+                                        if($item->id == $data->id_marca_producto){
+                                           
+                                            ?>
+                                                <option selected value="<?php echo $item->id; ?>"><?php echo $item->nombre_marca; ?></option>
+                                            <?php  }?>
+                                    <option value="<?php echo $item->id?>"><?php echo $item->nombre_marca?></option>
+                                <?php
+                                    }
+                                ?>
                             </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Subir imagen</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFileLang" name="imagen"  lang="es">
+                                <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row d-flex justify-content-center">
