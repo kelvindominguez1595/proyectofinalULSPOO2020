@@ -32,7 +32,7 @@ class Marcas{
     // Metodo para listar los roles
     public function ListarMarcas(){
         try{        
-            $commd = $this->DB->prepare("SELECT nombre_marca FROM Marcas");
+            $commd = $this->DB->prepare("SELECT * FROM Marcas");
             $commd->execute();
             return $commd->fetchAll(PDO::FETCH_OBJ);
         }catch(Throwable $t){
