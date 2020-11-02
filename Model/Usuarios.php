@@ -10,6 +10,7 @@ class Usuarios{
     public $usuario;
     public $pass;
     public $telefono;
+    public $imagen;
     public $roles_id;
 
     public function __CONSTRUCT(){
@@ -23,12 +24,12 @@ class Usuarios{
     public function RegistrarUsuario($data){
         try{
             // Comando SQL
-            $sql = "INSERT INTO usuarios(nombres, apellidos, direccion, email, usuario, pass, telefono, roles_id) VALUES(?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO usuarios(nombres, apellidos, direccion, email, usuario, pass, telefono, imagen, roles_id) VALUES(?,?,?,?,?,?,?,?,?)";
             // Encriptamos la contraseña con md5
             $passEncrypt = md5($data->pass);
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
-            $resul = $pre->execute(array($data->nombres, $data->apellidos, $data->direccion, $data->email, $data->usuario, $passEncrypt, $data->telefono, $data->roles_id));
+            $resul = $pre->execute(array($data->nombres, $data->apellidos, $data->direccion, $data->email, $data->usuario, $passEncrypt, $data->telefono, $data->imagen, $data->roles_id));
             if($resul > 0){ 
                 return true;
             }else{ 
@@ -41,7 +42,7 @@ class Usuarios{
     // Metodo para listar los roles
     public function ListarUsuarios(){
         try{        
-            $commd = $this->DB->prepare("SELECT us.id, us.nombres, us.apellidos, us.direccion, us.email, us.usuario, us.pass, us.telefono, rol.nombres as roles, rol.descripcion  FROM usuarios as us INNER JOIN roles_usuario as rol ON us.roles_id = rol.id");
+            $commd = $this->DB->prepare("SELECT us.id, us.nombres, us.apellidos, us.direccion, us.email, us.usuario, us.pass, us.telefono, us.imagen, rol.nombres as roles, rol.descripcion  FROM usuarios as us INNER JOIN roles_usuario as rol ON us.roles_id = rol.id");
             $commd->execute();
             return $commd->fetchAll(PDO::FETCH_OBJ);
         }catch(Throwable $t){
@@ -61,15 +62,15 @@ class Usuarios{
     }
 
     // Actualizar
-    public function actualizarRol($data){
+    public function ActualizarUsuario($data){
         try{
             // Comando SQL
-            $sql = "UPDATE usuarios SET nombres = ?, apellidos = ?, direccion = ?, email = ?, usuario = ?, pass = ?, telefono = ?, roles_id = ? WHERE id = ?";
+            $sql = "UPDATE usuarios SET nombres = ?, apellidos = ?, direccion = ?, email = ?, usuario = ?, pass = ?, telefono = ?, imagen = ?, roles_id = ? WHERE id = ?";
             // Encriptamos la contraseña con md5
             $passEncrypt = md5($data->pass);
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
-            $resul = $pre->execute(array($data->nombres, $data->apellidos, $data->direccion, $data->email, $data->usuario, $passEncrypt, $data->telefono, $data->roles_id));
+            $resul = $pre->execute(array($data->nombres, $data->apellidos, $data->direccion, $data->email, $data->usuario, $passEncrypt, $data->telefono, $data->imagen,$data->roles_id));
             if($resul > 0){ 
                 return true;
             }else{ 
@@ -80,10 +81,10 @@ class Usuarios{
         }
     }
     // Borrar
-    public function deleteRol($data){
+    public function BorrarUsuario($data){
         try{
             // Comando SQL
-            $sql = "DELETE FROM roles_usuario  WHERE id = ?";
+            $sql = "DELETE FROM usuarios  WHERE id = ?";
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
             $resul = $pre->execute(array($data->id));
