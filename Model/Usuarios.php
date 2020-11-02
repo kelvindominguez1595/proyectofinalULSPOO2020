@@ -42,7 +42,7 @@ class Usuarios{
     // Metodo para listar los roles
     public function ListarUsuarios(){
         try{        
-            $commd = $this->DB->prepare("SELECT us.id, us.nombres, us.apellidos, us.direccion, us.email, us.usuario, us.pass, us.telefono, us.imagen, rol.nombres as roles, rol.descripcion  FROM usuarios as us INNER JOIN roles_usuario as rol ON us.roles_id = rol.id");
+            $commd = $this->DB->prepare("SELECT us.id, us.nombres, us.apellidos, us.direccion, us.email, us.usuario, us.pass, us.telefono, us.imagen, rol.nombre as roles, rol.descripcion  FROM usuarios as us INNER JOIN roles_usuario as rol ON us.roles_id = rol.id");
             $commd->execute();
             return $commd->fetchAll(PDO::FETCH_OBJ);
         }catch(Throwable $t){
@@ -101,7 +101,7 @@ class Usuarios{
     public function SesionesMessage($texto, $tipo){
         $_SESSION['texto'] = $texto;
         $_SESSION['tipo'] = $tipo;
-        header("Location: ?view=Roles");
+        header("Location: ?view=Usuarios");
     }
 
 }

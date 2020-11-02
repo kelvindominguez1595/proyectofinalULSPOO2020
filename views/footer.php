@@ -68,6 +68,39 @@
         $('.alert').alert();
         $('[data-toggle="tooltip"]').tooltip();
     } );
+        // script para validar la contraseña 
+        function validarrPass(){
+        var pass1 = $('pass').val();
+        var pass2 = $('passRepear').val();
+
+        var espacios = false;
+        var cont = 0;
+
+        // validamos si hay espacios nulos en la contraseña
+        while(!espacios &&(cont < pass1.length)){
+            if(pass1.charAt(cont) == " "){
+                espacios = true;
+            }
+            cont++;
+        }
+        if(espacios){
+            alert("La contraseña no puede contener espacios en blanco");
+         return false;   
+
+        }
+        if (pass1.length == 0 || pass2.length == 0) {
+        alert("Los campos de la password no pueden quedar vacios");
+        return false;
+        }
+
+        if (pass1 != pass2) {
+            alert("Las passwords deben de coincidir");
+        return false;
+        } else {
+             alert("Todo esta correcto");
+        return true; 
+        }
+    }
   </script>
 </body>
 </html>

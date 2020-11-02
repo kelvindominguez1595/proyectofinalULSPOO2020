@@ -45,7 +45,7 @@ class UsuariosController{
     /** Fin de llamado de la vistas */
 
     /** Metodos CRUD */   
-    public function CrearProducto(){
+    public function CrearUsuario(){
         // capturo los valores enviados por post o get
         
         if(count($_FILES) > 0){
@@ -53,12 +53,13 @@ class UsuariosController{
             $this->model->apellidos    = $_REQUEST['apellidos'];
             $this->model->direccion    = $_REQUEST['direccion'];
             $this->model->email        = $_REQUEST['email'];
-            $this->model->usuario      = $_REQUEST['usuario'];
+
             $this->model->telefono     = $_REQUEST['telefono'];
             $this->model->pass         = $_REQUEST['pass'];
             $this->model->roles_id     = $_REQUEST['roles_id'];
-
-    
+            // extraemo el primer nombre del para el usuario
+            $nombre = explode(" ", $_REQUEST['nombres']);
+            $this->model->usuario      = $nombre[0];
             $nameImgan = $_FILES['imagen']['name'];
             $typeImagen = $_FILES['imagen']['type'];
             $tmpImagen = $_FILES['imagen']['tmp_name'];
