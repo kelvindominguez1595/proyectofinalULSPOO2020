@@ -43,8 +43,13 @@
                             <label for="categoria">Marca</label>
                             <select name="id_marca_producto" id="" class="form-control" required>
                                 <option value="0">Seleccione marca</option>
-                                <option value="1">HP</option>
-                                <option value="2">Leonovo</option>
+                                <?php
+                                    foreach($this->modelMarcas->ListarMarcas() as $item){
+                                ?>
+                                    <option value="<?php echo $item->id?>"><?php echo $item->nombre_marca?></option>
+                                <?php
+                                    }
+                                ?>
                             </select>
                         </div>
                         <div class="col-sm-4">

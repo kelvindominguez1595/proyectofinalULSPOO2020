@@ -42,7 +42,7 @@ class MarcasController{
     /** Fin de llamado de la vistas */
 
     /** Metodos CRUD */   
-    public function CrearMarca(){
+    public function RegistrarMarca(){
         // capturo los valores enviados por post o get
         $this->model->nombre_marca   = $_REQUEST['nombre_marca'];
         // utilizamos el metodo de guardar de SQL
