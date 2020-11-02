@@ -2,7 +2,6 @@
 class Marcas{
     # atributos 
     private $DB; // para la conexion de la base de datos
-    public $id_marca;
     public $nombre_marca;
 
 
@@ -17,10 +16,10 @@ class Marcas{
     public function RegistrarMarca($data){
         try{
             // Comando SQL
-            $sql = "INSERT INTO productos(id, nombre_marca) VALUES(?,?)";
+            $sql = "INSERT INTO Marcas(nombre_marca) VALUES(?)";
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
-            $resul = $pre->execute(array($data->id, $data->nombre_marca));
+            $resul = $pre->execute(array($data->nombre_marca));
             if($resul > 0){ 
                 return true;
             }else{ 
@@ -33,7 +32,7 @@ class Marcas{
     // Metodo para listar los roles
     public function ListarMarcas(){
         try{        
-            $commd = $this->DB->prepare("SELECT * FROM marcas");
+            $commd = $this->DB->prepare("SELECT nombre_marca FROM Marcas");
             $commd->execute();
             return $commd->fetchAll(PDO::FETCH_OBJ);
         }catch(Throwable $t){
@@ -44,7 +43,7 @@ class Marcas{
     // Metodo para obtener un registro en especifico
     public function obtenerRegistro($id){
         try{        
-            $commd = $this->DB->prepare("SELECT * FROM marcas WHERE id = ?");
+            $commd = $this->DB->prepare("SELECT * FROM Marcas WHERE nombre_marca = ?");
             $commd->execute(array($id));
             return $commd->fetch(PDO::FETCH_OBJ);
         }catch(Throwable $t){
@@ -53,14 +52,14 @@ class Marcas{
     }
 
     // Actualizar
-    public function actualizarMarca($data){
+    public function ActualizarMarca($data){
         try{
             // Comando SQL
-            $sql = "UPDATE marcas SET id = ?, nombre_marca = ?";
+            $sql = "UPDATE Marcas SET nombre_marca = ?";
 
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
-            $resul = $pre->execute(array($data->id, $data->nombre_marca));
+            $resul = $pre->execute(array($data->nombre_marca));
             if($resul > 0){ 
                 return true;
             }else{ 
@@ -74,7 +73,7 @@ class Marcas{
     public function BorrarMarca($data){
         try{
             // Comando SQL
-            $sql = "DELETE FROM productos  WHERE id = ?";
+            $sql = "DELETE FROM Marcas  WHERE nombre_marca = ?";
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
             $resul = $pre->execute(array($data->id));
