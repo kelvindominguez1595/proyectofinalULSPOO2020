@@ -11,10 +11,10 @@
                   <h6 class="m-0 font-weight-bold text-primary">Borrar</h6>
                 </div>
                 <div class="card-body">
-                    <form action="?view=Productos&action=BorrarPro" method="post" class="user">
+                    <form action="?view=Marcas&action=BorrarMarca" method="post" class="user">
                     <div class="form-group row">
                     <h1 class="display-4">¿Esta seguro de borrar el registro?</h1>
-                        <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
+                        <input type="hidden" name="nombre_marca" value="<?php echo $_GET['nombre_marca']; ?>">
                     </div>    
                     <div class="form-group row d-flex justify-content-center">
                         <div class="col-sm-6">

@@ -13,21 +13,17 @@
                 <div class="card-body">
                     <form action="?view=Marcas&action=ActualizarMarc" method="post" class="user">
                     <div class="form-group row">
-                        <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="hidden" name="id" value="<?php echo $data->id; ?>">
-                            <input type="text" name="nombre_marca" value="<?php echo $data->nombre_marca; ?>" class="form-control form-control-user" required id="exampleFirstName" placeholder="Nombre de la Marca">
-                        </div>
                         </div>
                         <div class="col-sm-4">
                             <select name="nombre_marca" id="" class="form-control" required>
                                 <option value="0">Seleccione nombre de marca</option>
-                                <option value="1">HP</option>
-                                <option value="2">Leonovo</option>
-                                <option value="3">Dell</option>
-                                <option value="4">Acer</option>
-                                <option value="5">Toshiba</option>
-                                <option value="6">Asus</option>
-                                <option value="7">Alienware</option>
+                                <option value="HP">HP</option>
+                                <option value="Leonovo">Leonovo</option>
+                                <option value="Dell">Dell</option>
+                                <option value="Acer">Acer</option>
+                                <option value="Toshiba">Toshiba</option>
+                                <option value="Asus">Asus</option>
+                                <option value="Alienware">Alienware</option>
                             </select>
                         </div>
                     </div>

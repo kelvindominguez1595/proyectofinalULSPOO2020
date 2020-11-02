@@ -17,17 +17,23 @@
 
     <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Listar Marcas</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Lista de Marcas</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                   
+                <thead>
+                    <tr>                       
+                      <th>#</th>
+                      <th>Nombre de Marca</th>
+                      <th>Opciones</th>
+                    </tr>
                   </thead>
                   <tfoot>
-                  <tr>                       
+                    <tr>
+                      <th>#</th>
                       <th>Nombre de Marca</th>
+                      <th>Opciones</th>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -35,16 +41,16 @@
                   $i = 1;
                   foreach($this->model->ListarMarcas() as $item){  ?>                
                     <tr>
-                      <td><?php echo $item->id; ?></td>
+                      <td><?php echo $i; ?></td>
                       <td><?php echo $item->nombre_marca; ?></td>
 
                       <td>
-                          
-                        <a href="?view=Marcass&action=EditarMarca&id=<?php echo $item->id;?>" class="btn btn-primary btn-circle"> <i class="fas fa-pencil-alt" data-toggle="tooltip" data-placement="left" title="Editar Registro"></i></a>
-                        <a href="?view=Marcas&action=BorrarMarca&id=<?php echo $item->id;?>" class="btn btn-danger btn-circle" data-toggle="tooltip" data-placement="right" title="Borrar Registro"> <i class="fas fa-trash"></i></a>
+                        <a href="?view=Marcas&action=EditarMarca&id=<?php echo $item->nombre_marca;?>" class="btn btn-primary btn-circle"> <i class="fas fa-pencil-alt" data-toggle="tooltip" data-placement="left" title="Editar Registro"></i></a>
+                        <a href="?view=Marcas&action=BorrarMarca&id=<?php echo $item->nombre_marca;?>" class="btn btn-danger btn-circle" data-toggle="tooltip" data-placement="right" title="Borrar Registro"> <i class="fas fa-trash"></i></a>
                       </td>
-                    </tr>
-                <?php $i++;} ?>
+                  </tr>
+                <?php 
+                $i++;} ?>
                   </tbody>
                 </table>
               </div>
