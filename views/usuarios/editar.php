@@ -39,30 +39,32 @@
                             <input type="password" name="pass" id="pass" required class="form-control form-control-user" placeholder="******"  value="<?php echo $data->pass; ?>">
                         </div>
  
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                <label>Nivel de usuario</label>
+                                    <select name="roles_id" id="" class="form-control">
+                                        <option value="0" >Seleccione nivel</option>
+                                        <?php
+                                        foreach($this->modelRoles->ListarRoles() as $item){
+                                            if($item->id == $data->roles_id){
+                                        ?>
+                                         <option value="<?php echo $item->id; ?>" selected><?php echo $item->nombre; ?></option>
+    
+                                        <?php                                   
+                                            }
+                                        ?>
+                                        <option value="<?php echo $item->id; ?>"><?php echo $item->nombre; ?></option>
+    
+                                        <?php
+                                            }
+                                        ?>
+                                    </select>                               
+                                 
+                            </div>
                     </div>
                     <div class="form-group row">
                     <div class="col-sm-4 mb-3 mb-sm-0">
-                            <label>Nivel de usuario</label>
-                                <select name="roles_id" id="" class="form-control">
-                                    <option value="0" >Seleccione nivel</option>
-                                    <?php
-                                    foreach($this->modelRoles->ListarRoles() as $item){
-                                        if($item->id == $data->roles_id){
-                                    ?>
-                                   <option value="<?php echo $item->id; ?>"><?php echo $item->nombre; ?></option>
-
-                                    <?php                                   
-                                        }
-                                    ?>
-                                    <?php
-                                        }
-                                    ?>
-                                </select>                               
-                             
-                        </div>
-                    <div class="col-sm-4 mb-3 mb-sm-0">
                             <label>Teléfono</label>
-                            <input type="number" name="telefono" id=""  required class="form-control form-control-user" placeholder="00000000">                             
+                            <input type="number" name="telefono" id=""  required class="form-control form-control-user" placeholder="00000000" value="<?php echo $data->telefono; ?>">                             
                         </div>
                         <div class="col-sm-4 mb-3 mb-sm-0">
                             <label>Subir imagen</label>

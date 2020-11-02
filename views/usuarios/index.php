@@ -64,8 +64,8 @@
                         <img src="assets/img/Image_Perfil/<?php echo $item->imagen; ?>" width="70px" class="img-fluid" alt="">
                       </td>
                       <td>                          
-                        <a href="?view=Usuarios&action=EditarProduct&id=<?php echo $item->id;?>" class="btn btn-primary btn-circle"> <i class="fas fa-pencil-alt" data-toggle="tooltip" data-placement="left" title="Editar Registro"></i></a>
-                        <a href="?view=Usuarios&action=BorrarProduct&id=<?php echo $item->id;?>" class="btn btn-danger btn-circle" data-toggle="tooltip" data-placement="right" title="Borrar Registro"> <i class="fas fa-trash"></i></a>
+                        <a href="?view=Usuarios&action=EditarUsuario&id=<?php echo $item->id;?>" class="btn btn-primary btn-circle"> <i class="fas fa-pencil-alt" data-toggle="tooltip" data-placement="left" title="Editar Registro"></i></a>
+                        <a href="?view=Usuarios&action=BorrarUsuario&id=<?php echo $item->id;?>" class="btn btn-danger btn-circle" data-toggle="tooltip" data-placement="right" title="Borrar Registro"> <i class="fas fa-trash"></i></a>
                       </td>
                     </tr>
                 <?php $i++;} ?>

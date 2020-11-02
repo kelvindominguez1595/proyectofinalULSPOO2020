@@ -26,7 +26,7 @@ class UsuariosController{
         require_once 'views/footer.php';
     }
 
-    public function EditarProduct(){
+    public function EditarUsuario(){
         // Capturamos el id enviado por get
         $id = $_REQUEST['id'];
         // crear el metodo para listar un dato especifico
@@ -35,7 +35,7 @@ class UsuariosController{
         require_once 'views/usuarios/editar.php';
         require_once 'views/footer.php';
     }
-    public function BorrarProduct(){
+    public function BorrarUsuario(){
         // Capturamos el id enviado por get
         $id = $_REQUEST['id'];
         require_once 'views/header.php';
@@ -109,7 +109,7 @@ class UsuariosController{
         }
     }
 
-    public function BorrarPro(){
+    public function BorrarUse(){
         // capturo los valores enviados por post o get
         $this->model->id = $_REQUEST['id'];
         // utilizamos el metodo de guardar de SQL
