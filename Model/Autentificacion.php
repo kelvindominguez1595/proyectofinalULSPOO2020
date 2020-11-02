@@ -20,7 +20,9 @@ class Autentificacion
     public function Validacion($usuario, $clave){
         try{
             $commd = $this->DB->prepare("SELECT * FROM usuarios WHERE usuario = ? AND pass = ?;");
-            $commd->execute(array($usuario, $clave));
+            // Desencriptamos la contraseña con md5
+            $passEncrypt = md5($clave);
+            $commd->execute(array($usuario, $passEncrypt));
             return $commd->fetch(PDO::FETCH_OBJ);
         }catch(Throwable $e){
             die($e->getMessage());
