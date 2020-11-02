@@ -2,18 +2,18 @@
 // importamos nuestro modelo
 require_once 'Model/Productos.php';
 require_once 'Model/Marcas.php';
-//require_once 'Model/Productos.php';
+require_once 'Model/Categorias.php';
 class ProductosController{
     // para accender al modelo y sus atributos
     private $model;
     private $modelMarcas; 
-   // private $modelProductos;
+    private $modelCategorias;
 
     // Constructos
     public function __CONSTRUCT(){
         $this->model = new Productos();
         $this->modelMarcas = new Marcas();
-       // $this->modelProductos = new Productos();
+        $this->modelCategorias = new Categorias();
     }
 
    /** Inicio de llamado de la vistas */

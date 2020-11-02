@@ -35,8 +35,14 @@
                             <label for="categoria">Categoria</label>
                             <select name="id_categoria" id="" class="form-control" required>
                                     <option value="0">Seleccione categoria</option>
-                                    <option value="1">Mouse</option>
-                                    <option value="2">Case</option>
+                                    <?php
+                                        foreach($this->modelCategorias->ListarCategorias() as $item){
+                                    ?>
+                                        <option value="<?php echo $item->id_categoria; ?>"><?php echo $item->categoria; ?></option>
+                                    <?php
+                                        }
+                                    ?>
+                                    
                             </select>
                         </div>
                         <div class="col-sm-4">

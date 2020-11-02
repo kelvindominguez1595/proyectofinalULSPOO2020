@@ -1,5 +1,5 @@
 <?php
-class Roles{
+class Categorias{
     # atributos 
     private $DB; // para la conexion de la base de datos
     public $id_categoria;
@@ -30,7 +30,7 @@ class Roles{
         }
     }
     // Metodo para listar los roles
-    public function ListarRoles(){
+    public function ListarCategorias(){
         try{        
             $commd = $this->DB->prepare("SELECT * FROM categorias");
             $commd->execute();
