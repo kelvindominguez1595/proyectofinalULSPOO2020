@@ -52,7 +52,7 @@ class Usuarios{
     // Metodo para obtener un registro en especifico
     public function obtenerRegistro($id){
         try{        
-            $commd = $this->DB->prepare("SELECT * FROM roles_usuario WHERE id = ?");
+            $commd = $this->DB->prepare("SELECT * FROM usuarios WHERE id = ?");
             $commd->execute(array($id));
             return $commd->fetch(PDO::FETCH_OBJ);
         }catch(Throwable $t){
@@ -64,11 +64,12 @@ class Usuarios{
     public function actualizarRol($data){
         try{
             // Comando SQL
-            $sql = "UPDATE roles_usuario SET nombre = ?, descripcion = ? WHERE id = ?";
-
+            $sql = "UPDATE usuarios SET nombres = ?, apellidos = ?, direccion = ?, email = ?, usuario = ?, pass = ?, telefono = ?, roles_id = ? WHERE id = ?";
+            // Encriptamos la contraseña con md5
+            $passEncrypt = md5($data->pass);
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
-            $resul = $pre->execute(array($data->nombre, $data->descripcion, $data->id));
+            $resul = $pre->execute(array($data->nombres, $data->apellidos, $data->direccion, $data->email, $data->usuario, $passEncrypt, $data->telefono, $data->roles_id));
             if($resul > 0){ 
                 return true;
             }else{ 
