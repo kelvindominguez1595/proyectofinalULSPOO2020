@@ -1,7 +1,5 @@
 <?php
 class HomeController{
-
-
     
     public function Index(){
         require_once 'views/header.php';
