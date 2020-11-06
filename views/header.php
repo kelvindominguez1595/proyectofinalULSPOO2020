@@ -57,14 +57,14 @@
 </li>
 
 <li class="nav-item">
-  <a class="nav-link" href="?view=Productos">
+  <a class="nav-link" href="?view=Ventas">
     <i class="fas fa-fw fa-dollar-sign"></i>
     <span>Ventas</span></a>
 </li>
 
 
 <li class="nav-item">
-  <a class="nav-link" href="?view=Productos">
+  <a class="nav-link" href="?view=Comentarios">
     <i class="fas fa-fw fa-comment-alt"></i>
     <span>Comentarios</span></a>
 </li>
