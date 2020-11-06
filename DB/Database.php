@@ -12,7 +12,7 @@ class Database
         die("La funcion no ha sido inicializada");
     }
 
-    public function Conexion(){
+    public static function Conexion(){
         if(null == self::$cont){
             // manejador de exepciones
             try{
