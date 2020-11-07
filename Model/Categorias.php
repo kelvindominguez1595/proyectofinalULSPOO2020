@@ -4,7 +4,7 @@ class Categorias{
     private $DB; // para la conexion de la base de datos
     public $id_categoria;
     public $categoria;
-
+    
     public function __CONSTRUCT(){
         try{
             $this->DB = Database::Conexion();
@@ -13,13 +13,13 @@ class Categorias{
         }
     }
 
-    public function RegistrarRol($data){
+    public function RegistrarCategorias($data){
         try{
             // Comando SQL
-            $sql = "INSERT INTO categorias(categoria) VALUES(?)";
+            $sql = "INSERT INTO categorias (categoria) VALUES(?)";
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
-            $resul = $pre->execute(array($data->nombre, $data->descripcion));
+            $resul = $pre->execute(array($data->categoria));
             if($resul > 0){ 
                 return true;
             }else{ 
@@ -43,7 +43,7 @@ class Categorias{
     // Metodo para obtener un registro en especifico
     public function obtenerRegistro($id){
         try{        
-            $commd = $this->DB->prepare("SELECT * FROM categorias WHERE id_categoria = ?");
+            $commd = $this->DB->prepare("SELECT * FROM categorias WHERE categoria = ?");
             $commd->execute(array($id));
             return $commd->fetch(PDO::FETCH_OBJ);
         }catch(Throwable $t){
@@ -52,14 +52,14 @@ class Categorias{
     }
 
     // Actualizar
-    public function actualizarRol($data){
+    public function actualizarCategor($data){
         try{
             // Comando SQL
-            $sql = "UPDATE categorias SET categoria = ?  WHERE id = ?";
+            $sql = "UPDATE categorias SET categoria = ?";
 
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
-            $resul = $pre->execute(array($data->categoria, $data->id));
+            $resul = $pre->execute(array($data->categoria));
             if($resul > 0){ 
                 return true;
             }else{ 
@@ -70,10 +70,10 @@ class Categorias{
         }
     }
     // Borrar
-    public function deleteRol($data){
+    public function BorrarCategoria($data){
         try{
             // Comando SQL
-            $sql = "DELETE FROM categorias  WHERE id_categoria = ?";
+            $sql = "DELETE FROM categorias  WHERE categoria = ?";
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
             $resul = $pre->execute(array($data->id));
