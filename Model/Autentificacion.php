@@ -23,11 +23,20 @@ class Autentificacion
     }
     public function Validacion($usuario, $clave){
         try{
-            $commd = $this->DB->prepare("SELECT * FROM usuarios WHERE usuario = ? AND pass = ?;");
-            // Desencriptamos la contraseña con md5
-            $passEncrypt = md5($clave);
-            $commd->execute(array($usuario, $passEncrypt));
-            return $commd->fetch(PDO::FETCH_OBJ);
+            // consultamos el usuario si existe
+
+            $userCommd = $this->DB->prepare("SELECT * FROM usuarios WHERE usuario = ?;");
+            $userCommd->execute(array($usuario));
+            // obtenemos si el usuario existe
+            $data = $userCommd->fetch(PDO::FETCH_OBJ);
+            $passEncrypt = password_verify($clave, $data->pass);
+
+            if($passEncrypt){
+                return $data;
+            }else{
+                return null;
+            }
+          //  return $commd->fetch(PDO::FETCH_OBJ);
         }catch(Throwable $e){
             die($e->getMessage());
         }
@@ -42,7 +51,7 @@ class Autentificacion
                 $_SESSION['roles_id'] = $data->roles_id;
                 $_SESSION['state'] = 'success';
                // password_has();
-                if($data->roles_id == 1){
+                if($data->roles_id == 1 || $data->roles_id == 2 || $data->roles_id == 3){
                     # Entramos al admin template
                     header("Location: ?view=Home");
                 }else{

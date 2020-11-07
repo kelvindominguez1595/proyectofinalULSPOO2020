@@ -26,7 +26,7 @@ class Usuarios{
             // Comando SQL
             $sql = "INSERT INTO usuarios(nombres, apellidos, direccion, email, usuario, pass, telefono, imagen, roles_id) VALUES(?,?,?,?,?,?,?,?,?)";
             // Encriptamos la contraseña con md5
-            $passEncrypt = md5($data->pass);
+            $passEncrypt = password_hash($data->pass, PASSWORD_BCRYPT);
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
             $resul = $pre->execute(array($data->nombres, $data->apellidos, $data->direccion, $data->email, $data->usuario, $passEncrypt, $data->telefono, $data->imagen, $data->roles_id));
