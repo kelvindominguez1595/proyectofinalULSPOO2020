@@ -167,7 +167,11 @@ class UsuariosController{
     }
     // actualizar los datos del perfil
     public function ActualizarPerfil(){
-
+        $this->model->nombres      = $_REQUEST['nombres'];
+        $this->model->apellidos    = $_REQUEST['apellidos'];
+        $this->model->direccion    = $_REQUEST['direccion'];
+        $this->model->email        = $_REQUEST['email'];
+        $this->model->telefono     = $_REQUEST['telefono'];
     }
     public function ActualizarPass(){
 
