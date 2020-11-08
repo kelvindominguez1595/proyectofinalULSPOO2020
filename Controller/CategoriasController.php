@@ -79,7 +79,7 @@ class CategoriasController{
         // capturo los valores enviados por post o get
         $this->model->id = $_REQUEST['id'];
         // utilizamos el metodo de guardar de SQL
-        if($this->model->BorrarCategorias($this->model)){            
+        if($this->model->BorrarCategoria($this->model)){            
             $texto = "Registro borrado exitosamente";
             $tipo = "success";
             $this->model->SesionesMessage($texto, $tipo);
@@ -89,6 +89,6 @@ class CategoriasController{
             $this->model->SesionesMessage($texto, $tipo);
         }
     }
-
+}
 
 ?>
