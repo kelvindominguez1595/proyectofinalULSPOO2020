@@ -30,7 +30,7 @@
                     </h6>
                 </div>
                 <div class="card-body text-center">
-                    <img class="img img-account-profile rounded-circle mb-2" src="assets/img/Image_Perfil/<?php echo $_SESSION['imagen']; ?>" alt="">
+                    <img class="img img-account-profile rounded-circle mb-2" src="assets/img/Image_Perfil/<?php echo $data->imagen; ?>" alt="">
                     <div class="small font-italic text-muted mb-4">
                         JPG ó PNG No mayor a 5MB
                     </div>

@@ -22,8 +22,6 @@ class UsuariosController{
     }
 
     public function AccountView(){
-        $id = $_SESSION['id'];
-        $data = $this->model->obtenerRegistro($id);
         require_once 'views/header.php';
         require_once 'views/usuarios/cuenta.php';
         require_once 'views/footer.php';
@@ -63,7 +61,6 @@ class UsuariosController{
             $this->model->apellidos    = $_REQUEST['apellidos'];
             $this->model->direccion    = $_REQUEST['direccion'];
             $this->model->email        = $_REQUEST['email'];
-
             $this->model->telefono     = $_REQUEST['telefono'];
             $this->model->pass         = $_REQUEST['pass'];
             $this->model->roles_id     = $_REQUEST['roles_id'];
@@ -168,6 +165,7 @@ class UsuariosController{
         }
 
     }
+    // actualizar los datos del perfil
     public function ActualizarPerfil(){
 
     }

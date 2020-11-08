@@ -107,7 +107,13 @@ class Usuarios{
     // para cambiar la imagen de perfil
     public function ChangeImagenPerfil($data){
         try{
+
             // obtenemos el nombre de la imagen para borrarla
+            $commd = $this->DB->prepare("SELECT * FROM usuarios WHERE id = ?");
+            $commd->execute(array($data->id));
+            $img = $commd->fetch(PDO::FETCH_OBJ);
+            // para borrar la imagen con PHP
+            unlink("assets/img/Image_Perfil/".$img->imagen);
             // Comando SQL
             $sql = "UPDATE usuarios SET  imagen = ? WHERE id = ?";
             // COMENZAMOS LA CONEXION CON PDO

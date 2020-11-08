@@ -32,5 +32,10 @@ class AutentificacionController{
     public function validAuthen(){
         $this->model->verificarAuten();
     }
+
+    public function dataUser(){
+        $id = $_SESSION['id'];
+        return $this->model->datosUsuariosLogueado($id);
+    }
 }
 ?>

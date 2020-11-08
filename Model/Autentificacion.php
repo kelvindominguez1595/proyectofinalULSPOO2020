@@ -72,5 +72,15 @@ class Autentificacion
             header("Location: ?view=Autentificacion");
         }
     }
+    public function datosUsuariosLogueado($id){
+        try{        
+            $commd = $this->DB->prepare("SELECT * FROM usuarios WHERE id = ?");
+            $commd->execute(array($id));
+            return $commd->fetch(PDO::FETCH_OBJ);
+        }catch(Throwable $t){
+            die($t->getMessage());
+        }
+    }
+
 }
 ?>

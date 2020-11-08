@@ -2,6 +2,7 @@
   include_once 'Controller/AutentificacionController.php';
   $au = new AutentificacionController();
   $au->validAuthen();
+  $data = $au->dataUser();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -327,8 +328,8 @@
       <!-- Nav Item - User Information -->
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['nombres']." ".$_SESSION['apellidos']; ?></span>
-          <img class="img-profile rounded-circle" src="assets/img/Image_Perfil/<?php echo $_SESSION['imagen']; ?>">
+          <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $data->nombres." ".$data->apellidos; ?></span>
+          <img class="img-profile rounded-circle" src="assets/img/Image_Perfil/<?php echo $data->imagen; ?>">
         </a>
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
