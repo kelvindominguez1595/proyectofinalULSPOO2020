@@ -98,10 +98,29 @@ class Usuarios{
         }
     }
     // Para los mensajes
-    public function SesionesMessage($texto, $tipo){
+    public function SesionesMessage($texto, $tipo, $ruta){
         $_SESSION['texto'] = $texto;
         $_SESSION['tipo'] = $tipo;
-        header("Location: ?view=Usuarios");
+        header("Location: ?view=".$ruta);
+    }
+
+    // para cambiar la imagen de perfil
+    public function ChangeImagenPerfil($data){
+        try{
+            // obtenemos el nombre de la imagen para borrarla
+            // Comando SQL
+            $sql = "UPDATE usuarios SET  imagen = ? WHERE id = ?";
+            // COMENZAMOS LA CONEXION CON PDO
+            $pre = $this->DB->prepare($sql);
+            $resul = $pre->execute(array($data->imagen, $data->id));
+            if($resul > 0){ 
+                return true;
+            }else{ 
+                return false;
+            }
+        }catch(Throwable $t){
+            die($t->getMessage());
+        }
     }
 
 }
