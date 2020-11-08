@@ -65,5 +65,10 @@ class Autentificacion
             die($e->getMessage());
         }
     }
+    public function verificarAuten(){
+        if(!isset($_SESSION['state'])){
+            header("Location: ?view=Autentificacion");
+        }
+    }
 }
 ?>
