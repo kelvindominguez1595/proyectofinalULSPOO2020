@@ -46,6 +46,7 @@ class Autentificacion
             if($data != null){
                 $_SESSION['id'] = $data->id;
                 $_SESSION['nombres'] = $data->nombres;
+                $_SESSION['apellidos'] = $data->apellidos;
                 $_SESSION['usuario'] = $data->usuario;
                 $_SESSION['roles_id'] = $data->roles_id;
                // password_has();
