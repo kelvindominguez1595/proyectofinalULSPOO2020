@@ -20,6 +20,12 @@ class UsuariosController{
         require_once 'views/footer.php';
     }
 
+    public function AccountView(){
+        require_once 'views/header.php';
+        require_once 'views/usuarios/cuenta.php';
+        require_once 'views/footer.php';
+    }
+
     public function NuevoUsuario(){
         require_once 'views/header.php';
         require_once 'views/usuarios/crear.php';

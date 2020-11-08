@@ -12,7 +12,7 @@
                   <h6 class="m-0 font-weight-bold text-primary">Nuevo usuario</h6>
                 </div>
                 <div class="card-body">
-                    <form onsubmit="return validarrPass();" action="?view=Usuarios&action=CrearUsuario" method="post" submit class="user" enctype="multipart/form-data">
+                <form onsubmit="return validarrPass();" action="?view=Usuarios&action=CrearUsuario" method="post" submit class="user" enctype="multipart/form-data">
                     <div class="form-group row">
                         <div class="col-sm-4 mb-3 mb-sm-0">
                             <label for="nombre">Nombres</label>

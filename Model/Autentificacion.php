@@ -48,6 +48,7 @@ class Autentificacion
                 $_SESSION['nombres'] = $data->nombres;
                 $_SESSION['apellidos'] = $data->apellidos;
                 $_SESSION['usuario'] = $data->usuario;
+                $_SESSION['imagen'] = $data->imagen;
                 $_SESSION['roles_id'] = $data->roles_id;
                // password_has();
                 if($data->roles_id == 1 || $data->roles_id == 2 || $data->roles_id == 3){
