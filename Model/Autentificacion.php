@@ -30,7 +30,6 @@ class Autentificacion
             // obtenemos si el usuario existe
             $data = $userCommd->fetch(PDO::FETCH_OBJ);
             $passEncrypt = password_verify($clave, $data->pass);
-
             if($passEncrypt){
                 return $data;
             }else{
@@ -49,13 +48,14 @@ class Autentificacion
                 $_SESSION['nombres'] = $data->nombres;
                 $_SESSION['usuario'] = $data->usuario;
                 $_SESSION['roles_id'] = $data->roles_id;
-                $_SESSION['state'] = 'success';
                // password_has();
                 if($data->roles_id == 1 || $data->roles_id == 2 || $data->roles_id == 3){
+                    $_SESSION['state'] = 'backpack';
                     # Entramos al admin template
                     header("Location: ?view=Home");
                 }else{
-                    # para otros tipos de usuario
+                    # para otros tipos de cliente
+                    $_SESSION['state'] = 'cliente';
                 }
             }else{
                 # Retornamos al login si no se loguea correctamente o no tieen usuario
