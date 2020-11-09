@@ -63,6 +63,7 @@ class UsuariosController{
             $this->model->email        = $_REQUEST['email'];
             $this->model->telefono     = $_REQUEST['telefono'];
             $this->model->pass         = $_REQUEST['pass'];
+            $this->model->sexo         = $_REQUEST['sexo'];
             $this->model->roles_id     = $_REQUEST['roles_id'];
             // extraemo el primer nombre del para el usuario
             $nombre = explode(" ", $_REQUEST['nombres']);
@@ -172,6 +173,7 @@ class UsuariosController{
         $this->model->direccion    = $_REQUEST['direccion'];
         $this->model->email        = $_REQUEST['email'];
         $this->model->telefono     = $_REQUEST['telefono'];
+        $this->model->sexo         = $_REQUEST['sexo'];
         $nombre = explode(" ", $_REQUEST['nombres']);
         $this->model->usuario      = strtolower($nombre[0]);
         // metodo para actualizar datos del perfil

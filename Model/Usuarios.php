@@ -10,6 +10,7 @@ class Usuarios{
     public $usuario;
     public $pass;
     public $telefono;
+    public $sexo;
     public $imagen;
     public $roles_id;
 
@@ -24,12 +25,12 @@ class Usuarios{
     public function RegistrarUsuario($data){
         try{
             // Comando SQL
-            $sql = "INSERT INTO usuarios(nombres, apellidos, direccion, email, usuario, pass, telefono, imagen, roles_id) VALUES(?,?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO usuarios(nombres, apellidos, direccion, email, usuario, pass, sexo, telefono, imagen, roles_id) VALUES(?,?,?,?,?,?,?,?,?)";
             // Encriptamos la contraseña con md5
             $passEncrypt = password_hash($data->pass, PASSWORD_BCRYPT);
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
-            $resul = $pre->execute(array($data->nombres, $data->apellidos, $data->direccion, $data->email, $data->usuario, $passEncrypt, $data->telefono, $data->imagen, $data->roles_id));
+            $resul = $pre->execute(array($data->nombres, $data->apellidos, $data->direccion, $data->email, $data->usuario, $passEncrypt, $data->sexo, $data->telefono, $data->imagen, $data->roles_id));
             if($resul > 0){ 
                 return true;
             }else{ 

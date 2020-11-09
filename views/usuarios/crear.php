@@ -12,22 +12,24 @@
                   <h6 class="m-0 font-weight-bold text-primary">Nuevo usuario</h6>
                 </div>
                 <div class="card-body">
-                <form onsubmit="return validarrPass();" action="?view=Usuarios&action=CrearUsuario" method="post" submit class="user" enctype="multipart/form-data">
+                <form onsubmit="return validarrPass();" action="?view=Usuarios&action=CrearUsuario" method="post" submit enctype="multipart/form-data">
                     <div class="form-group row">
-                        <div class="col-sm-4 mb-3 mb-sm-0">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
                             <label for="nombre">Nombres</label>
                             <input type="text" name="nombres" class="form-control form-control-user" required id="exampleFirstName" placeholder="Nombres">
                         </div>
-                        <div class="col-sm-4 mb-3 mb-sm-0">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
                             <label for="apellidos">apellidos</label>
                             <input type="text" name="apellidos" class="form-control form-control-user" required id="exampleFirstName" placeholder="Apellidos">
-                        </div>
-                        <div class="col-sm-4 mb-3 mb-sm-0">
+                        </div>  
+                    </div>
+                    <div class="form-group row">
+                    <div class="col-sm-12 mb-3 mb-sm-0">
                             <label for="direccion">Dirección</label>
                             <input type="text" name="direccion"  class="form-control form-control-user"  required placeholder="Dirección">
                         </div>
-  
                     </div>
+                    <!-- Datos correo electronico  -->
                     <div class="form-group row">     
                         <div class="col-sm-4 mb-3 mb-sm-0">
                             <label for="direccion">Email</label>
@@ -43,10 +45,10 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                    <div class="col-sm-4 mb-3 mb-sm-0">
+                        <div class="col-sm-2 mb-3 mb-sm-0">
                             <label>Nivel de usuario</label>
                                 <select name="roles_id" id="" class="form-control">
-                                    <option value="0" >Seleccione nivel</option>
+                                    <option value="0" >Seleccione...</option>
                                     <?php
                                     foreach($this->modelRoles->ListarRoles() as $item){
                                     ?>
@@ -54,20 +56,37 @@
                                     <?php
                                         }
                                     ?>
-                                </select>                               
-                             
+                                </select>
                         </div>
-                    <div class="col-sm-4 mb-3 mb-sm-0">
+                        <div class="col-sm-2 mb-3 mb-sm-0">
                             <label>Teléfono</label>
                             <input type="number" name="telefono" id=""  required class="form-control form-control-user" placeholder="00000000">                             
                         </div>
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <label>Sexo</label>
+                            <div class="form-group row">
+                                <div class="col-sm-4 radio icheck-primary">
+                                    <input type="radio" name="sexo" id="hombre">
+                                    <label for="hombre">Hombre</label>
+                                </div>
+                                <div class="col-sm-4 radio icheck-primary">
+                                    <input type="radio" name="sexo" id="mujer">
+                                    <label for="mujer">Mujer</label>
+                                </div>                            
+                                <div class="col-sm-4 radio icheck-primary">
+                                    <input type="radio" name="sexo" id="otro">
+                                    <label for="otro">Otro</label>
+                                </div>                            
+                            </div>
+                        </div>
+                        
                         <div class="col-sm-4 mb-3 mb-sm-0">
                             <label>Subir imagen</label>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="customFileLang" name="imagen"  lang="es">
                                 <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
                             </div>
-                        </div>         
+                         </div>         
                     </div>
                     <div class="form-group row d-flex justify-content-center">
                         <div class="col-sm-6">
