@@ -53,7 +53,7 @@
                       </button>
                       </div>
                       <?php } ?>
-                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Bienvenido!</h1>
                   </div>
                   <form class="user" method="POST" action="?view=Autentificacion&action=autentificar">
                     <div class="form-group">

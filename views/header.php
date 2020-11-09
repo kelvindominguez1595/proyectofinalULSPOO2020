@@ -41,7 +41,7 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active">
-  <a class="nav-link" href="index.html">
+  <a class="nav-link" href="?view=Home">
     <i class="fas fa-fw fa-home"></i>
     <span>Inicio</span></a>
 </li>
