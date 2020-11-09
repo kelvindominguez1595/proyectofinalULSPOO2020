@@ -107,7 +107,6 @@ class Usuarios{
     // para cambiar la imagen de perfil
     public function ChangeImagenPerfil($data){
         try{
-
             // obtenemos el nombre de la imagen para borrarla
             $commd = $this->DB->prepare("SELECT * FROM usuarios WHERE id = ?");
             $commd->execute(array($data->id));
@@ -119,6 +118,25 @@ class Usuarios{
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
             $resul = $pre->execute(array($data->imagen, $data->id));
+            if($resul > 0){ 
+                return true;
+            }else{ 
+                return false;
+            }
+        }catch(Throwable $t){
+            die($t->getMessage());
+        }
+    }
+
+    public function actualizarPerfilUser($data){
+        try{
+            // Comando SQL
+            $sql = "UPDATE usuarios SET nombres = ?, apellidos = ?, direccion = ?, email = ?, usuario = ?, telefono = ? WHERE id = ?";
+            // Encriptamos la contraseña con md5
+          // //  $passEncrypt = password_hash($data->pass, PASSWORD_BCRYPT);
+            // COMENZAMOS LA CONEXION CON PDO
+            $pre = $this->DB->prepare($sql);
+            $resul = $pre->execute(array($data->nombres, $data->apellidos, $data->direccion, $data->email, $data->usuario, $data->telefono, $data->id));
             if($resul > 0){ 
                 return true;
             }else{ 

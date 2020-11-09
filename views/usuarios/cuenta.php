@@ -35,10 +35,13 @@
                         JPG ó PNG No mayor a 5MB
                     </div>
                     <form action="?view=Usuarios&action=ChangeImagen" method="POST" enctype="multipart/form-data">
-                        <div class="custom-file mb-4">
-                            <input type="file" class="custom-file-input" id="customFileLang" lang="es" name="imagen">
-                            <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
-                        </div>
+                         <div class="custom-file mb-4">
+                             <label for="file" class="btn btn-primary" id="label_span">
+                                 <i class="fa fa-upload"></i>
+                                  Seleccionar imagen
+                             </label>
+                             <input type="file" name="imagen" id="file" class="file-input">
+                         </div>
                         <input type="submit" value="Cambiar" class="btn btn-primary">
                     </form>
                 </div>
@@ -71,6 +74,10 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <div class="col-sm-8 mb-3 mb-sm-0">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" class="form-control" id="" value="<?php echo $data->email; ?>">
+                            </div>
                             <div class="col-sm-4 mb-3 mb-sm-0">
                                 <label>Teléfono</label>
                                 <input type="number" name="telefono" id=""  required class="form-control form-control-user" placeholder="00000000" value="<?php echo $data->telefono; ?>">                             

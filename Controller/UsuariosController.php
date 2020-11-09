@@ -66,8 +66,7 @@ class UsuariosController{
             $this->model->roles_id     = $_REQUEST['roles_id'];
             // extraemo el primer nombre del para el usuario
             $nombre = explode(" ", $_REQUEST['nombres']);
-
-            $this->model->usuario      = $nombre[0];
+            $this->model->usuario      = strtolower($nombre[0]);
 
             $nameImgan = $_FILES['imagen']['name'];
             $typeImagen = $_FILES['imagen']['type'];
@@ -172,6 +171,19 @@ class UsuariosController{
         $this->model->direccion    = $_REQUEST['direccion'];
         $this->model->email        = $_REQUEST['email'];
         $this->model->telefono     = $_REQUEST['telefono'];
+        $nombre = explode(" ", $_REQUEST['nombres']);
+        $this->model->usuario      = strtolower($nombre[0]);
+        // metodo para actualizar datos del perfil
+        if($this->model->actualizarPerfilUser($this->model)){
+            $texto = "Actualizó exitosamente";
+            $tipo = "success";
+            $this->model->SesionesMessage($texto, $tipo, "Usuarios&action=AccountView");
+        }else{
+            $texto = "Ocurrio un error";
+            $tipo = "error";
+            $this->model->SesionesMessage($texto, $tipo, "Usuarios&action=AccountView");
+        }
+
     }
     public function ActualizarPass(){
 
