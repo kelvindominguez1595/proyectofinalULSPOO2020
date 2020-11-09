@@ -147,5 +147,24 @@ class Usuarios{
         }
     }
 
+    public function ChangePassword($data){
+        try{
+            // Comando SQL
+            $sql = "UPDATE usuarios SET pass = ? WHERE id = ?";
+            // Encriptamos la contraseña con md5
+            $passEncrypt = password_hash($data->pass, PASSWORD_BCRYPT);
+            // COMENZAMOS LA CONEXION CON PDO
+            $pre = $this->DB->prepare($sql);
+            $resul = $pre->execute(array($passEncrypt, $data->id));
+            if($resul > 0){ 
+                return true;
+            }else{ 
+                return false;
+            }
+        }catch(Throwable $t){
+            die($t->getMessage());
+        }   
+    }
+
 }
 ?>

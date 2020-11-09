@@ -190,9 +190,9 @@ class UsuariosController{
         $this->model->id           = $_SESSION['id'];
         $this->model->pass         = $_REQUEST['pass'];
         if($this->model->ChangePassword($this->model)){
-            $texto = "Actualizó exitosamente";
+            $texto = "La contraseña ha sido cambiada exitosamente, vuelva a iniciar sesión.";
             $tipo = "success";
-            $this->model->SesionesMessage($texto, $tipo, "Usuarios&action=AccountView");
+            $this->model->SesionesMessage($texto, $tipo, "Autentificacion&action=Index");
         }else{
             $texto = "Ocurrio un error";
             $tipo = "error";
