@@ -25,12 +25,35 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">¿Listo para salir?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">
+          <?php 
+            if($data->sexo == 1) { 
+              echo "¿Listo para salir?"; 
+            }
+            else if($data->sexo == 2){
+              echo "¿Lista para salir?"; 
+            }else{
+              echo "¿Quiere salir?"; 
+            }
+          ?>     
+          </h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Seleccione <strong>"Cerrar sesión"</strong> a continuación si está listo para finalizar su sesión actual.</div>
+        <div class="modal-body">
+
+          <?php 
+            if($data->sexo == 1) { 
+              echo 'Seleccione <strong>"Cerrar sesión"</strong> a continuación si está listo para finalizar su sesión actual.'; 
+            }
+            else if($data->sexo == 2){
+              echo 'Seleccione <strong>"Cerrar sesión"</strong> a continuación si está lista para finalizar su sesión actual.'; 
+            }else{
+              echo 'Seleccione <strong>"Cerrar sesión"</strong> a continuación si quiere finalizar su sesión actual.'; 
+            }
+          ?> 
+        </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
           <a class="btn btn-primary" href="?view=Autentificacion&action=Index">Cerrar Sesión</a>

@@ -81,7 +81,26 @@
                             <div class="col-sm-4 mb-3 mb-sm-0">
                                 <label>Teléfono</label>
                                 <input type="number" name="telefono" id=""  required class="form-control form-control-user" placeholder="00000000" value="<?php echo $data->telefono; ?>">                             
-                            </div>        
+                            </div>    
+                        </div>    
+                        <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <label>Sexo</label>
+                            <div class="form-group row">
+                                <div class="col-sm-4 radio icheck-primary">
+                                    <input type="radio" name="sexo" id="hombre" <?php if($data->sexo == 1) { echo "checked"; }?> value="1">
+                                    <label for="hombre">Hombre</label>
+                                </div>
+                                <div class="col-sm-4 radio icheck-primary">
+                                    <input type="radio" name="sexo" <?php if($data->sexo == 2) { echo "checked"; }?>  id="mujer" value="2">
+                                    <label for="mujer">Mujer</label>
+                                </div>                            
+                                <div class="col-sm-4 radio icheck-primary">
+                                    <input type="radio" name="sexo" <?php if($data->sexo == 3) { echo "checked"; }?>  id="otro" value="3">
+                                    <label for="otro">Otro</label>
+                                </div>                            
+                            </div>
+                        </div>
                         </div>
                         <div class="form-group row d-flex justify-content-center">
                             <div class="col-sm-6">

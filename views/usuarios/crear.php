@@ -66,15 +66,15 @@
                             <label>Sexo</label>
                             <div class="form-group row">
                                 <div class="col-sm-4 radio icheck-primary">
-                                    <input type="radio" name="sexo" id="hombre">
+                                    <input type="radio" name="sexo" id="hombre" value="1">
                                     <label for="hombre">Hombre</label>
                                 </div>
                                 <div class="col-sm-4 radio icheck-primary">
-                                    <input type="radio" name="sexo" id="mujer">
+                                    <input type="radio" name="sexo" id="mujer" value="2">
                                     <label for="mujer">Mujer</label>
                                 </div>                            
                                 <div class="col-sm-4 radio icheck-primary">
-                                    <input type="radio" name="sexo" id="otro">
+                                    <input type="radio" name="sexo" id="otro" value="3">
                                     <label for="otro">Otro</label>
                                 </div>                            
                             </div>

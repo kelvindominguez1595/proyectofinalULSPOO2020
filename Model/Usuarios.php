@@ -23,22 +23,23 @@ class Usuarios{
     }
 
     public function RegistrarUsuario($data){
-        try{
+        // try{
             // Comando SQL
-            $sql = "INSERT INTO usuarios(nombres, apellidos, direccion, email, usuario, pass, sexo, telefono, imagen, roles_id) VALUES(?,?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO usuarios(nombres, apellidos, direccion, email, usuario, pass, sexo, telefono, imagen, roles_id) VALUES(?,?,?,?,?,?,?,?,?,?)";
             // Encriptamos la contraseña con md5
             $passEncrypt = password_hash($data->pass, PASSWORD_BCRYPT);
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
             $resul = $pre->execute(array($data->nombres, $data->apellidos, $data->direccion, $data->email, $data->usuario, $passEncrypt, $data->sexo, $data->telefono, $data->imagen, $data->roles_id));
-            if($resul > 0){ 
-                return true;
-            }else{ 
-                return false;
-            }
-        }catch(Throwable $t){
-            die($t->getMessage());
-        }
+            return $resul;
+            // if($resul > 0){ 
+            //     return true;
+            // }else{ 
+            //     return false;
+            // }
+        // }catch(Throwable $t){
+        //     die($t->getMessage());
+        // }
     }
     // Metodo para listar los roles
     public function ListarUsuarios(){
@@ -132,12 +133,12 @@ class Usuarios{
     public function actualizarPerfilUser($data){
         try{
             // Comando SQL
-            $sql = "UPDATE usuarios SET nombres = ?, apellidos = ?, direccion = ?, email = ?, usuario = ?, telefono = ? WHERE id = ?";
+            $sql = "UPDATE usuarios SET nombres = ?, apellidos = ?, direccion = ?, email = ?, usuario = ?, sexo = ?, telefono = ? WHERE id = ?";
             // Encriptamos la contraseña con md5
           // //  $passEncrypt = password_hash($data->pass, PASSWORD_BCRYPT);
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
-            $resul = $pre->execute(array($data->nombres, $data->apellidos, $data->direccion, $data->email, $data->usuario, $data->telefono, $data->id));
+            $resul = $pre->execute(array($data->nombres, $data->apellidos, $data->direccion, $data->email, $data->usuario, $data->sexo, $data->telefono, $data->id));
             if($resul > 0){ 
                 return true;
             }else{ 

@@ -54,8 +54,7 @@ class UsuariosController{
     /** Metodos CRUD */   
 
     public function CrearUsuario(){
-        // capturo los valores enviados por post o get
-        
+        // capturo los valores enviados por post o get        
         if(count($_FILES) > 0){
             $this->model->nombres      = $_REQUEST['nombres'];
             $this->model->apellidos    = $_REQUEST['apellidos'];
@@ -80,13 +79,13 @@ class UsuariosController{
                 $destino = "assets/img/Image_Perfil/".$newNameImagen;
                 copy($tmpImagen, $destino); // copiamos los archivos al destino
                 $this->model->imagen              = $newNameImagen;// llenamos el cmapo imagen
-                // utilizamos el metodo de guardar de SQL
+                // utilizamos el metodo de guardar de SQL 
                 if($this->model->RegistrarUsuario($this->model)){
-                    $texto = "Registro exitosamente";
+                    $texto = "Registro exitosamente ";
                     $tipo = "success";
                     $this->model->SesionesMessage($texto, $tipo, $this->vista);
                 }else{
-                    $texto = "Ocurrio un error";
+                    $texto = "Ocurrio un error ";
                     $tipo = "error";
                     $this->model->SesionesMessage($texto, $tipo, $this->vista);
                 }
