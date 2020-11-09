@@ -107,7 +107,7 @@
                     <div class="form-group row d-flex justify-content-center">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <label for="nombre">Nueva contraseña</label>
-                            <input type="password" name="password" class="form-control form-control-user" required id="exampleFirstName" placeholder="*******">
+                            <input type="password" name="pass" class="form-control form-control-user" required id="" placeholder="*******">
                         </div>
                     </div>
                     <div class="form-group row d-flex justify-content-center">

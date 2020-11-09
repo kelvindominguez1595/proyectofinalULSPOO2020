@@ -166,6 +166,7 @@ class UsuariosController{
     }
     // actualizar los datos del perfil
     public function ActualizarPerfil(){
+        $this->model->id           = $_SESSION['id'];
         $this->model->nombres      = $_REQUEST['nombres'];
         $this->model->apellidos    = $_REQUEST['apellidos'];
         $this->model->direccion    = $_REQUEST['direccion'];
@@ -186,7 +187,17 @@ class UsuariosController{
 
     }
     public function ActualizarPass(){
-
+        $this->model->id           = $_SESSION['id'];
+        $this->model->pass         = $_REQUEST['pass'];
+        if($this->model->ChangePassword($this->model)){
+            $texto = "Actualizó exitosamente";
+            $tipo = "success";
+            $this->model->SesionesMessage($texto, $tipo, "Usuarios&action=AccountView");
+        }else{
+            $texto = "Ocurrio un error";
+            $tipo = "error";
+            $this->model->SesionesMessage($texto, $tipo, "Usuarios&action=AccountView");
+        }
     }
 }
 ?>
