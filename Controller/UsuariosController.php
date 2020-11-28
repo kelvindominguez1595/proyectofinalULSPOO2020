@@ -91,7 +91,6 @@ class UsuariosController{
                 }
             }
         }
-
     }
 
     public function ActualizarPro(){

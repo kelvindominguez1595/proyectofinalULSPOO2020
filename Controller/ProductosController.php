@@ -17,11 +17,11 @@ class ProductosController{
     }
 
    /** Inicio de llamado de la vistas */
-    public function Index(){
-        require_once 'views/header.php';
-        require_once 'views/productos/index.php';
-        require_once 'views/footer.php';
-    }
+   public function Index(){
+    require_once 'views/header.php';
+    require_once 'views/productos/index.php';
+    require_once 'views/footer.php';
+}
 
     public function NuevoProducto(){
         require_once 'views/header.php';
@@ -50,7 +50,6 @@ class ProductosController{
     /** Metodos CRUD */   
     public function CrearProducto(){
         // capturo los valores enviados por post o get
-        
         if(count($_FILES) > 0){
             $this->model->id_categoria        = $_REQUEST['id_categoria'];
             $this->model->id_marca_producto   = $_REQUEST['id_marca_producto'];

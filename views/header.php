@@ -2,7 +2,7 @@
   include_once 'Controller/AutentificacionController.php';
   $au = new AutentificacionController();
   $au->validAuthen();
-  $data = $au->dataUser();
+  $userData = $au->dataUser();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -27,7 +27,7 @@
 <body id="page-top">
 <div id="wrapper">
       <!-- Sidebar -->
-      <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+      <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -328,8 +328,8 @@
       <!-- Nav Item - User Information -->
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $data->nombres." ".$data->apellidos; ?></span>
-          <img class="img-profile rounded-circle" src="assets/img/Image_Perfil/<?php echo $data->imagen; ?>">
+          <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $userData->nombres." ".$userData->apellidos; ?></span>
+          <img class="img-profile rounded-circle" src="assets/img/Image_Perfil/<?php echo $userData->imagen; ?>">
         </a>
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

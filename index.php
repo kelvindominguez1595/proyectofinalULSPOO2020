@@ -4,7 +4,8 @@ session_start();
 // Importamos la conexion de base de Datos
 require_once 'DB/Database.php';
 // Definimos que vista ver primero
-$controller = 'Autentificacion';
+// $controller = 'Autentificacion';
+$controller = 'Home';
 // validamos que vista ver primero
 if(isset($_REQUEST['view'])){
     // Si existe un valor en la variable view retorna True
@@ -27,8 +28,9 @@ if(isset($_REQUEST['view'])){
     // Si no existe la variable retornara un False
     require_once 'Controller/'.$controller.'Controller.php'; // Obtenemos el controlador correcto
     // Instanciamos el controlador
-    $controller = new AutentificacionController();
+    // $controller = new AutentificacionController();
+    $controller = new HomeController();
     // Retornamos la vista(index metodo) del controlador
-    $controller->Index();
+    $controller->Home();
 }
 ?>

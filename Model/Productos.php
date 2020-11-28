@@ -36,6 +36,7 @@ class Productos{
             die($t->getMessage());
         }
     }
+    
     // Metodo para listar los roles
     public function ListarProductos(){
         try{        
@@ -99,6 +100,18 @@ class Productos{
         $_SESSION['tipo'] = $tipo;
         header("Location: ?view=Productos");
     }
+
+        // Ultimos productos registrados
+        public function latestProducts(){
+            try{        
+                $commd = $this->DB->prepare("SELECT pro.id_producto, pro.NombreProducto, pro.imagen, pro.cantidad, pro.precioVenta, pro.precioCompra, pro.fechaCompra, cat.categoria, mar.nombre_marca FROM productos as pro INNER JOIN categorias as cat ON pro.id_categoria = cat.id_categoria INNER JOIN marcas as mar ON  pro.id_marca_producto = mar.id WHERE pro.cantidad > 0 ORDER BY pro.fechaCompra ASC LIMIT 3");
+                $commd->execute();
+                return $commd->fetchAll(PDO::FETCH_OBJ);
+            }catch(Throwable $t){
+                die($t->getMessage());
+            }
+        }
+    
 
 }
 ?>

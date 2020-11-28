@@ -27,10 +27,10 @@
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">
           <?php 
-            if($data->sexo == 1) { 
+            if($userData->sexo == 1) { 
               echo "¿Listo para salir?"; 
             }
-            else if($data->sexo == 2){
+            else if($userData->sexo == 2){
               echo "¿Lista para salir?"; 
             }else{
               echo "¿Quiere salir?"; 
@@ -44,10 +44,10 @@
         <div class="modal-body">
 
           <?php 
-            if($data->sexo == 1) { 
+            if($userData->sexo == 1) { 
               echo 'Seleccione <strong>"Cerrar sesión"</strong> a continuación si está listo para finalizar su sesión actual.'; 
             }
-            else if($data->sexo == 2){
+            else if($userData->sexo == 2){
               echo 'Seleccione <strong>"Cerrar sesión"</strong> a continuación si está lista para finalizar su sesión actual.'; 
             }else{
               echo 'Seleccione <strong>"Cerrar sesión"</strong> a continuación si quiere finalizar su sesión actual.'; 
@@ -81,44 +81,30 @@
   <script src="assets/js/demo/chart-area-demo.js"></script>
   <script src="assets/js/demo/chart-pie-demo.js"></script>
   <script src="assets/js/custom-file-input.js"></script>
+  <script src="assets/js/jquery.validate.js"></script>
   <script>
-    $(document).ready( function () {
-        $('.alert').alert();
-        $('[data-toggle="tooltip"]').tooltip();
-    } );
-        // script para validar la contraseña 
-        function validarrPass(){
-        var pass1 = $('pass').val();
-        var pass2 = $('passRepear').val();
+    $(function () {
+      $.validator.addMethod("passwordcheck", function(value) {
+        return /^[a-zA-Z0-9!@#$%^&()=[]{};':"\|,.<>\/?+-]+$/.test(value) 
+        && /[a-z]/.test(value) // has a lowercase letter 
+        && /\d/.test(value)//has a digit 
+        && /[!@#$%^&()=[]{};':"\|,.<>\/?+-]/.test(value)// has a special character
+      },"La contraseña debe contener de 8 a 15 carácteres alfanuméricos (a-z A-Z), contener mínimo un dígito (0-9) y un carácter especial (_-=)."  
+      );
 
-        var espacios = false;
-        var cont = 0;
-
-        // validamos si hay espacios nulos en la contraseña
-        while(!espacios &&(cont < pass1.length)){
-            if(pass1.charAt(cont) == " "){
-                espacios = true;
-            }
-            cont++;
-        }
-        if(espacios){
-            alert("La contraseña no puede contener espacios en blanco");
-         return false;   
-
-        }
-        if (pass1.length == 0 || pass2.length == 0) {
-        alert("Los campos de la password no pueden quedar vacios");
-        return false;
-        }
-
-        if (pass1 != pass2) {
-            alert("Las passwords deben de coincidir");
-        return false;
-        } else {
-             alert("Todo esta correcto");
-        return true; 
-        }
-    }
+      $("#formregistro").validate({
+        rules: {  
+          pass: {required:true,minlength:8,maxlength:15,passwordcheck:true },
+          passRepear: {required:true,equalTo:"#pass",passwordcheck:true }
+        },
+        messages: {
+          pass: "Formato contraseña incorrecto.",
+          passRepear: "Formato contraseña incorrecto."
+        },
+        errorLabelContainer: "dt",
+        wrapper: "dd"
+      });
+      });
   </script>
 </body>
 </html>

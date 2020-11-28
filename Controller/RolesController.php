@@ -66,7 +66,7 @@ class RolesController{
         $this->model->nombre = $_REQUEST['nombre'];
         $this->model->descripcion = $_REQUEST['descripcion'];
         // utilizamos el metodo de guardar de SQL
-        if($this->model->actualizarRol($this->model)){
+        if($this->model->RegistrarRol($this->model)){
             $texto = "Actualizó exitosamente";
             $tipo = "success";
             $this->model->SesionesMessage($texto, $tipo);
