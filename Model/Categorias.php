@@ -56,7 +56,6 @@ class Categorias{
         try{
             // Comando SQL
             $sql = "UPDATE categorias SET categoria = ? WHERE id_categoria = ?";
-
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
             $resul = $pre->execute(array($data->categoria, $data->id_categoria));
