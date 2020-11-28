@@ -12,14 +12,14 @@ class RolesController{
 
    /** Inicio de llamado de la vistas */
     public function Index(){
-        require_once 'views/header.php';
-        require_once 'views/roles/index.php';
-        require_once 'views/footer.php';
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/roles/index.php';
+        require_once 'views/backend/footer.php';
     }
     public function NuevoRol(){
-        require_once 'views/header.php';
-        require_once 'views/roles/crear.php';
-        require_once 'views/footer.php';
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/roles/crear.php';
+        require_once 'views/backend/footer.php';
     }
 
     public function EditarRol(){
@@ -27,16 +27,16 @@ class RolesController{
         $id = $_REQUEST['id'];
         // crear el metodo para listar un dato especifico
         $data = $this->model->obtenerRegistro($id);
-        require_once 'views/header.php';
-        require_once 'views/roles/editar.php';
-        require_once 'views/footer.php';
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/roles/editar.php';
+        require_once 'views/backend/footer.php';
     }
     public function BorrarRol(){
         // Capturamos el id enviado por get
         $id = $_REQUEST['id'];
-        require_once 'views/header.php';
-        require_once 'views/roles/borrar.php';
-        require_once 'views/footer.php';
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/roles/borrar.php';
+        require_once 'views/backend/footer.php';
     }
     /** Fin de llamado de la vistas */
 
