@@ -18,15 +18,15 @@ class ProductosController{
 
    /** Inicio de llamado de la vistas */
    public function Index(){
-    require_once 'views/header.php';
-    require_once 'views/productos/index.php';
-    require_once 'views/footer.php';
+    require_once 'views/backend/header.php';
+    require_once 'views/backend/productos/index.php';
+    require_once 'views/backend/footer.php';
 }
 
     public function NuevoProducto(){
-        require_once 'views/header.php';
-        require_once 'views/productos/crear.php';
-        require_once 'views/footer.php';
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/productos/crear.php';
+        require_once 'views/backend/footer.php';
     }
 
     public function EditarProduct(){
@@ -34,16 +34,16 @@ class ProductosController{
         $id = $_REQUEST['id'];
         // crear el metodo para listar un dato especifico
         $data = $this->model->obtenerRegistro($id);
-        require_once 'views/header.php';
-        require_once 'views/productos/editar.php';
-        require_once 'views/footer.php';
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/productos/editar.php';
+        require_once 'views/backend/footer.php';
     }
     public function BorrarProduct(){
         // Capturamos el id enviado por get
         $id = $_REQUEST['id'];
-        require_once 'views/header.php';
-        require_once 'views/productos/borrar.php';
-        require_once 'views/footer.php';
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/productos/borrar.php';
+        require_once 'views/backend/footer.php';
     }
     /** Fin de llamado de la vistas */
 

@@ -12,15 +12,15 @@ class CategoriasController{
 
    /** Inicio de llamado de la vistas */
     public function Index(){
-        require_once 'views/header.php';
-        require_once 'views/categorias/index.php';
-        require_once 'views/footer.php';
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/categorias/index.php';
+        require_once 'views/backend/footer.php';
     }
 
     public function NuevaCategoria(){
-        require_once 'views/header.php';
-        require_once 'views/categorias/crear.php';
-        require_once 'views/footer.php';
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/categorias/crear.php';
+        require_once 'views/backend/footer.php';
     }
 
     public function EditarCategorias(){
@@ -28,16 +28,16 @@ class CategoriasController{
         $id = $_REQUEST['id'];
         // crear el metodo para listar un dato especifico
         $data = $this->model->obtenerRegistro($id);
-        require_once 'views/header.php';
-        require_once 'views/categorias/editar.php';
-        require_once 'views/footer.php';
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/categorias/editar.php';
+        require_once 'views/backend/footer.php';
     }
     public function BorrarCatego(){
         // Capturamos el id enviado por get
         $id = $_REQUEST['id'];
-        require_once 'views/header.php';
-        require_once 'views/categorias/borrar.php';
-        require_once 'views/footer.php';
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/categorias/borrar.php';
+        require_once 'views/backend/footer.php';
     }
     /** Fin de llamado de la vistas */
 

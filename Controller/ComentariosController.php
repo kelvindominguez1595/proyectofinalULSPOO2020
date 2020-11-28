@@ -12,14 +12,14 @@ class ComentariosController{
 
    /** Inicio de llamado de la vistas */
     public function Index(){
-        require_once 'views/header.php';
-        require_once 'views/comentarios/index.php';
-        require_once 'views/footer.php';
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/comentarios/index.php';
+        require_once 'views/backend/footer.php';
     }
     public function NuevoComentarios(){
-        require_once 'views/header.php';
-        require_once 'views/comentarios/crear.php';
-        require_once 'views/footer.php';
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/comentarios/crear.php';
+        require_once 'views/backend/footer.php';
     }
 
     public function EditarComentarios(){
@@ -27,16 +27,16 @@ class ComentariosController{
         $id = $_REQUEST['id'];
         // crear el metodo para listar un dato especifico
         $data = $this->model->obtenerRegistro($id);
-        require_once 'views/header.php';
-        require_once 'views/comentarios/editar.php';
-        require_once 'views/footer.php';
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/comentarios/editar.php';
+        require_once 'views/backend/footer.php';
     }
     public function BorrarComentarios(){
         // Capturamos el id enviado por get
         $id = $_REQUEST['id'];
-        require_once 'views/header.php';
-        require_once 'views/comentarios/borrar.php';
-        require_once 'views/footer.php';
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/comentarios/borrar.php';
+        require_once 'views/backend/footer.php';
     }
     /** Fin de llamado de la vistas */
 
