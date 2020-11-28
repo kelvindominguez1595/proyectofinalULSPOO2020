@@ -142,7 +142,7 @@ class ProductosController{
         // Capturamos el id enviado por get
         $id = $_REQUEST['id'];
         // crear el metodo para listar un dato especifico
-        $data = $this->model->obtenerRegistro($id);
+      //  $data = $this->model->obtenerRegistro($id);
         require_once 'views/frontend/header.php';
         require_once 'views/frontend/Shopping/details.php';
         require_once 'views/frontend/footer.php';
