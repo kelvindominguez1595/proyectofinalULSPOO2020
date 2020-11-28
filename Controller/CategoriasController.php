@@ -59,7 +59,6 @@ class CategoriasController{
         }
     function ActualizarCategoria(){
         // capturo los valores enviados por post o get
-
         $this->model->id_categoria  = $_REQUEST['id_categoria'];
         $this->model->categoria = $_REQUEST['categoria'];
         // utilizamos el metodo de guardar de SQL

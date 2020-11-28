@@ -43,7 +43,7 @@ class Categorias{
     // Metodo para obtener un registro en especifico
     public function obtenerRegistro($id){
         try{        
-            $commd = $this->DB->prepare("SELECT * FROM categorias WHERE categoria = ?");
+            $commd = $this->DB->prepare("SELECT * FROM categorias WHERE id_categoria = ?");
             $commd->execute(array($id));
             return $commd->fetch(PDO::FETCH_OBJ);
         }catch(Throwable $t){
@@ -55,11 +55,11 @@ class Categorias{
     public function actualizarCategor($data){
         try{
             // Comando SQL
-            $sql = "UPDATE categorias SET categoria = ?";
+            $sql = "UPDATE categorias SET categoria = ? WHERE id_categoria = ?";
 
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
-            $resul = $pre->execute(array($data->categoria));
+            $resul = $pre->execute(array($data->categoria, $data->id_categoria));
             if($resul > 0){ 
                 return true;
             }else{ 
