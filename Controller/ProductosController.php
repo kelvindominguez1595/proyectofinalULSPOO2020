@@ -38,6 +38,7 @@ class ProductosController{
         require_once 'views/backend/productos/editar.php';
         require_once 'views/backend/footer.php';
     }
+
     public function BorrarProduct(){
         // Capturamos el id enviado por get
         $id = $_REQUEST['id'];
@@ -133,6 +134,18 @@ class ProductosController{
         }
     }
 
+    /**
+     *  Vista del cliente final
+     */
 
+    public function Details(){
+        // Capturamos el id enviado por get
+        $id = $_REQUEST['id'];
+        // crear el metodo para listar un dato especifico
+        $data = $this->model->obtenerRegistro($id);
+        require_once 'views/frontend/header.php';
+        require_once 'views/frontend/Shopping/details.php';
+        require_once 'views/frontend/footer.php';
+    }
 }
 ?>

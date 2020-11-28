@@ -110,10 +110,10 @@
 								<div class="col-md-4 product-men mt-5">
 									<div class="men-pro-item simpleCart_shelfItem">
 										<div class="men-thumb-item text-center">
-											<img src="assets/tiendastyles/images/m1.jpg" alt="">
+											<img src="assets/img/<?php echo $item->imagen; ?>" alt="" width="200px">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="?view=Productos&action=Details&id=<?php echo $item->id_producto;?>" class="link-product-add-cart">Ver Detalle</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
