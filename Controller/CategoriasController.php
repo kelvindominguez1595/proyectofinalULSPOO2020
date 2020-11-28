@@ -76,9 +76,9 @@ class CategoriasController{
 
     function BorrarCategoria(){
         // capturo los valores enviados por post o get
-        $this->model->id = $_REQUEST['id'];
+        $this->model->id_categoria = $_REQUEST['id'];
         // utilizamos el metodo de guardar de SQL
-        if($this->model->BorrarCategoria($this->model)){            
+        if($this->model->DeleteCategoria($this->model)){            
             $texto = "Registro borrado exitosamente";
             $tipo = "success";
             $this->model->SesionesMessage($texto, $tipo);

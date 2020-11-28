@@ -69,13 +69,13 @@ class Categorias{
         }
     }
     // Borrar
-    public function BorrarCategoria($data){
+    public function DeleteCategoria($data){
         try{
             // Comando SQL
-            $sql = "DELETE FROM categorias  WHERE categoria = ?";
+            $sql = "DELETE FROM categorias WHERE id_categoria = ?";
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
-            $resul = $pre->execute(array($data->id));
+            $resul = $pre->execute(array($data->id_categoria));
             if($resul > 0){ 
                 return true;
             }else{ 

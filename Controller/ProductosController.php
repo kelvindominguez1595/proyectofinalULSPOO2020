@@ -94,15 +94,27 @@ class ProductosController{
         $this->model->cantidad            = $_REQUEST['cantidad'];
         $this->model->precioVenta         = $_REQUEST['precioCompra'];
         $this->model->precioCompra        = $_REQUEST['precioVenta'];
-        // utilizamos el metodo de guardar de SQL
-        if($this->model->actualizarPro($this->model)){
-            $texto = "Actualizó exitosamente";
-            $tipo = "success";
-            $this->model->SesionesMessage($texto, $tipo);
-        }else{
-            $texto = "Ocurrio un error";
-            $tipo = "error";
-            $this->model->SesionesMessage($texto, $tipo);
+        $nameImgan = $_FILES['imagen']['name'];
+        $typeImagen = $_FILES['imagen']['type'];
+        $tmpImagen = $_FILES['imagen']['tmp_name'];
+        if($typeImagen == 'image/jpeg' || $typeImagen == 'image/jpg' || $typeImagen == 'image/png' || $typeImagen == 'image/gif'){
+            // ruta de donde guardaremos la imagen
+            $res = explode(".", $nameImgan);
+            $extension = $res[count($res)-1];
+            $newNameImagen = date('s').rand(1,99).".".$extension;
+            $destino = "assets/img/".$newNameImagen;
+            copy($tmpImagen, $destino); // copiamos los archivos al destino
+            $this->model->imagen              = $newNameImagen;// llenamos el cmapo imagen
+            // utilizamos el metodo de guardar de SQL
+            if($this->model->actualizarPro($this->model)){
+                $texto = "Actualizó exitosamente";
+                $tipo = "success";
+                $this->model->SesionesMessage($texto, $tipo);
+            }else{
+                $texto = "Ocurrio un error";
+                $tipo = "error";
+                $this->model->SesionesMessage($texto, $tipo);
+            }
         }
     }
 
