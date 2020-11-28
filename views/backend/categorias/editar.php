@@ -14,7 +14,7 @@
                     <form action="?view=Categorias&action=ActualizarCategoria" method="post" class="user" enctype="multipart/form-data">
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type= "hidden" name= "id_categoria" value= "id_categoria">
+                            <input type= "hidden" name= "id_categoria" id="id_categoria" value= "<?php echo $data->id_categoria; ?>">
                             <input type="text" name="categoria" value="<?php echo $data->categoria; ?>" class="form-control form-control-user" required id="exampleFirstName" placeholder="Electronico, telefonia, computacion. etc">
                             <div class="form-group row d-flex justify-content-center">
                         <div class="col-sm-6">

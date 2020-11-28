@@ -45,8 +45,8 @@
                       <td><?php echo $item->categoria; ?></td>
                       <td>
                           
-                        <a href="?view=Categorias&action=EditarCategorias&id=<?php echo $item->categoria;?>" class="btn btn-primary btn-circle"> <i class="fas fa-pencil-alt" data-toggle="tooltip" data-placement="left" title="Editar Registro"></i></a>
-                        <a href="?view=Categorias&action=BorrarCatego&id=<?php echo $item->categoria;?>" class="btn btn-danger btn-circle" data-toggle="tooltip" data-placement="right" title="Borrar Registro"> <i class="fas fa-trash"></i></a>
+                        <a href="?view=Categorias&action=EditarCategorias&id=<?php echo $item->id_categoria;?>" class="btn btn-primary btn-circle"> <i class="fas fa-pencil-alt" data-toggle="tooltip" data-placement="left" title="Editar Registro"></i></a>
+                        <a href="?view=Categorias&action=BorrarCatego&id=<?php echo $item->id_categoria;?>" class="btn btn-danger btn-circle" data-toggle="tooltip" data-placement="right" title="Borrar Registro"> <i class="fas fa-trash"></i></a>
                       </td>
                     </tr>
                 <?php $i++;} ?>
