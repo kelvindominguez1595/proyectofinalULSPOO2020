@@ -16,21 +16,21 @@ class UsuariosController{
 
    /** Inicio de llamado de la vistas */
     public function Index(){
-        require_once 'views/header.php';
-        require_once 'views/usuarios/index.php';
-        require_once 'views/footer.php';
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/usuarios/index.php';
+        require_once 'views/backend/footer.php';
     }
 
     public function AccountView(){
-        require_once 'views/header.php';
-        require_once 'views/usuarios/cuenta.php';
-        require_once 'views/footer.php';
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/usuarios/cuenta.php';
+        require_once 'views/backend/footer.php';
     }
 
     public function NuevoUsuario(){
-        require_once 'views/header.php';
-        require_once 'views/usuarios/crear.php';
-        require_once 'views/footer.php';
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/usuarios/crear.php';
+        require_once 'views/backend/footer.php';
     }
 
     public function EditarUsuario(){
@@ -38,16 +38,16 @@ class UsuariosController{
         $id = $_REQUEST['id'];
         // crear el metodo para listar un dato especifico
         $data = $this->model->obtenerRegistro($id);
-        require_once 'views/header.php';
-        require_once 'views/usuarios/editar.php';
-        require_once 'views/footer.php';
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/usuarios/editar.php';
+        require_once 'views/backend/footer.php';
     }
     public function BorrarUsuario(){
         // Capturamos el id enviado por get
         $id = $_REQUEST['id'];
-        require_once 'views/header.php';
-        require_once 'views/usuarios/borrar.php';
-        require_once 'views/footer.php';
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/usuarios/borrar.php';
+        require_once 'views/backend/footer.php';
     }
     /** Fin de llamado de la vistas */
 
