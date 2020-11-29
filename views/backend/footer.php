@@ -115,7 +115,7 @@
             //$("#label_span").text(files.length + " Archivos seleccionados");
           }else{
             var filename = e.target.value.split('\\').pop();
-            $('.custom-file-label').html(fileName);
+            $('.custom-file-label').html(filename);
           }
     });
 
