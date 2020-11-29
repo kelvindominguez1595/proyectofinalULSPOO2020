@@ -11,7 +11,7 @@
                   <h6 class="m-0 font-weight-bold text-primary">Nuevo producto</h6>
                 </div>
                 <div class="card-body">
-                    <form action="?view=Productos&action=CrearProducto" method="post" class="user" enctype="multipart/form-data">
+                    <form action="?view=Productos&action=CrearProducto" method="post" enctype="multipart/form-data">
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <label for="cantidad">Nombre del producto</label>
@@ -59,15 +59,22 @@
                             </select>
                         </div>
                         <div class="col-sm-4">
-                            <label>Subir imagen</label>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFileLang" name="imagen"  lang="es">
-                                <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
-                            </div>
+                            <label for="imagen">Subir imagen</label>    
+                                <!-- <input type="file" class="form-control-file" id="imagen" name="imagen"  lang="es">-->
+                                <div class="custom-file">
+  <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+  <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+</div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <div id="summernote">Hello Summernote</div>
                         </div>
                     </div>
                     <div class="form-group row d-flex justify-content-center">
                         <div class="col-sm-6">
+        
                             <input type="submit" value="Guardar" class="btn btn-primary btn-user btn-block">
                         </div>
                     </div>

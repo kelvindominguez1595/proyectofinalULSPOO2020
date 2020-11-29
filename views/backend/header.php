@@ -23,7 +23,7 @@
     <link href="assets/css/icheck-bootstrap.css" rel="stylesheet">
     <!-- Custom styles for this page -->
     <link href="assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <link href="assets/vendor/datatables/summernote/summernote.css" rel="stylesheet">
+    <link href="assets/vendor/summernote/summernote.css" rel="stylesheet">
 </head>
 <body id="page-top">
 <div id="wrapper">
