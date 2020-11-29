@@ -108,16 +108,16 @@
       });
       $('#summernote').summernote();
 
-      $('input[type="file"]').change(function(e){
-          var files = $(this)[0].files;
-          if(files.length >= 2){
-            $('.custom-file-label').html(files.length + " Archivos seleccionados");
-            //$("#label_span").text(files.length + " Archivos seleccionados");
-          }else{
-            var filename = e.target.value.split('\\').pop();
-            $('.custom-file-label').html(filename);
-          }
-    });
+    //   $('input[type="file"]').change(function(e){
+    //       var files = $(this)[0].files;
+    //       if(files.length >= 2){
+    //         $('.custom-file-label').html(files.length + " Archivos seleccionados");
+    //         //$("#label_span").text(files.length + " Archivos seleccionados");
+    //       }else{
+    //         var filename = e.target.value.split('\\').pop();
+    //         $('.custom-file-label').html(filename);
+    //       }
+    // });
 
      
   </script>

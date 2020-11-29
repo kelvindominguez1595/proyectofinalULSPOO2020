@@ -42,6 +42,16 @@ class ProductosController{
         require_once 'views/backend/footer.php';
     }
 
+    public function EditarImagenes(){
+        // Capturamos el id enviado por get
+        $id = $_REQUEST['id'];
+        // crear el metodo para listar un dato especifico
+        $items = $this->modelImagenDetails->listarRegistro($id);
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/productos/editarImagenes.php';
+        require_once 'views/backend/footer.php';
+    }
+
     public function BorrarProduct(){
         // Capturamos el id enviado por get
         $id = $_REQUEST['id'];
@@ -120,7 +130,6 @@ class ProductosController{
         $this->model->id_categoria        = $_REQUEST['id_categoria'];
         $this->model->id_marca_producto   = $_REQUEST['id_marca_producto'];
         $this->model->NombreProducto      = $_REQUEST['NombreProducto'];
-
         $this->model->cantidad            = $_REQUEST['cantidad'];
         $this->model->precioVenta         = $_REQUEST['precioCompra'];
         $this->model->precioCompra        = $_REQUEST['precioVenta'];
@@ -175,6 +184,43 @@ class ProductosController{
         }
     }
 
+// para actualizar las imagenes de detalle del producto
+    public function editarGalImagen(){
+        $this->modelImagenDetails->id = $_REQUEST['id'];  
+          
+
+        if(!empty($_FILES['imagen']['name'])){
+            // borro la imagen anterior
+            unlink("assets/img/".$_REQUEST['imgdefault']);
+            // hay datos en el file
+            $nameImgan = $_FILES['imagen']['name'];
+            $tmpImagen = $_FILES['imagen']['tmp_name'];
+            // ruta de donde guardaremos la imagen
+            $res = explode(".", $nameImgan);
+            $extension = $res[count($res)-1];
+            $newNameImagen = date('s').rand(1,99).".".$extension;
+            $destino = "assets/img/".$newNameImagen;
+            copy($tmpImagen, $destino); // copiamos los archivos al destino
+            $this->modelImagenDetails->imagen = $newNameImagen;// llenamos el cmapo imagen
+            
+        }else{
+            $this->modelImagenDetails->imagen = $_REQUEST['imgdefault'];
+        }
+
+        // utilizamos el metodo de guardar de SQL
+        if($this->modelImagenDetails->actualizarImagenes($this->modelImagenDetails)){
+            $texto = "Actualizó exitosamente";
+            $tipo = "success";
+            $ruta = "Productos&action=EditarImagenes&id=".$_REQUEST['producti'];
+            $this->model->SesionesMessage($texto, $tipo, $ruta);
+        }else{
+            $texto = "Ocurrio un error";
+            $tipo = "error";
+            $ruta = "Productos&action=EditarImagenes&id=".$_REQUEST['producti'];
+            $this->model->SesionesMessage($texto, $tipo, $ruta);
+        }
+        
+    }
     /**
      *  Vista del cliente final
      */

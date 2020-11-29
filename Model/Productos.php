@@ -65,7 +65,6 @@ class Productos{
         try{
             // Comando SQL
             $sql = "UPDATE productos SET id_categoria = ?, id_marca_producto = ?, NombreProducto = ?, imagen = ?, cantidad = ?, precioVenta = ?, precioCompra = ?, detalles = ? WHERE id_producto = ?";
-
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
             $resul = $pre->execute(array($data->id_categoria, $data->id_marca_producto, $data->NombreProducto, $data->imagen, $data->cantidad, $data->precioVenta, $data->precioCompra, $data->detalles, $data->id_producto));

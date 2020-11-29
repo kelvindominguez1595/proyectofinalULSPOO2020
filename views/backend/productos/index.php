@@ -5,7 +5,10 @@
       <h1 class="h3 mb-0 text-gray-800">Productos</h1>
       <?php if(isset($_SESSION['texto'])){?>
             <div class="alert alert-<?php if($_SESSION['tipo'] == "success"){ echo "success";}else{echo "danger"; }?> alert-dismissible fade show" role="alert">
-                <strong>Excelente! =D</strong> <?php echo $_SESSION['texto'];?>
+              <strong>                   
+              <?php if($_SESSION['tipo'] == "success"){ echo "Exitos!!! 😊";}else{echo "Ooops! Ah Ocurrido un error 😱"; }?>
+              </strong> 
+                  <?php echo $_SESSION['texto'];?>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 <?php unset($_SESSION["texto"]); unset($_SESSION["tipo"]); ?>
@@ -69,6 +72,7 @@
                       <td>
                           
                         <a href="?view=Productos&action=EditarProduct&id=<?php echo $item->id_producto;?>" class="btn btn-primary btn-circle"> <i class="fas fa-pencil-alt" data-toggle="tooltip" data-placement="left" title="Editar Registro"></i></a>
+                        <a href="?view=Productos&action=EditarImagenes&id=<?php echo $item->id_producto;?>" class="btn btn-primary btn-circle"> <i class="fas fa-images" data-toggle="tooltip" data-placement="left" title="Cambiar imagen de detalle"></i></a>
                         <a href="?view=Productos&action=BorrarProduct&id=<?php echo $item->id_producto;?>" class="btn btn-danger btn-circle" data-toggle="tooltip" data-placement="right" title="Borrar Registro"> <i class="fas fa-trash"></i></a>
                       </td>
                     </tr>

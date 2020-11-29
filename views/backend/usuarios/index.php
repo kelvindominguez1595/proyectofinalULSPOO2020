@@ -5,7 +5,10 @@
       <h1 class="h3 mb-0 text-gray-800">Usuarios</h1>
       <?php if(isset($_SESSION['texto'])){?>
             <div class="alert alert-<?php if($_SESSION['tipo'] == "success"){ echo "success";}else{echo "danger"; }?> alert-dismissible fade show" role="alert">
-                <strong>Excelente! =D</strong> <?php echo $_SESSION['texto'];?>
+            <strong>                   
+                    <?php if($_SESSION['tipo'] == "success"){ echo "Exitos!!! 😊";}else{echo "Ooops! Ah Ocurrido un error 😱"; }?>
+                 </strong> 
+                <?php echo $_SESSION['texto'];?>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 <?php unset($_SESSION["texto"]); unset($_SESSION["tipo"]); ?>
