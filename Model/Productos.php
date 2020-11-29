@@ -12,7 +12,6 @@ class Productos{
     public $precioCompra;
     public $detalles;
 
-
     public function __CONSTRUCT(){
         try{
             $this->DB = Database::Conexion();
@@ -42,7 +41,7 @@ class Productos{
     // Metodo para listar los roles
     public function ListarProductos(){
         try{        
-            $commd = $this->DB->prepare("SELECT pro.id_producto, pro.NombreProducto, pro.imagen, pro.cantidad, pro.precioVenta, pro.precioCompra, pro.fechaCompra, cat.categoria, mar.nombre_marca FROM productos as pro INNER JOIN categorias as cat ON pro.id_categoria = cat.id_categoria INNER JOIN marcas as mar ON  pro.id_marca_producto = mar.id");
+            $commd = $this->DB->prepare("SELECT pro.id_producto, pro.NombreProducto, pro.imagen, pro.cantidad, pro.precioVenta, pro.precioCompra, pro.fechaCompra, pro.detalles, cat.categoria, mar.nombre_marca FROM productos as pro INNER JOIN categorias as cat ON pro.id_categoria = cat.id_categoria INNER JOIN marcas as mar ON  pro.id_marca_producto = mar.id");
             $commd->execute();
             return $commd->fetchAll(PDO::FETCH_OBJ);
         }catch(Throwable $t){
@@ -64,21 +63,12 @@ class Productos{
     // Actualizar
     public function actualizarPro($data){
         try{
-
-            // obtenemos el nombre de la imagen para borrarla
-            $commd = $this->DB->prepare("SELECT * FROM productos WHERE id = ?");
-            $commd->execute(array($data->id));
-            $img = $commd->fetch(PDO::FETCH_OBJ);
-            // para borrar la imagen con PHP
-            if(!empty($img->imagen)){
-                unlink("assets/img/".$img->imagen);
-            }
             // Comando SQL
-            $sql = "UPDATE productos SET id_categoria = ?, id_marca_producto = ?, NombreProducto = ?, imagen = ?, cantidad = ?, precioVenta = ?, precioCompra = ? WHERE id_producto = ?";
+            $sql = "UPDATE productos SET id_categoria = ?, id_marca_producto = ?, NombreProducto = ?, imagen = ?, cantidad = ?, precioVenta = ?, precioCompra = ?, detalles = ? WHERE id_producto = ?";
 
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
-            $resul = $pre->execute(array($data->id_categoria, $data->id_marca_producto, $data->NombreProducto, $data->imagen, $data->cantidad, $data->precioVenta, $data->precioCompra, $data->id_producto));
+            $resul = $pre->execute(array($data->id_categoria, $data->id_marca_producto, $data->NombreProducto, $data->imagen, $data->cantidad, $data->precioVenta, $data->precioCompra, $data->detalles, $data->id_producto));
             if($resul > 0){ 
                 return true;
             }else{ 

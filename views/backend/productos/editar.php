@@ -84,7 +84,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card">
-                                <img src="assets/img/<?php if(empty($data->imagen)) { echo 'no-photo.png'; }else{ echo $data->imagen; } ?>" class="card-img-top" alt="...">
+                                <img src="assets/img/<?php if(empty($data->imagen)) { echo 'no-photo.png'; }else{ echo $data->imagen; } ?>" class="card-img-top border-bottom" alt="...">
                                 <div class="card-body">
                                     <label>Portada de producto</label>
                                     <input type="hidden" name="imgdefault" value="<?php echo $data->imagen; ?>">

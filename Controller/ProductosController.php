@@ -124,6 +124,7 @@ class ProductosController{
         $this->model->cantidad            = $_REQUEST['cantidad'];
         $this->model->precioVenta         = $_REQUEST['precioCompra'];
         $this->model->precioCompra        = $_REQUEST['precioVenta'];
+        $this->model->detalles            = $_REQUEST['detalles'];
 
         if(!empty($_FILES['imagen']['name'])){
             // borro la imagen anterior
