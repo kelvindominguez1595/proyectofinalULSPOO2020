@@ -3,17 +3,20 @@
 require_once 'Model/Productos.php';
 require_once 'Model/Marcas.php';
 require_once 'Model/Categorias.php';
+require_once 'Model/ImagenDetails.php';
 class ProductosController{
     // para accender al modelo y sus atributos
     private $model;
     private $modelMarcas; 
     private $modelCategorias;
+    private $modelImagenDetails;
 
     // Constructos
     public function __CONSTRUCT(){
         $this->model = new Productos();
         $this->modelMarcas = new Marcas();
         $this->modelCategorias = new Categorias();
+        $this->modelImagenDetails = new ImagenDetails();
     }
 
    /** Inicio de llamado de la vistas */
@@ -59,29 +62,46 @@ class ProductosController{
             $this->model->precioVenta         = $_REQUEST['precioCompra'];
             $this->model->precioCompra        = $_REQUEST['precioVenta'];
             $this->model->detalles        = $_REQUEST['detalles'];
-    
-            $nameImgan = $_FILES['imagen']['name'];
-            $typeImagen = $_FILES['imagen']['type'];
-            $tmpImagen = $_FILES['imagen']['tmp_name'];
-            if($typeImagen == 'image/jpeg' || $typeImagen == 'image/jpg' || $typeImagen == 'image/png' || $typeImagen == 'image/gif'){
-                // ruta de donde guardaremos la imagen
-                $res = explode(".", $nameImgan);
-                $extension = $res[count($res)-1];
-                $newNameImagen = date('s').rand(1,99).".".$extension;
-                $destino = "assets/img/".$newNameImagen;
-                copy($tmpImagen, $destino); // copiamos los archivos al destino
-                $this->model->imagen              = $newNameImagen;// llenamos el cmapo imagen
-                // utilizamos el metodo de guardar de SQL
-                if($this->model->RegistrarProducto($this->model)){
-                    $texto = "Registro exitosamente";
-                    $tipo = "success";
-                    $this->model->SesionesMessage($texto, $tipo);
-                }else{
-                    $texto = "Ocurrio un error";
-                    $tipo = "error";
-                    $this->model->SesionesMessage($texto, $tipo);
-                }
+
+
+            // Proceso para subir multiples imagenes
+            foreach ($_FILES['imagen']['tmp_name'] as $key => $value) {
+                # code...
             }
+                $typeImagen = $_FILES['imagen']['type'];
+               $tmpImagen = $_FILES['imagen']['tmp_name'][1];
+                $nameImgan = $_FILES['imagen']['name'][1];
+                    $res = explode(".", $nameImgan);
+                    $extension = $res[count($res)-1];
+                    $newNameImagen = date('s').rand(1,99).".".$extension;
+                    echo  $destino = "assets/img/".$newNameImagen;
+                    copy($tmpImagen, $destino); 
+            // $countFiles = count($_FILES['imagen']['name']);
+            // // recorremos todos las imagenes con for
+            // for ($i=0; $i < $countFiles; $i++) { 
+            //     $typeImagen = $_FILES['imagen']['type'][$i];
+            //     $tmpImagen = $_FILES['imagen']['tmp_name'][$i];
+            //     $nameImgan = $_FILES['imagen']['name'][$i];
+
+            //     $res = explode(".", $nameImgan);
+            //     $extension = $res[count($res)-1];
+            //     $newNameImagen = date('s').rand(1,99).".".$extension;
+            //     $destino = "assets/img/".$newNameImagen;
+            //     echo copy($tmpImagen, $destino); // copiamos los archivos al destino
+                
+            // }
+                // $this->model->imagen              = $newNameImagen;// llenamos el cmapo imagen
+                // // utilizamos el metodo de guardar de SQL
+                // if($this->model->RegistrarProducto($this->model)){
+                //     $texto = "Registro exitosamente";
+                //     $tipo = "success";
+                //     $this->model->SesionesMessage($texto, $tipo);
+                // }else{
+                //     $texto = "Ocurrio un error";
+                //     $tipo = "error";
+                //     $this->model->SesionesMessage($texto, $tipo);
+                // }
+            
         }
 
     }

@@ -85,30 +85,10 @@
                                         <div class="col-sm-12">
                                             <label for="imagen">Portada del producto</label>
                                             <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="imagen[]" id="customFileLang" lang="es">
-                                                <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                            <input type="file" class="custom-file-input" multiple name="imagen[]" id="imagen" lang="es"  accept="image/x-png,image/gif,image/jpeg" >
+                                                <label class="custom-file-label" for="imagen">Seleccionar Archivo</label>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-12 mt-2">
-                                            <label for="imagen">Imagen 1 del producto</label>
-                                            <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="imagen[]" id="customFileLang" lang="es">
-                                                <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 mt-2">
-                                            <label for="imagen">Imagen 2 del producto</label>
-                                            <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="imagen[]" id="customFileLang" lang="es">
-                                                <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 mt-2">
-                                            <label for="imagen">Imagen 3 del producto</label>
-                                            <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="imagen[]" id="customFileLang" lang="es">
-                                                <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
-                                            </div>
+                                            <small id="fileHelp" class="form-text text-muted">Puede subir varias imagenes del producto</small>
                                         </div>
                                     </div>
                                 </div>
