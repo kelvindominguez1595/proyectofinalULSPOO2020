@@ -6,7 +6,7 @@ class Database
     private static $dbUser = 'root';
     private static $password = ''; // si tiene contraseña escribirlar
 
-    private static $cont = null;
+    public static $cont = null;
 
     public function __construct(){
         die("La funcion no ha sido inicializada");

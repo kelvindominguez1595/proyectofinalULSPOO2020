@@ -25,13 +25,14 @@ class Productos{
         try{
             // Comando SQL
             $sql = "INSERT INTO productos(id_categoria, id_marca_producto, NombreProducto, imagen, cantidad, precioVenta, precioCompra, detalles) VALUES(?,?,?,?,?,?,?,?)";
-            // COMENZAMOS LA CONEXION CON PDO
+            // COMENZAMOS LA CONEXION CON PDO    
             $pre = $this->DB->prepare($sql);
             $resul = $pre->execute(array($data->id_categoria, $data->id_marca_producto, $data->NombreProducto, $data->imagen, $data->cantidad, $data->precioVenta, $data->precioCompra, $data->detalles));
             if($resul > 0){ 
-                return true;
+                // para obtener el ultimo id del registro con PDO
+                return $this->DB->lastInsertId();
             }else{ 
-                return false;
+                return "";
             }
         }catch(Throwable $t){
             die($t->getMessage());
@@ -96,10 +97,10 @@ class Productos{
         }
     }
     // Para los mensajes
-    public function SesionesMessage($texto, $tipo){
+    public function SesionesMessage($texto, $tipo, $ruta){
         $_SESSION['texto'] = $texto;
         $_SESSION['tipo'] = $tipo;
-        header("Location: ?view=Productos");
+        header("Location: ?view=".$ruta);
     }
 
         // Ultimos productos registrados

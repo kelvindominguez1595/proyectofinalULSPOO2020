@@ -54,54 +54,51 @@ class ProductosController{
     /** Metodos CRUD */   
     public function CrearProducto(){
         // capturo los valores enviados por post o get
-        if(count($_FILES) > 0){
+        if(!empty($_FILES['imagen']['name'][0])){
             $this->model->id_categoria        = $_REQUEST['id_categoria'];
             $this->model->id_marca_producto   = $_REQUEST['id_marca_producto'];
             $this->model->NombreProducto      = $_REQUEST['NombreProducto'];    
             $this->model->cantidad            = $_REQUEST['cantidad'];
             $this->model->precioVenta         = $_REQUEST['precioCompra'];
             $this->model->precioCompra        = $_REQUEST['precioVenta'];
-            $this->model->detalles        = $_REQUEST['detalles'];
-
-
-            // Proceso para subir multiples imagenes
-            foreach ($_FILES['imagen']['tmp_name'] as $key => $value) {
-                # code...
-            }
-                $typeImagen = $_FILES['imagen']['type'];
-               $tmpImagen = $_FILES['imagen']['tmp_name'][1];
-                $nameImgan = $_FILES['imagen']['name'][1];
-                    $res = explode(".", $nameImgan);
-                    $extension = $res[count($res)-1];
-                    $newNameImagen = date('s').rand(1,99).".".$extension;
-                    echo  $destino = "assets/img/".$newNameImagen;
-                    copy($tmpImagen, $destino); 
-            // $countFiles = count($_FILES['imagen']['name']);
-            // // recorremos todos las imagenes con for
-            // for ($i=0; $i < $countFiles; $i++) { 
-            //     $typeImagen = $_FILES['imagen']['type'][$i];
-            //     $tmpImagen = $_FILES['imagen']['tmp_name'][$i];
-            //     $nameImgan = $_FILES['imagen']['name'][$i];
-
-            //     $res = explode(".", $nameImgan);
-            //     $extension = $res[count($res)-1];
-            //     $newNameImagen = date('s').rand(1,99).".".$extension;
-            //     $destino = "assets/img/".$newNameImagen;
-            //     echo copy($tmpImagen, $destino); // copiamos los archivos al destino
-                
-            // }
-                // $this->model->imagen              = $newNameImagen;// llenamos el cmapo imagen
+            $this->model->detalles            = $_REQUEST['detalles'];
+            $resInser = $this->model->RegistrarProducto($this->model);
                 // // utilizamos el metodo de guardar de SQL
-                // if($this->model->RegistrarProducto($this->model)){
-                //     $texto = "Registro exitosamente";
-                //     $tipo = "success";
-                //     $this->model->SesionesMessage($texto, $tipo);
-                // }else{
-                //     $texto = "Ocurrio un error";
-                //     $tipo = "error";
-                //     $this->model->SesionesMessage($texto, $tipo);
-                // }
-            
+                if(!empty($resInser)){
+
+                   $this->modelImagenDetails->producto_id = $resInser;
+                    $countFiles = count($_FILES['imagen']['name']);
+                    // recorremos todos las imagenes con for
+                    for ($i=0; $i < $countFiles; $i++) { 
+                        $tmpImagen = $_FILES['imagen']['tmp_name'][$i];
+                        $nameImgan = $_FILES['imagen']['name'][$i];
+                        // renombramos el archivo
+                        $res = explode(".", $nameImgan);
+                        $extension = $res[count($res)-1];
+                        $newNameImagen = date('s').rand(1,99).".".$extension;
+                        // la ruta donde se alojara los archivos
+                        $destino = "assets/img/".$newNameImagen;
+                        // copiamos todos los archivos a la ruta
+                        copy($tmpImagen, $destino); // copiamos los archivos al destino 
+                        // Al finalizar vamos a guardar el nombre de carda archivo en base de datos
+                        $this->modelImagenDetails->imagen = $newNameImagen;
+                        $this->modelImagenDetails->registrarImagenes($this->modelImagenDetails);
+                    }
+                    $texto = "Registro exitosamente";
+                    $tipo = "success";
+                    $ruta = "Productos";
+                    $this->model->SesionesMessage($texto, $tipo, $ruta);
+                }else{
+                    $texto = "Ocurrio un error";
+                    $tipo = "error";
+                    $ruta = "Productos";
+                    $this->model->SesionesMessage($texto, $tipo, $ruta);
+                }            
+        }else{
+            $texto = "Todos los campos son obligatorios";
+            $tipo = "danger";
+            $ruta = "Productos&action=NuevoProducto";
+            $this->model->SesionesMessage($texto, $tipo, $ruta);
         }
 
     }
@@ -131,11 +128,13 @@ class ProductosController{
             if($this->model->actualizarPro($this->model)){
                 $texto = "Actualizó exitosamente";
                 $tipo = "success";
-                $this->model->SesionesMessage($texto, $tipo);
+                $ruta = "Productos";
+                $this->model->SesionesMessage($texto, $tipo, $ruta);
             }else{
                 $texto = "Ocurrio un error";
                 $tipo = "error";
-                $this->model->SesionesMessage($texto, $tipo);
+                $ruta = "Productos";
+                $this->model->SesionesMessage($texto, $tipo, $ruta);
             }
         }
     }
@@ -147,11 +146,13 @@ class ProductosController{
         if($this->model->BorrarProducto($this->model)){            
             $texto = "Registro borrado exitosamente";
             $tipo = "success";
-            $this->model->SesionesMessage($texto, $tipo);
+            $ruta = "Productos";
+            $this->model->SesionesMessage($texto, $tipo, $ruta);
         }else{
             $texto = "Ocurrio un error ";
             $tipo = "error";
-            $this->model->SesionesMessage($texto, $tipo);
+            $ruta = "Productos";
+            $this->model->SesionesMessage($texto, $tipo, $ruta);
         }
     }
 
