@@ -81,6 +81,7 @@
                                     <!-- Detalle del producto -->
                                     <div class="form-group row">
                                         <div class="col-sm-12">
+                                            <label for="detalles">Descripción</label>
                                             <textarea name="detalles" id="summernote" cols="30" rows="10"></textarea>
                                         </div>
                                     </div>

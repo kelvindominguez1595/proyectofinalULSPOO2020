@@ -62,6 +62,17 @@ class ProductosController{
             $this->model->precioVenta         = $_REQUEST['precioCompra'];
             $this->model->precioCompra        = $_REQUEST['precioVenta'];
             $this->model->detalles            = $_REQUEST['detalles'];
+
+            // Para guardar la imagen en la tabla productos 
+            $tmpImagenPro = $_FILES['imagen']['tmp_name'][0];
+            $nameImagenPro = $_FILES['imagen']['name'][0];
+            $extratmp = explode(".", $nameImagenPro);
+            $ext1 = $extratmp[count($extratmp)-1];
+            $newImgPro = date('s').rand(1,99).".".$ext1;
+            $ruta = "assets/img/".$newImgPro;
+            copy($tmpImagenPro, $ruta); // copiamos los archivos al destino
+            $this->model->imagen   = $newImgPro;// llenamos el cmapo imagen
+            // Guardamos en la tabla productos
             $resInser = $this->model->RegistrarProducto($this->model);
                 // // utilizamos el metodo de guardar de SQL
                 if(!empty($resInser)){

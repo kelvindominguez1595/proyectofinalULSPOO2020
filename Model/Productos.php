@@ -64,6 +64,15 @@ class Productos{
     // Actualizar
     public function actualizarPro($data){
         try{
+
+            // obtenemos el nombre de la imagen para borrarla
+            $commd = $this->DB->prepare("SELECT * FROM productos WHERE id = ?");
+            $commd->execute(array($data->id));
+            $img = $commd->fetch(PDO::FETCH_OBJ);
+            // para borrar la imagen con PHP
+            if(!empty($img->imagen)){
+                unlink("assets/img/".$img->imagen);
+            }
             // Comando SQL
             $sql = "UPDATE productos SET id_categoria = ?, id_marca_producto = ?, NombreProducto = ?, imagen = ?, cantidad = ?, precioVenta = ?, precioCompra = ? WHERE id_producto = ?";
 
