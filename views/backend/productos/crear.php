@@ -3,8 +3,18 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
       <h1 class="h3 mb-0 text-gray-800">Agregar nuevo producto</h1>
+
     </div>
     <div clas="row">
+    <?php if(isset($_SESSION['texto'])){?>
+            <div class="alert alert-<?php if($_SESSION['tipo'] == "success"){ echo "success";}else{echo "danger"; }?> alert-dismissible fade show" role="alert">
+                <strong>Ooops! Ah Ocurrido un error :C </strong> <?php echo $_SESSION['texto'];?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                <?php unset($_SESSION["texto"]); unset($_SESSION["tipo"]); ?>
+                </button>
+            </div>
+      <?php } ?>
         <div class="col-12 col-md-12 col-lg-12">
         <div class="card shadow mb-4">
                 <div class="card-header py-3">
