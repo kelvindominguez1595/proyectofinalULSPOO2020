@@ -26,10 +26,10 @@
                     <tr>                       
                       <th>#</th>
                       <th>Productos</th>
-                      <th>Categoria</th>
                       <th>Cantidad</th>
                       <th>P. Compra</th>
                       <th>P. Venta</th>
+                      <th>Categoria</th>
                       <th>Marca</th>
                       <th>Imagen</th>
                       <th>Fecha Compra</th>
