@@ -10,6 +10,7 @@ class Productos{
     public $cantidad;
     public $precioVenta;
     public $precioCompra;
+    public $detalles;
 
 
     public function __CONSTRUCT(){
@@ -23,10 +24,10 @@ class Productos{
     public function RegistrarProducto($data){
         try{
             // Comando SQL
-            $sql = "INSERT INTO productos(id_categoria, id_marca_producto, NombreProducto, imagen, cantidad, precioVenta, precioCompra) VALUES(?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO productos(id_categoria, id_marca_producto, NombreProducto, imagen, cantidad, precioVenta, precioCompra, detalles) VALUES(?,?,?,?,?,?,?,?)";
             // COMENZAMOS LA CONEXION CON PDO
             $pre = $this->DB->prepare($sql);
-            $resul = $pre->execute(array($data->id_categoria, $data->id_marca_producto, $data->NombreProducto, $data->imagen, $data->cantidad, $data->precioVenta, $data->precioCompra));
+            $resul = $pre->execute(array($data->id_categoria, $data->id_marca_producto, $data->NombreProducto, $data->imagen, $data->cantidad, $data->precioVenta, $data->precioCompra, $data->detalles));
             if($resul > 0){ 
                 return true;
             }else{ 

@@ -12,69 +12,112 @@
                 </div>
                 <div class="card-body">
                     <form action="?view=Productos&action=CrearProducto" method="post" enctype="multipart/form-data">
-                    <div class="form-group row">
-                        <div class="col-sm-6 mb-3 mb-sm-0">
-                            <label for="cantidad">Nombre del producto</label>
-                            <input type="text" name="NombreProducto" class="form-control form-control-user" required id="exampleFirstName" placeholder="Nombre del Producto">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <h5 class="card-header">Detalles del producto</h5>
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <div class="col-sm-12 mb-3 mb-sm-0">
+                                            <label for="cantidad">Nombre del producto</label>
+                                            <input type="text" name="NombreProducto" class="form-control" required id="exampleFirstName" placeholder="Nombre del Producto">
+                                        </div>
+
+                                    </div>
+                                    <!-- Cantidad, precio Compra, precio Venta -->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            <label for="cantidad">Cantidad</label>
+                                            <input type="number" name="cantidad" id="" min="0"  class="form-control" placeholder="Cantidad">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label for="pcompra">P. Compra</label>
+                                            <input type="number" step="any" min="0" name="precioCompra" class="form-control" required id="exampleFirstName" placeholder="$ Compra">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label for="precioVenta">P. Venta</label>
+                                            <input type="number" step="any" min="0"  name="precioVenta" class="form-control" required id="exampleFirstName" placeholder="$ Venta">
+                                        </div>
+                                    </div>
+                                    <!-- Categoria del producto y marca del producto -->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            <label for="categoria">Categoria</label>
+                                            <select name="id_categoria" id="" class="form-control" required>
+                                                <option value="0">Seleccione categoria</option>
+                                                <?php
+                                                foreach($this->modelCategorias->ListarCategorias() as $item){
+                                                ?>
+                                                <option value="<?php echo $item->id_categoria; ?>"><?php echo $item->categoria; ?></option>
+                                                <?php
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label for="categoria">Marca</label>
+                                            <select name="id_marca_producto" id="" class="form-control" required>
+                                                <option value="0">Seleccione marca</option>
+                                                <?php
+                                                foreach($this->modelMarcas->ListarMarcas() as $item){
+                                                ?>
+                                                <option value="<?php echo $item->id?>"><?php echo $item->nombre_marca?></option>
+                                                <?php
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- Detalle del producto -->
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                            <textarea name="detalles" id="summernote" cols="30" rows="10"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-sm-2">
-                            <label for="cantidad">Cantidad</label>
-                            <input type="number" name="cantidad" id="" min="0"  class="form-control form-control-user" placeholder="Cantidad">
-                        </div>
-                        <div class="col-sm-2">
-                            <label for="pcompra">P. Compra</label>
-                            <input type="number" step="any" min="0" name="precioCompra" class="form-control form-control-user" required id="exampleFirstName" placeholder="$ Compra">
-                        </div>
-                        <div class="col-sm-2">
-                            <label for="precioVenta">P. Venta</label>
-                            <input type="number" step="any" min="0"  name="precioVenta" class="form-control form-control-user" required id="exampleFirstName" placeholder="$ Venta">
+                        <div class="col-md-4">
+                        <div class="card">
+                                <h5 class="card-header">Imagenes del Producto</h5>
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                            <label for="imagen">Portada del producto</label>
+                                            <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="imagen[]" id="customFileLang" lang="es">
+                                                <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 mt-2">
+                                            <label for="imagen">Imagen 1 del producto</label>
+                                            <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="imagen[]" id="customFileLang" lang="es">
+                                                <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 mt-2">
+                                            <label for="imagen">Imagen 2 del producto</label>
+                                            <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="imagen[]" id="customFileLang" lang="es">
+                                                <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 mt-2">
+                                            <label for="imagen">Imagen 3 del producto</label>
+                                            <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="imagen[]" id="customFileLang" lang="es">
+                                                <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <div class="col-sm-4">
-                            <label for="categoria">Categoria</label>
-                            <select name="id_categoria" id="" class="form-control" required>
-                                    <option value="0">Seleccione categoria</option>
-                                    <?php
-                                        foreach($this->modelCategorias->ListarCategorias() as $item){
-                                    ?>
-                                        <option value="<?php echo $item->id_categoria; ?>"><?php echo $item->categoria; ?></option>
-                                    <?php
-                                        }
-                                    ?>
-                                    
-                            </select>
-                        </div>
-                        <div class="col-sm-4">
-                            <label for="categoria">Marca</label>
-                            <select name="id_marca_producto" id="" class="form-control" required>
-                                <option value="0">Seleccione marca</option>
-                                <?php
-                                    foreach($this->modelMarcas->ListarMarcas() as $item){
-                                ?>
-                                    <option value="<?php echo $item->id?>"><?php echo $item->nombre_marca?></option>
-                                <?php
-                                    }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="col-sm-4">
-                            <label for="imagen">Subir imagen</label>    
-                                <!-- <input type="file" class="form-control-file" id="imagen" name="imagen"  lang="es">-->
-                                <div class="custom-file">
-  <input type="file" class="custom-file-input" id="customFileLang" lang="es">
-  <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
-</div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-12">
-                            <div id="summernote">Hello Summernote</div>
-                        </div>
-                    </div>
-                    <div class="form-group row d-flex justify-content-center">
-                        <div class="col-sm-6">
-        
+
+                    <div class="form-group row d-flex justify-content-center mt-4">
+                        <div class="col-sm-6">        
                             <input type="submit" value="Guardar" class="btn btn-primary btn-user btn-block">
                         </div>
                     </div>
