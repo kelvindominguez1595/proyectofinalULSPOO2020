@@ -60,6 +60,13 @@ class Ventas{
         }
     }
 
+        // Para los mensajes
+       public function SesionesMessage($texto, $tipo, $ruta){
+            $_SESSION['texto'] = $texto;
+            $_SESSION['tipo'] = $tipo;
+            header("Location: ?view=".$ruta);
+        }
+
 
 
 }

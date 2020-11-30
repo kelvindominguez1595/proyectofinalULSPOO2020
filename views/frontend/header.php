@@ -172,7 +172,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<!-- logo -->
 				<div class="col-md-3 logo_agile">
 					<h1 class="text-center">
-						<a href="?view=Home&action=Home" class="font-weight-bold font-italic">
+						<a href="./" class="font-weight-bold font-italic">
 							<img src="images/logo2.png" alt=" " class="img-fluid">TIJ
 						</a>
 					</h1>
@@ -226,7 +226,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto text-center mr-xl-5">
 						<li class="nav-item active mr-lg-2 mb-lg-0 mb-2">
-							<a class="nav-link" href="?view=Home&action=Home">Home
+							<a class="nav-link" href="./">Home
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>

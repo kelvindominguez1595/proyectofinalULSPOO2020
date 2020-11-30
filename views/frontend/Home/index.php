@@ -84,16 +84,20 @@
 			<h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
 				<span>N</span>uestros
 				<span>N</span>uevos
-                <span>P</span>roductos</h3>
-                <?php if(isset($_SESSION['texto'])){?>
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong></strong> <?php echo $_SESSION['texto'];?>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            <?php unset($_SESSION["texto"]); ?>
-                            </button>
-                            </div>
-                            <?php } ?>
+				<span>P</span>roductos</h3>
+				
+			<?php if(isset($_SESSION['texto'])){?>
+				<div class="alert alert-<?php if($_SESSION['tipo'] == "success"){ echo "success";}else{echo "danger"; }?> alert-dismissible fade show" role="alert">
+				<strong>                   
+				<?php if($_SESSION['tipo'] == "success"){ echo "Exitos!!! 😊";}else{echo "Ooops! Ah Ocurrido un error 😱"; }?>
+				</strong> 
+					<?php echo $_SESSION['texto'];?>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					<?php unset($_SESSION["texto"]); unset($_SESSION["tipo"]); ?>
+					</button>
+				</div>
+      		<?php } ?>
 			<!-- //tittle heading -->
 			<div class="row">
 
@@ -102,9 +106,9 @@
 					<div class="wrapper">
 						<!-- first section -->
 						<div class="product-sec1 px-sm-4 px-3 py-sm-5  py-3 mb-4">
-                            <h3 class="heading-tittle text-center font-italic">Ultimos Productos</h3>
-                            
-							<div class="row">                                <?php
+                            <h3 class="heading-tittle text-center font-italic">Ultimos Productos</h3>                            
+							<div class="row">  								
+								<?php
                                     foreach($this->model->latestProducts() as $item){
                                 ?>
 								<div class="col-md-4 product-men mt-5">
@@ -127,8 +131,7 @@
 											</h4>
 											<br>
 												<?php
-													if($item->cantidad <= 5){
-												
+													if($item->cantidad <= 5){												
 														echo '<span class="font-italic font-weight-light">Existencia: '.$item->cantidad.'</span>';
 													}
 												?>
@@ -140,8 +143,7 @@
 												<form action="?view=Venta&action=shopping_cart" method="post">
 													<fieldset>
 														<input type="hidden" name="vista" value="Home&action=Home" />
-                                                        <input type="hidden" name="btnAction" value="Add" />
-                                                        
+                                                        <input type="hidden" name="btnAction" value="Add" />                                                        
 														<input type="hidden" name="stock" value="<?php echo $item->cantidad; ?>" />
 														<input type="hidden" name="producto_id" value="<?php echo $item->id_producto; ?>" />
 														<input type="hidden" name="img_product" value="<?php echo $item->imagen; ?>" />
@@ -152,9 +154,7 @@
 														<input type="hidden" name="currency_code" value="USD" />
 														<!-- <input type="hidden" name="return" value=" " />
 														<input type="hidden" name="cancel_return" value=" " /> -->
-												
-															<input type="submit" name="submit" value="Add to cart" class="button btn" />
-												
+												    	<input type="submit" name="submit" value="Add to cart" class="button btn" />
 													</fieldset>
 												</form>
 											</div>

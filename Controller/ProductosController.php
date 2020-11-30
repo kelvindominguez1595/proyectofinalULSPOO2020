@@ -186,8 +186,7 @@ class ProductosController{
 
 // para actualizar las imagenes de detalle del producto
     public function editarGalImagen(){
-        $this->modelImagenDetails->id = $_REQUEST['id'];  
-          
+        $this->modelImagenDetails->id = $_REQUEST['id'];           
 
         if(!empty($_FILES['imagen']['name'])){
             // borro la imagen anterior
@@ -229,10 +228,12 @@ class ProductosController{
         // Capturamos el id enviado por get
         $id = $_REQUEST['id'];
         // crear el metodo para listar un dato especifico
-      //  $data = $this->model->obtenerRegistro($id);
+        $producData = $this->model->obtenerRegistro($id);
+        $imagesproductData = $this->modelImagenDetails->listarRegistro($id);
         require_once 'views/frontend/header.php';
         require_once 'views/frontend/Shopping/details.php';
         require_once 'views/frontend/footer.php';
+        require_once 'views/frontend/src/sigleproducto.php';
     }
 }
 ?>

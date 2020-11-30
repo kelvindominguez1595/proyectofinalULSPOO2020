@@ -10,7 +10,7 @@
 			<div class="container">
 				<ul class="w3_short">
 					<li>
-						<a href="index.html">Home</a>
+						<a href="./">Home</a>
 						<i>|</i>
 					</li>
 					<li>Checkout</li>
@@ -29,15 +29,18 @@
 			<!-- //tittle heading -->
 			<div class="checkout-right">
 
-            <?php if(isset($_SESSION['texto'])){?>
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong></strong> <?php echo $_SESSION['texto'];?>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    <?php unset($_SESSION["texto"]); ?>
-                    </button>
-                </div>
-            <?php } ?>
+			<?php if(isset($_SESSION['texto'])){?>
+				<div class="alert alert-<?php if($_SESSION['tipo'] == "success"){ echo "success";}else{echo "danger"; }?> alert-dismissible fade show" role="alert">
+				<strong>                   
+				<?php if($_SESSION['tipo'] == "success"){ echo "Exitos!!! 😊";}else{echo "Ooops! Ah Ocurrido un error 😱"; }?>
+				</strong> 
+					<?php echo $_SESSION['texto'];?>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					<?php unset($_SESSION["texto"]); unset($_SESSION["tipo"]); ?>
+					</button>
+				</div>
+      		<?php } ?>
 				<h4 class="mb-sm-4 mb-3">Su carrito de compras contiene:
                     <span><?php 
                     if(isset($_SESSION['carrito'])){
@@ -68,18 +71,20 @@
 							<tr class="rem1">
 								<td class="invert"><?php echo $i; ?></td>
 								<td class="invert-image">
-									<a href="single.html">
+									<a href="?view=Productos&action=Details&id=<?php echo $item['ID'];?>">
 										<img src="assets/img/<?php echo $item["img_product"]; ?>" alt=" " width="50px" class="img img-responsive">
 									</a>
 								</td>
 								<td class="invert">
 									<div class="quantity">
 										<div class="quantity-select">
-											<div class="entry value-minus">&nbsp;</div>
+								
+											<a href="?view=Venta&action=shopping_cart&producto_id=<?php echo $item["ID"]; ?>&btnAction=Restar" class="entry value-minus active">&nbsp;</a>	
 											<div class="entry value">
 												<span><?php echo $item["cantidad"];?></span>
-											</div>
-											<div class="entry value-plus active">&nbsp;</div>
+											</div>			
+											<a href="?view=Venta&action=shopping_cart&producto_id=<?php echo $item["ID"]; ?>&btnAction=plus" class="entry value-plus active">&nbsp;</a>								
+								
 										</div>
 									</div>
 								</td>

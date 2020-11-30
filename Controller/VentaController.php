@@ -33,7 +33,9 @@ class VentaController{
                             'precio' => $precio 
                         );
                         $_SESSION['carrito'][0] = $producto;
-                        $_SESSION['texto'] = "Producto Agregado";
+                        $tipo = "success";
+                        $texto = "Producto Agregado";                            
+                        $this->model->SesionesMessage($texto, $tipo, $vista);
                     }else{
                         // para verificar que si hay un indice que sea igual
                         $productosIdent = array_column($_SESSION['carrito'], "ID");
@@ -44,14 +46,20 @@ class VentaController{
                                     if($val['ID'] == $ID){// validamos si existe
                                         if( $val['cantidad'] < $val['stock']){// que no sobrepsa la cantidad
                                             $_SESSION['carrito'][$key]['cantidad']  += 1; // sumamos la cantida de 1 en 1 con el acumulador  
-                                            $_SESSION['texto'] = "Producto Agregado";
+
+                                            $tipo = "success";
+                                            $texto = "Producto Agregado";                            
+                                            $this->model->SesionesMessage($texto, $tipo, $vista);
                                         }else{
                                             // caso contrario que no agregue mas
                                             $_SESSION['quitar'] = "No hay";
-                                            $_SESSION['texto'] = "Ya no hay existencia del producto seleccionado"; 
+                                            $tipo = "error";
+                                            $texto = "Ya no hay existencia del producto seleccionado";                            
+                                            $this->model->SesionesMessage($texto, $tipo, $vista);
                                         }
                                     }
-                            }// mostramos el mensaje
+                            }
+                            // mostramos el mensaje
 
                         }else{
                             $producto = array(
@@ -63,10 +71,11 @@ class VentaController{
                                 'precio' => $precio
                             );
                             array_push($_SESSION['carrito'], $producto);
-                            $_SESSION['texto'] = "Producto Agregado";
+                            $tipo = "success";
+                            $texto = "Producto Agregado";                            
+                            $this->model->SesionesMessage($texto, $tipo, $vista);
                         }
                     }
-                   header("Location: ?view=".$vista);
                 break;
                 case 'Remove':
                     $idPro = $_REQUEST['producto_id'];
@@ -74,11 +83,57 @@ class VentaController{
                     foreach ($_SESSION['carrito'] as $item => $producto) {
                         if($producto['ID'] == $idPro){
                             unset($_SESSION['carrito'][$item]);
-                            echo("<script>alert('Producto borrado')</script>");
                         }
                     }
-                    $_SESSION['texto'] = "Producto borrado";
-                   header("Location: ?view=".$vista);
+                    $tipo = "success";
+                    $texto = "Producto borrado";                            
+                    $this->model->SesionesMessage($texto, $tipo, $vista);
+                break;
+                case 'plus':
+                    $idPro = $_REQUEST['producto_id'];
+                    $vista = "Home&action=Shopping";
+                    foreach ($_SESSION['carrito'] as $key => $val) {
+                        if($val['ID'] == $idPro){// validamos si existe
+                            if( $val['cantidad'] < $val['stock']){// que no sobrepsa la cantidad
+                                $_SESSION['carrito'][$key]['cantidad']  += 1; // sumamos la cantida de 1 en 1 con el acumulador  
+
+                                $tipo = "success";
+                                $texto = "Producto Agregado";                            
+                                $this->model->SesionesMessage($texto, $tipo, $vista);
+                            }else{
+                                // caso contrario que no agregue mas
+                                $_SESSION['quitar'] = "No hay";
+                                $tipo = "error";
+                                $texto = "Ya no hay existencia del producto seleccionado 😓";                            
+                                $this->model->SesionesMessage($texto, $tipo, $vista);
+                            }
+                        }
+                    }
+                break;
+                case 'Restar':
+                    $idPro = $_REQUEST['producto_id'];
+                    $vista = "Home&action=Shopping";
+                    foreach ($_SESSION['carrito'] as $key => $val) {
+                        if($val['ID'] == $idPro){// validamos si existe
+                            if($val['cantidad'] == 0){// que no sobrepsa la cantidad
+                                // caso contrario que no agregue mas
+                                unset($_SESSION['carrito'][$key]);
+                                $_SESSION['quitar'] = "No haydasda";
+                                $tipo = "success";
+                                $texto = "Todos los productos han sido borrados";                            
+                                $this->model->SesionesMessage($texto, $tipo, $vista);
+                            }else{
+                                $_SESSION['carrito'][$key]['cantidad'] -= 1; // sumamos la cantida de 1 en 1 con el acumulador  
+                                $tipo = "success";
+                                $texto = "Se descontado 1 producto";    
+                                if( $_SESSION['carrito'][$key]['cantidad'] == 0){
+                                    unset($_SESSION['carrito'][$key]);
+                                    $texto = "Todos los productos han sido borrados";      
+                                }                        
+                                $this->model->SesionesMessage($texto, $tipo, $vista);
+                            }
+                        }
+                    }
                 break;
             }
         }
