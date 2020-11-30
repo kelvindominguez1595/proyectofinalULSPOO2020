@@ -183,9 +183,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="row">
 						<!-- search -->
 						<div class="col-10 agileits_search">
-							<form class="form-inline" action="#" method="post">
-								<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" required>
-								<button class="btn my-2 my-sm-0" type="submit">Search</button>
+							<form class="form-inline" action="?view=Productos&action=Busqueda" method="post">
+								<input class="form-control mr-sm-2" type="search" name="buscar" placeholder="Buscar" aria-label="Search" required>
+								<button class="btn my-2 my-sm-0" type="submit">Buscar</button>
 							</form>
 						</div>
 						<!-- //search -->

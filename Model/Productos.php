@@ -111,7 +111,17 @@ class Productos{
                 die($t->getMessage());
             }
         }
-    
 
+        public function BuscarProductos($buscar){
+            try{       
+                $buscando = "%$buscar%" ;
+                $commd = $this->DB->prepare("SELECT pro.id_producto, pro.NombreProducto, pro.imagen, pro.cantidad, pro.precioVenta, pro.precioCompra, pro.fechaCompra, pro.detalles, cat.categoria, mar.nombre_marca FROM productos as pro INNER JOIN categorias as cat ON pro.id_categoria = cat.id_categoria INNER JOIN marcas as mar ON  pro.id_marca_producto = mar.id where pro.NombreProducto LIKE ? or cat.categoria like ? or mar.nombre_marca like ? ");
+                $commd->execute(array($buscando, $buscando, $buscando));
+                return $commd->fetchAll(PDO::FETCH_OBJ);
+            }catch(Throwable $t){
+                die($t->getMessage());
+            }
+                
+        }
 }
 ?>

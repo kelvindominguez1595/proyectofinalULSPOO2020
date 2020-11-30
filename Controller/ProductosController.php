@@ -250,5 +250,15 @@ class ProductosController{
         require_once 'views/frontend/Categorias/index.php';
         require_once 'views/frontend/footer.php';
     }
+    public function Busqueda(){
+        // Capturamos el id enviado por get
+        $buscar = $_REQUEST['buscar'];
+        // crear el metodo para listar un dato especifico
+        $resultBusqueda = $this->model->BuscarProductos($buscar); // resultado de busqueda
+    
+        require_once 'views/frontend/header.php';
+        require_once 'views/frontend/Shopping/buscar.php';
+        require_once 'views/frontend/footer.php';
+    }
 }
 ?>

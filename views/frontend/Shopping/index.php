@@ -128,7 +128,7 @@
                     </table>
                     <?php }else{ ?>
                         <div class="alert alert-success" role="alert">
-                                No hay Productos!
+                                No hay Productos! 😳
                         </div>
                     <?php } ?>
 				</div>
