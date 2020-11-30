@@ -92,5 +92,26 @@ class Categorias{
         header("Location: ?view=Categorias");
     }
 
+    /** Para mostrar en el menu las categorias */
+    public function menuPanel1(){
+        try{        
+            $commd = $this->DB->prepare("SELECT * FROM categorias  ORDER BY categoria asc LIMIT 10");
+            $commd->execute();
+            return $commd->fetchAll(PDO::FETCH_OBJ);
+        }catch(Throwable $t){
+            die($t->getMessage());
+        }
+    }
+    public function menuPanel2(){
+        try{        
+            $commd = $this->DB->prepare("SELECT * FROM categorias ORDER BY categoria desc LIMIT 5");
+            $commd->execute();
+            return $commd->fetchAll(PDO::FETCH_OBJ);
+        }catch(Throwable $t){
+            die($t->getMessage());
+        }
+    }
+
+
 }
 ?>

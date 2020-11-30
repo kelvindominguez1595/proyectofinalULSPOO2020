@@ -236,62 +236,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							</a>
 							<div class="dropdown-menu">
 								<div class="agile_inner_drop_nav_info p-4">
-									<h5 class="mb-3">Mobiles, Computers</h5>
+									<h5 class="mb-3">Categorias</h5>
 									<div class="row">
 										<div class="col-sm-6 multi-gd-img">
 											<ul class="multi-column-dropdown">
+											<?php
+												foreach ($this->modelCategorias->menuPanel1() as $items) {
+											?>
 												<li>
-													<a href="product.html">All Mobile Phones</a>
+													<a href="product.html"><?php echo $items->categoria; ?></a>
 												</li>
-												<li>
-													<a href="product.html">All Mobile Accessories</a>
-												</li>
-												<li>
-													<a href="product.html">Cases & Covers</a>
-												</li>
-												<li>
-													<a href="product.html">Screen Protectors</a>
-												</li>
-												<li>
-													<a href="product.html">Power Banks</a>
-												</li>
-												<li>
-													<a href="product.html">All Certified Refurbished</a>
-												</li>
-												<li>
-													<a href="product.html">Tablets</a>
-												</li>
-												<li>
-													<a href="product.html">Wearable Devices</a>
-												</li>
-												<li>
-													<a href="product.html">Smart Home</a>
-												</li>
+												<?php
+													}
+												?>											
 											</ul>
 										</div>
 										<div class="col-sm-6 multi-gd-img">
 											<ul class="multi-column-dropdown">
+											<?php
+												foreach ($this->modelCategorias->menuPanel2() as $items) {
+											?>
 												<li>
-													<a href="product.html">Laptops</a>
+													<a href="product.html"><?php echo $items->categoria; ?></a>
 												</li>
-												<li>
-													<a href="product.html">Drives & Storage</a>
-												</li>
-												<li>
-													<a href="product.html">Printers & Ink</a>
-												</li>
-												<li>
-													<a href="product.html">Networking Devices</a>
-												</li>
-												<li>
-													<a href="product.html">Computer Accessories</a>
-												</li>
-												<li>
-													<a href="product.html">Game Zone</a>
-												</li>
-												<li>
-													<a href="product.html">Software</a>
-												</li>
+												<?php
+													}
+							
+												?>
 											</ul>
 										</div>
 									</div>

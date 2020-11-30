@@ -1,13 +1,15 @@
 <?php
 require_once 'Model/Productos.php';
+require_once 'Model/Categorias.php';
 class HomeController{
     private $model;
 
     public function __CONSTRUCT(){
         $this->model = new Productos();
+        $this->modelCategorias = new Categorias();
     }
 
-    public function Index(){
+    public function Index(){        
         require_once 'views/backend/header.php';
         require_once 'views/backend/home.php';
         require_once 'views/backend/footer.php';

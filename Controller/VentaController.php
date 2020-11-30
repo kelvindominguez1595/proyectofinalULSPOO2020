@@ -60,7 +60,6 @@ class VentaController{
                                     }
                             }
                             // mostramos el mensaje
-
                         }else{
                             $producto = array(
                                 'ID' => $ID,
