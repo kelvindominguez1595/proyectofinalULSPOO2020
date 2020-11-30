@@ -427,19 +427,20 @@
 				<div class="col-lg-3 mt-lg-0 mt-4 p-lg-0">
 					<div class="side-bar p-sm-4 p-3">
 						<div class="search-hotel border-bottom py-2">
-							<h3 class="agileits-sear-head mb-3">Search Here..</h3>
-							<form action="#" method="post">
-								<input type="search" placeholder="Product name..." name="search" required="">
+							<h3 class="agileits-sear-head mb-3">Buscar..</h3>
+							<form action="?view=Productos&action=Busqueda" method="post">
+								<input type="search" placeholder="Product name..." name="buscar" required="">
 								<input type="submit" value=" ">
 							</form>
 						</div>
 						<!-- price -->
 						<div class="range border-bottom py-2">
-							<h3 class="agileits-sear-head mb-3">Price</h3>
+							<h3 class="agileits-sear-head mb-3">Precios</h3>
 							<div class="w3l-range">
+								
 								<ul>
 									<li>
-										<a href="#">Under $1,000</a>
+										<a href="#">El</a>
 									</li>
 									<li class="my-1">
 										<a href="#">$1,000 - $5,000</a>

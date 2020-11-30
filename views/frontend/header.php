@@ -35,6 +35,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<link href="assets/tiendastyles/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
 	<!-- pop-up-box -->
 	<link href="assets/tiendastyles/css/menu.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="assets/vendor/ionRangeSlider/css/ion.rangeSlider.css" rel="stylesheet" type="text/css" media="all" />
 	<!-- menu style -->
 	<!-- //Custom-Files -->
 

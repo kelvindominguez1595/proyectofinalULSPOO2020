@@ -336,18 +336,44 @@
 	<!-- smooth-scrolling-of-move-up -->
 	<script>
 		$(document).ready(function () {
-			/*
+			
 			var defaults = {
 				containerID: 'toTop', // fading element id
 				containerHoverID: 'toTopHover', // fading element hover id
 				scrollSpeed: 1200,
 				easingType: 'linear' 
 			};
-			*/
+			
 			$().UItoTop({
 				easingType: 'easeOutQuart'
 			});
+			// para el range
+			var $d3 = $("#ionrange_1");
+			var fromi = $("#inicio");
+			var tof = $("#fin");
+			
+			$d3.ionRangeSlider({
+			skin: "square",
+			min: 0,
+			max: 1000,
+			type: 'double',
+			from: 10,
+			to: 500,
+			prefix: "$",
+			maxPostfix: "+",
+			prettify: false,
+			hasGrid: true
+			});
 
+			$d3.on("change", function () {
+			var $inp = $(this);
+			var from = $inp.prop("value"); // reading input value
+			var from2 = $inp.data("from"); // reading input data-from attribute
+			var to = $inp.data("to"); // reading input data-from 
+			fromi.val(from2);
+			tof.val(to);
+			//console.log(from, from2); // FROM value
+			});
 		});
 	</script>
 	<!-- //smooth-scrolling-of-move-up -->
@@ -356,6 +382,7 @@
 	<script src="assets/tiendastyles/js/bootstrap.js"></script>
 	<!-- //for bootstrap working -->
 	<!-- //js-files -->
+	<script src="assets/vendor/ionRangeSlider/js/ion.rangeSlider.min.js"></script>
 </body>
 
 </html>
