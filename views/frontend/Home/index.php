@@ -437,8 +437,17 @@
 						<div class="range border-bottom py-2">
 							<h3 class="agileits-sear-head mb-3">Precios</h3>
 							<div class="w3l-range">
-								
-								<ul>
+								<form action="?view=Productos&action=Precio" method="post">
+									<div id="ionrange_1"></div>
+									<input type="hidden" name="inicio" id="inicio">
+									<input type="hidden" name="fin" id="fin">
+									<div class="form-group row">
+										<div class="col-sm-12 text-center">
+											<button class="btn btn-primary" type="submit">Aplicar</button>
+										</div>
+									</div>
+								</form>
+								<!-- <ul>
 									<li>
 										<a href="#">El</a>
 									</li>
@@ -457,7 +466,7 @@
 									<li class="mt-1">
 										<a href="#">Over $30,000</a>
 									</li>
-								</ul>
+								</ul> -->
 							</div>
 						</div>
 						<!-- //price -->
