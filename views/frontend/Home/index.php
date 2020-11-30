@@ -125,7 +125,7 @@
 										</div>
 										<div class="item-info-product text-center border-top mt-4">
 											<h4 class="pt-1">
-												<a href="single.html">
+												<a href="?view=Productos&action=Details&id=<?php echo $item->id_producto;?>">
                                                     <?php echo $item->NombreProducto; ?>
 												</a>
 											</h4>

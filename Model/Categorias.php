@@ -112,6 +112,16 @@ class Categorias{
         }
     }
 
+    public function listarCategoria($id){
+        try{        
+            $commd = $this->DB->prepare("SELECT * FROM  productos WHERE id_categoria = ? ORDER BY fechaCompra ASC");
+            $commd->execute(array($id));
+            return $commd->fetchAll(PDO::FETCH_OBJ);
+        }catch(Throwable $t){
+            die($t->getMessage());
+        }
+    }
+
 
 }
 ?>

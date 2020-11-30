@@ -244,7 +244,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 												foreach ($this->modelCategorias->menuPanel1() as $items) {
 											?>
 												<li>
-													<a href="product.html"><?php echo $items->categoria; ?></a>
+													<a href="?view=Productos&action=Categoria&id=<?php echo $items->id_categoria; ?>"><?php echo $items->categoria; ?></a>
 												</li>
 												<?php
 													}
@@ -257,7 +257,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 												foreach ($this->modelCategorias->menuPanel2() as $items) {
 											?>
 												<li>
-													<a href="product.html"><?php echo $items->categoria; ?></a>
+													<a href="?view=Productos&action=Categoria&id=<?php echo $items->id_categoria; ?>"><?php echo $items->categoria; ?></a>
 												</li>
 												<?php
 													}
