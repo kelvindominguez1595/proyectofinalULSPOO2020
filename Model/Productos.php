@@ -120,8 +120,17 @@ class Productos{
                 return $commd->fetchAll(PDO::FETCH_OBJ);
             }catch(Throwable $t){
                 die($t->getMessage());
-            }
-                
+            }                
+        }
+        // para los resultado del precio
+        public function PreciosResult($inicio, $fin){
+            try{      
+                $commd = $this->DB->prepare("SELECT pro.id_producto, pro.NombreProducto, pro.imagen, pro.cantidad, pro.precioVenta, pro.precioCompra, pro.fechaCompra, pro.detalles, cat.categoria, mar.nombre_marca FROM productos as pro INNER JOIN categorias as cat ON pro.id_categoria = cat.id_categoria INNER JOIN marcas as mar ON  pro.id_marca_producto = mar.id where pro.precioVenta BETWEEN ? AND ?");
+                $commd->execute(array($inicio, $fin));
+                return $commd->fetchAll(PDO::FETCH_OBJ);
+            }catch(Throwable $t){
+                die($t->getMessage());
+            }                
         }
 }
 ?>

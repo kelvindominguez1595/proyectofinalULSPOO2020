@@ -470,176 +470,26 @@
 							</div>
 						</div>
 						<!-- //price -->
-						<!-- discounts -->
+						<!-- Categorias -->
 						<div class="left-side border-bottom py-2">
-							<h3 class="agileits-sear-head mb-3">Discount</h3>
+							<h3 class="agileits-sear-head mb-3">Categorias</h3>
 							<ul>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">5% or More</span>
-								</li>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">10% or More</span>
-								</li>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">20% or More</span>
-								</li>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">30% or More</span>
-								</li>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">50% or More</span>
-								</li>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">60% or More</span>
-								</li>
+								<?php
+								foreach ($this->modelCategorias->ListarCategorias() as $items) {
+								?>
+									<li>
+										<a href="?view=Productos&action=Categoria&id=<?php echo $items->id_categoria; ?>"><?php echo $items->categoria; ?></a>
+									</li>
+								<?php
+									}
+								?>
+				
 							</ul>
 						</div>
-						<!-- //discounts -->
-						<!-- reviews -->
-						<div class="customer-rev border-bottom left-side py-2">
-							<h3 class="agileits-sear-head mb-3">Customer Review</h3>
-							<ul>
-								<li>
-									<a href="#">
-										<i class="fas fa-star"></i>
-										<i class="fas fa-star"></i>
-										<i class="fas fa-star"></i>
-										<i class="fas fa-star"></i>
-										<i class="fas fa-star"></i>
-										<span>5.0</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fas fa-star"></i>
-										<i class="fas fa-star"></i>
-										<i class="fas fa-star"></i>
-										<i class="fas fa-star"></i>
-										<span>4.0</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fas fa-star"></i>
-										<i class="fas fa-star"></i>
-										<i class="fas fa-star"></i>
-										<i class="fas fa-star-half"></i>
-										<span>3.5</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fas fa-star"></i>
-										<i class="fas fa-star"></i>
-										<i class="fas fa-star"></i>
-										<span>3.0</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fas fa-star"></i>
-										<i class="fas fa-star"></i>
-										<i class="fas fa-star-half"></i>
-										<span>2.5</span>
-									</a>
-								</li>
-							</ul>
-						</div>
-						<!-- //reviews -->
-						<!-- electronics -->
-						<div class="left-side border-bottom py-2">
-							<h3 class="agileits-sear-head mb-3">Electronics</h3>
-							<ul>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">Accessories</span>
-								</li>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">Cameras & Photography</span>
-								</li>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">Car & Vehicle Electronics</span>
-								</li>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">Computers & Accessories</span>
-								</li>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">GPS & Accessories</span>
-								</li>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">Headphones</span>
-								</li>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">Home Audio</span>
-								</li>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">Home Theater, TV & Video</span>
-								</li>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">Mobiles & Accessories</span>
-								</li>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">Portable Media Players</span>
-								</li>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">Tablets</span>
-								</li>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">Telephones & Accessories</span>
-								</li>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">Wearable Technology</span>
-								</li>
-							</ul>
-						</div>
-						<!-- //electronics -->
-						<!-- delivery -->
-						<div class="left-side border-bottom py-2">
-							<h3 class="agileits-sear-head mb-3">Cash On Delivery</h3>
-							<ul>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">Eligible for Cash On Delivery</span>
-								</li>
-							</ul>
-						</div>
-						<!-- //delivery -->
-						<!-- arrivals -->
-						<div class="left-side border-bottom py-2">
-							<h3 class="agileits-sear-head mb-3">New Arrivals</h3>
-							<ul>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">Last 30 days</span>
-								</li>
-								<li>
-									<input type="checkbox" class="checked">
-									<span class="span">Last 90 days</span>
-								</li>
-							</ul>
-						</div>
-						<!-- //arrivals -->
+						<!-- //Categorias -->
 						<!-- best seller -->
 						<div class="f-grid py-2">
-							<h3 class="agileits-sear-head mb-3">Best Seller</h3>
+							<h3 class="agileits-sear-head mb-3">Lo + Vendido</h3>
 							<div class="box-scroll">
 								<div class="scroll">
 									<div class="row">
