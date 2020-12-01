@@ -158,7 +158,6 @@
 													</fieldset>
 												</form>
 											</div>
-
 										</div>
 									</div>
                                 </div>
@@ -168,257 +167,66 @@
 						<!-- //first section -->
 						<!-- second section -->
 						<div class="product-sec1 px-sm-4 px-3 py-sm-5  py-3 mb-4">
-							<h3 class="heading-tittle text-center font-italic">Tv & Audio</h3>
+							<h3 class="heading-tittle text-center font-italic">Últimas Marcas</h3>
 							<div class="row">
+								<?php
+								foreach($this->model->latestProductsMarcas() as $item){									
+								?>
 								<div class="col-md-4 product-men mt-5">
 									<div class="men-pro-item simpleCart_shelfItem">
 										<div class="men-thumb-item text-center">
-											<img src="images/m4.jpg" alt="">
+											<img src="assets/img/<?php echo $item->imagen; ?>" alt="" width="200px">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="?view=Productos&action=Details&id=<?php echo $item->id_producto;?>" class="link-product-add-cart">Ver Detalle</a>
 												</div>
 											</div>
-										</div>
-										<div class="item-info-product text-center border-top mt-4">
-											<h4 class="pt-1">
-												<a href="single.html">Sony 80 cm (32 inches)</a>
-											</h4>
-											<div class="info-product-price my-2">
-												<span class="item_price">$320.00</span>
-												<del>$340.00</del>
-											</div>
-											<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-												<form action="#" method="post">
-													<fieldset>
-														<input type="hidden" name="cmd" value="_cart" />
-														<input type="hidden" name="add" value="1" />
-														<input type="hidden" name="business" value=" " />
-														<input type="hidden" name="item_name" value="Sony 80 cm (32 inches)" />
-														<input type="hidden" name="amount" value="320.00" />
-														<input type="hidden" name="discount_amount" value="1.00" />
-														<input type="hidden" name="currency_code" value="USD" />
-														<input type="hidden" name="return" value=" " />
-														<input type="hidden" name="cancel_return" value=" " />
-														<input type="submit" name="submit" value="Add to cart" class="button btn" />
-													</fieldset>
-												</form>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4 product-men mt-5">
-									<div class="men-pro-item simpleCart_shelfItem">
-										<div class="men-thumb-item text-center">
-											<img src="images/m5.jpg" alt="">
-											<div class="men-cart-pro">
-												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
-												</div>
-											</div>
-											<span class="product-new-top">New</span>
+											<span class="product-new-top"><?php echo $item->nombre_marca; ?></span>
 
 										</div>
 										<div class="item-info-product text-center border-top mt-4">
 											<h4 class="pt-1">
-												<a href="single.html">Artis Speaker</a>
+												<a href="?view=Productos&action=Details&id=<?php echo $item->id_producto;?>">
+                                                    <?php echo $item->NombreProducto; ?>
+												</a>
 											</h4>
+											<br>
+												<?php
+													if($item->cantidad <= 5){												
+														echo '<span class="font-italic font-weight-light">Existencia: '.$item->cantidad.'</span>';
+													}
+												?>
 											<div class="info-product-price my-2">
-												<span class="item_price">$349.00</span>
-												<del>$399.00</del>
+												<span class="item_price">$<?php echo number_format($item->precioVenta, 2)?></span>
+												<del>$<?php echo number_format($item->precioCompra, 2)?></del>
 											</div>
 											<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-												<form action="#" method="post">
+												<form action="?view=Venta&action=shopping_cart" method="post">
 													<fieldset>
-														<input type="hidden" name="cmd" value="_cart" />
-														<input type="hidden" name="add" value="1" />
-														<input type="hidden" name="business" value=" " />
-														<input type="hidden" name="item_name" value="Artis Speaker" />
-														<input type="hidden" name="amount" value="349.00" />
-														<input type="hidden" name="discount_amount" value="1.00" />
+														<input type="hidden" name="vista" value="Home&action=Home" />
+                                                        <input type="hidden" name="btnAction" value="Add" />                                                        
+														<input type="hidden" name="stock" value="<?php echo $item->cantidad; ?>" />
+														<input type="hidden" name="producto_id" value="<?php echo $item->id_producto; ?>" />
+														<input type="hidden" name="img_product" value="<?php echo $item->imagen; ?>" />
+														<input type="hidden" name="cantidad" value="1" />
+														<input type="hidden" name="item_name" value="<?php echo $item->NombreProducto; ?>" />
+														<input type="hidden" name="amount" value="<?php echo number_format($item->precioVenta, 2)?>" />
+														<!-- <input type="hidden" name="discount_amount" value="1.00" /> -->
 														<input type="hidden" name="currency_code" value="USD" />
-														<input type="hidden" name="return" value=" " />
-														<input type="hidden" name="cancel_return" value=" " />
-														<input type="submit" name="submit" value="Add to cart" class="button btn" />
-													</fieldset>
-												</form>
-											</div>
-
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4 product-men mt-5">
-									<div class="men-pro-item simpleCart_shelfItem">
-										<div class="men-thumb-item text-center">
-											<img src="images/m6.jpg" alt="">
-											<div class="men-cart-pro">
-												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
-												</div>
-											</div>
-										</div>
-										<div class="item-info-product text-center border-top mt-4">
-											<h4 class="pt-1">
-												<a href="single.html">Philips Speakers</a>
-											</h4>
-											<div class="info-product-price my-2">
-												<span class="item_price">$249.00</span>
-												<del>$300.00</del>
-											</div>
-											<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-												<form action="#" method="post">
-													<fieldset>
-														<input type="hidden" name="cmd" value="_cart" />
-														<input type="hidden" name="add" value="1" />
-														<input type="hidden" name="business" value=" " />
-														<input type="hidden" name="item_name" value="Philips Speakers" />
-														<input type="hidden" name="amount" value="249.00" />
-														<input type="hidden" name="discount_amount" value="1.00" />
-														<input type="hidden" name="currency_code" value="USD" />
-														<input type="hidden" name="return" value=" " />
-														<input type="hidden" name="cancel_return" value=" " />
-														<input type="submit" name="submit" value="Add to cart" class="button btn" />
+														<!-- <input type="hidden" name="return" value=" " />
+														<input type="hidden" name="cancel_return" value=" " /> -->
+												    	<input type="submit" name="submit" value="Add to cart" class="button btn" />
 													</fieldset>
 												</form>
 											</div>
 										</div>
 									</div>
-								</div>
+                                </div>
+								<?php } ?>
+			
 							</div>
 						</div>
-						<!-- //second section -->
-						<!-- third section -->
-						<div class="product-sec1 product-sec2 px-sm-5 px-3">
-							<div class="row">
-								<h3 class="col-md-4 effect-bg">Summer Carnival</h3>
-								<p class="w3l-nut-middle">Get Extra 10% Off</p>
-								<div class="col-md-8 bg-right-nut">
-									<img src="images/image1.png" alt="">
-								</div>
-							</div>
-						</div>
-						<!-- //third section -->
-						<!-- fourth section -->
-						<div class="product-sec1 px-sm-4 px-3 py-sm-5  py-3 mt-4">
-							<h3 class="heading-tittle text-center font-italic">Large Appliances</h3>
-							<div class="row">
-								<div class="col-md-4 product-men mt-5">
-									<div class="men-pro-item simpleCart_shelfItem">
-										<div class="men-thumb-item text-center">
-											<img src="images/m7.jpg" alt="">
-											<div class="men-cart-pro">
-												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
-												</div>
-											</div>
-										</div>
-										<span class="product-new-top">New</span>
-										<div class="item-info-product text-center border-top mt-4">
-											<h4 class="pt-1">
-												<a href="single.html">Whirlpool 245</a>
-											</h4>
-											<div class="info-product-price my-2">
-												<span class="item_price">$230.00</span>
-												<del>$280.00</del>
-											</div>
-											<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-												<form action="#" method="post">
-													<fieldset>
-														<input type="hidden" name="cmd" value="_cart" />
-														<input type="hidden" name="add" value="1" />
-														<input type="hidden" name="business" value=" " />
-														<input type="hidden" name="item_name" value="Whirlpool 245" />
-														<input type="hidden" name="amount" value="230.00" />
-														<input type="hidden" name="discount_amount" value="1.00" />
-														<input type="hidden" name="currency_code" value="USD" />
-														<input type="hidden" name="return" value=" " />
-														<input type="hidden" name="cancel_return" value=" " />
-														<input type="submit" name="submit" value="Add to cart" class="button btn" />
-													</fieldset>
-												</form>
-											</div>
-
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4 product-men mt-5">
-									<div class="men-pro-item simpleCart_shelfItem">
-										<div class="men-thumb-item text-center">
-											<img src="images/m8.jpg" alt="">
-											<div class="men-cart-pro">
-												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
-												</div>
-											</div>
-										</div>
-										<div class="item-info-product text-center border-top mt-4">
-											<h4 class="pt-1">
-												<a href="single.html">BPL Washing Machine</a>
-											</h4>
-											<div class="info-product-price my-2">
-												<span class="item_price">$180.00</span>
-												<del>$200.00</del>
-											</div>
-											<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-												<form action="#" method="post">
-													<fieldset>
-														<input type="hidden" name="cmd" value="_cart" />
-														<input type="hidden" name="add" value="1" />
-														<input type="hidden" name="business" value=" " />
-														<input type="hidden" name="item_name" value="BPL Washing Machine" />
-														<input type="hidden" name="amount" value="180.00" />
-														<input type="hidden" name="discount_amount" value="1.00" />
-														<input type="hidden" name="currency_code" value="USD" />
-														<input type="hidden" name="return" value=" " />
-														<input type="hidden" name="cancel_return" value=" " />
-														<input type="submit" name="submit" value="Add to cart" class="button btn" />
-													</fieldset>
-												</form>
-											</div>
-
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4 product-men mt-5">
-									<div class="men-pro-item simpleCart_shelfItem">
-										<div class="men-thumb-item text-center">
-											<img src="images/m9.jpg" alt="">
-											<div class="men-cart-pro">
-												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
-												</div>
-											</div>
-										</div>
-										<div class="item-info-product text-center border-top mt-4">
-											<h4 class="pt-1">
-												<a href="single.html">Microwave Oven</a>
-											</h4>
-											<div class="info-product-price my-2">
-												<span class="item_price">$199.00</span>
-												<del>$299.00</del>
-											</div>
-											<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-												<form action="#" method="post">
-													<fieldset>
-														<input type="hidden" name="cmd" value="_cart" />
-														<input type="hidden" name="add" value="1" />
-														<input type="hidden" name="business" value=" " />
-														<input type="hidden" name="item_name" value="Microwave Oven" />
-														<input type="hidden" name="amount" value="199.00" />
-														<input type="hidden" name="discount_amount" value="1.00" />
-														<input type="hidden" name="currency_code" value="USD" />
-														<input type="hidden" name="return" value=" " />
-														<input type="hidden" name="cancel_return" value=" " />
-														<input type="submit" name="submit" value="Add to cart" class="button btn" />
-													</fieldset>
-												</form>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- //fourth section -->
+						<!-- //second section -->	
 					</div>
 				</div>
 				<!-- //product left -->
@@ -492,33 +300,21 @@
 							<h3 class="agileits-sear-head mb-3">Lo + Vendido</h3>
 							<div class="box-scroll">
 								<div class="scroll">
+									<?php
+										foreach($this->modelVentas->MasVendidos() as $item ){
+									?>
 									<div class="row">
 										<div class="col-lg-3 col-sm-2 col-3 left-mar">
 											<img src="images/k1.jpg" alt="" class="img-fluid">
 										</div>
 										<div class="col-lg-9 col-sm-10 col-9 w3_mvd">
-											<a href="">Samsung Galaxy On7 Prime (Gold, 4GB RAM + 64GB Memory)</a>
-											<a href="" class="price-mar mt-2">$12,990.00</a>
+											<a href="?view=Productos&action=Details&id=<?php echo $item->id_producto;?>"><?php echo $item->NombreProducto; ?></a>
+											<a href="?view=Productos&action=Details&id=<?php echo $item->id_producto;?>" class="price-mar mt-2"><?php echo number_format($item->precioVenta,2); ?></a>
 										</div>
 									</div>
-									<div class="row my-4">
-										<div class="col-lg-3 col-sm-2 col-3 left-mar">
-											<img src="images/k2.jpg" alt="" class="img-fluid">
-										</div>
-										<div class="col-lg-9 col-sm-10 col-9 w3_mvd">
-											<a href="">Haier 195 L 4 Star Direct-Cool Single Door Refrigerator</a>
-											<a href="" class="price-mar mt-2">$12,499.00</a>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-lg-3 col-sm-2 col-3 left-mar">
-											<img src="images/k3.jpg" alt="" class="img-fluid">
-										</div>
-										<div class="col-lg-9 col-sm-10 col-9 w3_mvd">
-											<a href="">Ambrane 13000 mAh Power Bank (P-1310 Premium)</a>
-											<a href="" class="price-mar mt-2">$1,199.00 </a>
-										</div>
-									</div>
+									<?php
+										}
+									?>
 								</div>
 							</div>
 						</div>

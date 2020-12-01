@@ -111,7 +111,7 @@ class Productos{
                 die($t->getMessage());
             }
         }
-
+  
         public function BuscarProductos($buscar){
             try{       
                 $buscando = "%$buscar%" ;
@@ -132,5 +132,17 @@ class Productos{
                 die($t->getMessage());
             }                
         }
+
+        // ultimos productos marcas
+        public function latestProductsMarcas(){
+            try{        
+                $commd = $this->DB->prepare("SELECT pro.id_producto, pro.NombreProducto, pro.imagen, pro.cantidad, pro.precioVenta, pro.precioCompra, pro.id_marca_producto, pro.fechaCompra, cat.categoria, mar.nombre_marca FROM productos as pro INNER JOIN categorias as cat ON pro.id_categoria = cat.id_categoria INNER JOIN marcas as mar ON  pro.id_marca_producto = mar.id WHERE pro.cantidad > 0 AND pro.id_marca_producto > 0 ORDER BY pro.fechaCompra ASC LIMIT 3");
+                $commd->execute();
+                return $commd->fetchAll(PDO::FETCH_OBJ);
+            }catch(Throwable $t){
+                die($t->getMessage());
+            }
+        }
+        // ultimos productos categorias
 }
 ?>

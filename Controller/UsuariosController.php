@@ -66,7 +66,8 @@ class UsuariosController{
             $this->model->roles_id     = $_REQUEST['roles_id'];
             // extraemo el primer nombre del para el usuario
             $nombre = explode(" ", $_REQUEST['nombres']);
-            $this->model->usuario      = strtolower($nombre[0]);
+            $apellido = explode(" ", $_REQUEST['apellidos']);
+            $this->model->usuario  = strtolower($nombre[0].$apellido[0].date('s'));
 
             $nameImgan = $_FILES['imagen']['name'];
             $typeImagen = $_FILES['imagen']['type'];

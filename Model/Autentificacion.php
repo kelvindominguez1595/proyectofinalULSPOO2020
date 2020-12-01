@@ -17,16 +17,18 @@ class Autentificacion
             die($t->getMessage());
         }
     }
+
     public function Index(){
         session_destroy(); // si existe una sesión activa lo cerramos
         require_once 'views/login/index.php';
     }
+
     public function Validacion($usuario, $clave){
         try{
             // consultamos el usuario si existe
 
-            $userCommd = $this->DB->prepare("SELECT * FROM usuarios WHERE usuario = ?;");
-            $userCommd->execute(array($usuario));
+            $userCommd = $this->DB->prepare("SELECT * FROM usuarios WHERE usuario = ? OR email = ?");
+            $userCommd->execute(array($usuario, $usuario));
             // obtenemos si el usuario existe
             $data = $userCommd->fetch(PDO::FETCH_OBJ);
             $passEncrypt = password_verify($clave, $data->pass);
@@ -40,6 +42,7 @@ class Autentificacion
             die($e->getMessage());
         }
     }
+
     // para crear la sesión del usuario
     public function Sesion($data){
         try{
@@ -56,6 +59,7 @@ class Autentificacion
                     # Entramos al admin template
                     header("Location: ?view=Home");
                 }else{
+                    header("Location: ./");
                     # para otros tipos de cliente
                     $_SESSION['state'] = 'cliente';
                 }
@@ -67,11 +71,17 @@ class Autentificacion
             die($e->getMessage());
         }
     }
+
     public function verificarAuten(){
         if(!isset($_SESSION['state'])){
-            header("Location: ?view=Autentificacion");
+            if($_SESSION['state'] == 'backpack'){
+                header("Location: ?view=Autentificacion");
+            }else{
+                header("Location: ./");
+            }
         }
     }
+
     public function datosUsuariosLogueado($id){
         try{        
             $commd = $this->DB->prepare("SELECT * FROM usuarios WHERE id = ?");

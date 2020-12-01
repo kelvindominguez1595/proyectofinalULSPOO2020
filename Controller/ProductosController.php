@@ -4,12 +4,14 @@ require_once 'Model/Productos.php';
 require_once 'Model/Marcas.php';
 require_once 'Model/Categorias.php';
 require_once 'Model/ImagenDetails.php';
+require_once 'Model/Ventas.php';
 class ProductosController{
     // para accender al modelo y sus atributos
     private $model;
     private $modelMarcas; 
     private $modelCategorias;
     private $modelImagenDetails;
+    private $modelVentas;
 
     // Constructos
     public function __CONSTRUCT(){
@@ -17,6 +19,7 @@ class ProductosController{
         $this->modelMarcas = new Marcas();
         $this->modelCategorias = new Categorias();
         $this->modelImagenDetails = new ImagenDetails();
+        $this->modelVentas = new Ventas();
     }
 
    /** Inicio de llamado de la vistas */
@@ -243,13 +246,14 @@ class ProductosController{
     public function Categoria(){
         // Capturamos el id enviado por get
         $id = $_REQUEST['id'];
-        // crear el metodo para listar un dato especifico
-        $listaProCa = $this->modelCategorias->listarCategoria($id); // obtener los productos por categoria
-        $categoria = $this->modelCategorias->obtenerRegistro($id); // obtener los datos de la categoria
-        require_once 'views/frontend/header.php';
-        require_once 'views/frontend/Categorias/index.php';
-        require_once 'views/frontend/footer.php';
+        // valimos que las marcas no esten seleccionadas 
+            $listaProCa = $this->modelCategorias->listarCategoria($id); // obtener los productos por categoria
+            $categoria = $this->modelCategorias->obtenerRegistro($id); // obtener los datos de la categoria
+            require_once 'views/frontend/header.php';
+            require_once 'views/frontend/Categorias/index.php';
+            require_once 'views/frontend/footer.php';
     }
+    
     public function Busqueda(){
         // Capturamos el id enviado por get
         $buscar = $_REQUEST['buscar'];

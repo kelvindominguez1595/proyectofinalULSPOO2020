@@ -67,7 +67,15 @@ class Ventas{
             header("Location: ?view=".$ruta);
         }
 
-
-
-}
+    // para ver los ultimos productos vendidos 
+    public function MasVendidos(){
+        try{
+            $commd = $this->DB->prepare("SELECT dvt.idproducto, pro.id_producto, pro.NombreProducto, pro.imagen, pro.cantidad, pro.precioVenta, pro.precioCompra, pro.fechaCompra, pro.detalles, cat.categoria, mar.nombre_marca, SUM(dvt.cantidad) as totaventas FROM productos as pro INNER JOIN categorias as cat ON pro.id_categoria = cat.id_categoria INNER JOIN marcas as mar ON  pro.id_marca_producto = mar.id INNER JOIN  detalle_venta_producto as dvt on pro.id_producto = dvt.idproducto group by idproducto order by SUM(dvt.cantidad) DESC");
+            $commd->execute();
+            return $commd->fetchAll(PDO::FETCH_OBJ);
+        }catch(Throwable $t){
+            die($t->getMessage());
+        }
+    }
+    }
 ?>

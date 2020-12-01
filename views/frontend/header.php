@@ -67,15 +67,43 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</li>
 						<li class="text-center border-right text-white">
 							<!-- <i class="fas fa-phone mr-2"></i> 001 234 5678 -->
+							Bienvenid@
 						</li>
-						<li class="text-center border-right text-white">
-							<a href="#" data-toggle="modal" data-target="#exampleModal" class="text-white">
-								<i class="fas fa-sign-in-alt mr-2"></i> Log In </a>
-						</li>
-						<li class="text-center text-white">
-							<a href="#" data-toggle="modal" data-target="#exampleModal2" class="text-white">
-								<i class="fas fa-sign-out-alt mr-2"></i>Register </a>
-						</li>
+
+						<?php
+							if(isset($_SESSION['state'])){
+						?>
+							<li class="text-center border-right text-white">
+								<a href="#" data-toggle="modal" data-target="#exampleModal2" class="text-white">
+								<i class="fas fa-user mr-2"></i>
+								<?php  
+								            $nombre = explode(" ", $_SESSION['nombres']);
+											$apellido = explode(" ", $_SESSION['apellidos']);
+											echo $nombre[0]." ".$apellido[0];
+								?>
+								</a>
+							</li>
+							<li class="text-center  text-white">
+								<a href="#" data-toggle="modal" data-target="#exampleModal" class="text-white">
+								<i class="fas fa-sign-in-alt mr-2"></i> Cerrar Sesión </a>
+							</li>
+			
+								<?php
+					
+											//echo $_SESSION['state'];
+										}else{
+									?>
+							<li class="text-center  text-white">
+								<a href="#" data-toggle="modal" data-target="#exampleModal" class="text-white">
+								<i class="fas fa-sign-in-alt mr-2"></i> Iniciar Sesión </a>
+							</li>
+								<li class="text-center text-white">
+									<a href="#" data-toggle="modal" data-target="#exampleModal2" class="text-white">
+										<i class="fas fa-sign-out-alt mr-2"></i>Register
+
+										</a>
+									</li>
+							<?php } ?>
 					</ul>
 					<!-- //header lists -->
 				</div>
@@ -114,7 +142,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</div>
 						<p class="text-center dont-do mt-3">Don't have an account?
 							<a href="#" data-toggle="modal" data-target="#exampleModal2">
-								Register Now</a>
+								Register Now
+								</a>
 						</p>
 					</form>
 				</div>
@@ -126,24 +155,29 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title">Register</h5>
+					<h5 class="modal-title">Registrar</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="#" method="post">
+					<form action="?view=Clientes&action=CrearUsuario" method="post">
 						<div class="form-group">
-							<label class="col-form-label">Your Name</label>
-							<input type="text" class="form-control" placeholder=" " name="Name" required="">
+							<label class="col-form-label">Nombres</label>
+							<input type="text" class="form-control" placeholder=" " name="nombres" required="">
 						</div>
 						<div class="form-group">
+							<label class="col-form-label">Apellidos</label>
+							<input type="text" class="form-control" placeholder=" " name="apellidos" required="">
+						</div>
+					
+						<div class="form-group">
 							<label class="col-form-label">Email</label>
-							<input type="email" class="form-control" placeholder=" " name="Email" required="">
+							<input type="email" class="form-control" placeholder=" " name="email" required="">
 						</div>
 						<div class="form-group">
 							<label class="col-form-label">Password</label>
-							<input type="password" class="form-control" placeholder=" " name="Password" id="password1" required="">
+							<input type="password" class="form-control" placeholder=" " name="pass" id="password1" required="">
 						</div>
 						<div class="form-group">
 							<label class="col-form-label">Confirm Password</label>

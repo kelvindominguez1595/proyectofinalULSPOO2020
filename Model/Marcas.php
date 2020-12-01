@@ -31,7 +31,7 @@ class Marcas{
             die($t->getMessage());
         }
     }
-    // Metodo para listar los roles
+    // Metodo para listar los Marcas
     public function ListarMarcas(){
         try{        
             $commd = $this->DB->prepare("SELECT * FROM marcas");
@@ -41,6 +41,16 @@ class Marcas{
             die($t->getMessage());
         }
     }
+
+    // public function listarPorMarcas($Consulta){
+    //     try{      
+    //         $commd = $this->DB->prepare("SELECT pro.id_producto, pro.NombreProducto, pro.imagen,pro.cantidad, pro.precioVenta,pro.precioCompra, pro.fechaCompra, pro.detalles,cat.categoria, mar.nombre_marca FROM productos as pro INNER JOIN categorias as cat ON pro.id_categoria = cat.id_categoria INNER JOIN marcas as mar ON  pro.id_marca_producto = mar.id WHERE ?");
+    //         $commd->execute(array($Consulta));
+    //        return $commd->fetchAll(PDO::FETCH_OBJ);
+    //     }catch(Throwable $t){
+    //         die($t->getMessage());
+    //     }
+    // }
 
     // Metodo para obtener un registro en especifico
     public function obtenerRegistro($id){
