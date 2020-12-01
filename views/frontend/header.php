@@ -65,14 +65,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<!-- <a href="#" data-toggle="modal" data-target="#exampleModal" class="text-white">
 								<i class="fas fa-truck mr-2"></i>Track Order</a> -->
 						</li>
-						<li class="text-center border-right text-white">
-							<!-- <i class="fas fa-phone mr-2"></i> 001 234 5678 -->
-							Bienvenid@
-						</li>
+	
 
 						<?php
 							if(isset($_SESSION['state'])){
 						?>
+						<li class="text-center border-right text-white">
+							<!-- <i class="fas fa-phone mr-2"></i> 001 234 5678 -->
+							Bienvenid@
+						</li>
 							<li class="text-center border-right text-white">
 								<a href="#" data-toggle="modal" data-target="#exampleModal2" class="text-white">
 								<i class="fas fa-user mr-2"></i>
@@ -84,19 +85,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</a>
 							</li>
 							<li class="text-center  text-white">
-								<a href="#" data-toggle="modal" data-target="#exampleModal" class="text-white">
+								<a href="?view=Clientes&action=CerrarSesion"  class="text-white">
 								<i class="fas fa-sign-in-alt mr-2"></i> Cerrar Sesión </a>
-							</li>
-			
-								<?php
-					
-											//echo $_SESSION['state'];
-										}else{
-									?>
-							<li class="text-center  text-white">
+							</li>			
+						<?php
+							}else{
+						?>
+											<li class="text-center border-right text-white">
+							<!-- <a href="#" data-toggle="modal" data-target="#exampleModal" class="text-white">
+								<i class="fas fa-truck mr-2"></i>Track Order</a> -->
+						</li>
+
+						<li class="text-center border-right text-white">
 								<a href="#" data-toggle="modal" data-target="#exampleModal" class="text-white">
 								<i class="fas fa-sign-in-alt mr-2"></i> Iniciar Sesión </a>
 							</li>
+
 								<li class="text-center text-white">
 									<a href="#" data-toggle="modal" data-target="#exampleModal2" class="text-white">
 										<i class="fas fa-sign-out-alt mr-2"></i>Register
@@ -116,20 +120,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title text-center">Log In</h5>
+					<h5 class="modal-title text-center">Iniciar Sesión</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="#" method="post">
+					<form action="?view=Clientes&action=autentificar" method="post">
 						<div class="form-group">
 							<label class="col-form-label">Username</label>
-							<input type="text" class="form-control" placeholder=" " name="Name" required="">
+							<input type="text" class="form-control" placeholder=" " name="usuario" required="">
 						</div>
 						<div class="form-group">
 							<label class="col-form-label">Password</label>
-							<input type="password" class="form-control" placeholder=" " name="Password" required="">
+							<input type="password" class="form-control" placeholder=" " name="password" required="">
 						</div>
 						<div class="right-w3l">
 							<input type="submit" class="form-control" value="Log in">

@@ -54,10 +54,6 @@ class ClientesController{
             }
     }
 
-    public function Index(){
-        session_destroy(); // si existe una sesión activa lo cerramos
-        require_once 'views/backend/login/index.php';
-    }
     // Vamos enviar los parametros a nuestro modelo
 
     public function autentificar(){
