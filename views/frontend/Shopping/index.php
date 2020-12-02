@@ -48,8 +48,9 @@
                     }
                     ?> Productos</span>
                 </h4>
+				<form action="?view=Productos&action=Pagar" method="POST">
 				<div class="table-responsive">
-                    <?php  if(!empty($_SESSION['carrito'])) { ?>
+					<?php  if(!empty($_SESSION['carrito'])) { ?>
 					<table class="timetable_sub">
 						<thead>
 							<tr>
@@ -77,11 +78,12 @@
 								</td>
 								<td class="invert">
 									<div class="quantity">
-										<div class="quantity-select">
-								
+										<div class="quantity-select">								
 											<a href="?view=Venta&action=shopping_cart&producto_id=<?php echo $item["ID"]; ?>&btnAction=Restar" class="entry value-minus active">&nbsp;</a>	
 											<div class="entry value">
 												<span><?php echo $item["cantidad"];?></span>
+												<input type="hidden" name="cantidad[]" value="<?php echo $item["cantidad"];?>">
+												<input type="hidden" name="producto_id[]" value="<?php echo $item["ID"];?>">
 											</div>			
 											<a href="?view=Venta&action=shopping_cart&producto_id=<?php echo $item["ID"]; ?>&btnAction=plus" class="entry value-plus active">&nbsp;</a>								
 								
@@ -118,14 +120,29 @@
                             <tr>
                                 <td colspan="4" class="text-right"><h3>Total</h3></td>
                                 <td>
-                                    $ <?php 
-                                
-                                        echo number_format($total, 2);
-                                    ?>
+                                    $ <?php echo number_format($total, 2); ?>
+									<input type="hidden" name="totalVenta" value="<?php echo number_format($total, 2); ?>">
                                 </td>
                             </tr>
                         </tfoot>
-                    </table>
+				</table>
+					<?php
+							if(isset($_SESSION['state'])){
+						?>
+					<div class="checkout-right-basket">
+						<button class="btn btn-primary" type="submit">
+							Realizar pago <span class="far fa-hand-point-right"></span>
+						</button>
+					</div>
+					</form>
+					<?php }else{ ?>
+						<div class="checkout-right-basket">
+							<h5>Debe iniciar sesión para realizar el pago</h5>
+								<a href="#" data-toggle="modal" data-target="#exampleModal" class="text-white"><i class="fas fa-sign-in-alt mr-2"></i> Iniciar Sesión </a>
+								<a href="#" data-toggle="modal" data-target="#exampleModal2" class="text-white"><i class="fas fa-sign-out-alt mr-2"></i>Register </a>
+					</div>
+					<?php } ?>
+		
                     <?php }else{ ?>
                         <div class="alert alert-success" role="alert">
                                 No hay Productos! 😳
@@ -133,7 +150,7 @@
                     <?php } ?>
 				</div>
 			</div>
-			<div class="checkout-left">
+			<!-- <div class="checkout-left">
 				<div class="address_form_agile mt-sm-5 mt-4">
 					<h4 class="mb-sm-4 mb-3">Add a new Details</h4>
 					<form action="payment.html" method="post" class="creditly-card-form agileinfo_form">
@@ -172,13 +189,9 @@
 							</div>
 						</div>
 					</form>
-					<div class="checkout-right-basket">
-						<a href="payment.html">Make a Payment
-							<span class="far fa-hand-point-right"></span>
-						</a>
-					</div>
+
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<!-- //checkout page -->

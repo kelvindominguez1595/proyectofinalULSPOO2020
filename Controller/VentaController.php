@@ -9,6 +9,7 @@ class VentaController{
         $this->model = new Ventas();
     }
 
+
     // metodo para agregar y quitar productos del carrito de compras
     public function shopping_cart(){
         if(isset($_REQUEST['btnAction'])){
@@ -137,5 +138,7 @@ class VentaController{
             }
         }
     }
+
+
 } 
 ?>

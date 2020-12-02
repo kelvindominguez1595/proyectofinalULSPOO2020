@@ -18,26 +18,6 @@ class Ventas{
             die($t->getMessage());
         }
     }
-
-    public function RegistrarUsuario($data){
-        // try{
-            // Comando SQL
-            $sql = "INSERT INTO usuarios(nombres, apellidos, direccion, email, usuario, pass, sexo, telefono, imagen, roles_id) VALUES(?,?,?,?,?,?,?,?,?,?)";
-            // Encriptamos la contraseña con md5
-            $passEncrypt = password_hash($data->pass, PASSWORD_BCRYPT);
-            // COMENZAMOS LA CONEXION CON PDO
-            $pre = $this->DB->prepare($sql);
-            $resul = $pre->execute(array($data->nombres, $data->apellidos, $data->direccion, $data->email, $data->usuario, $passEncrypt, $data->sexo, $data->telefono, $data->imagen, $data->roles_id));
-            return $resul;
-            // if($resul > 0){ 
-            //     return true;
-            // }else{ 
-            //     return false;
-            // }
-        // }catch(Throwable $t){
-        //     die($t->getMessage());
-        // }
-    }
     // Metodo para listar los roles
     public function ListarUsuarios(){
         try{        
@@ -76,6 +56,44 @@ class Ventas{
         }catch(Throwable $t){
             die($t->getMessage());
         }
-    }
-    }
+     }
+
+     // Para registrar la venta del producto que lleva
+
+     public function datosVenta($data){
+        try{
+            // Comando SQL
+            $sql = "INSERT INTO ventas(id_usuario, key_pago ) VALUES(?,?)";
+            // COMENZAMOS LA CONEXION CON PDO    
+            $pre = $this->DB->prepare($sql);
+            $resul = $pre->execute(array($data->id_usuario, $data->key_pago));
+            if($resul > 0){ 
+                // para obtener el ultimo id del registro con PDO
+                return $this->DB->lastInsertId();
+            }else{ 
+                return "";
+            }
+        }catch(Throwable $t){
+            die($t->getMessage());
+        }
+     }
+
+     public function detalleVenta($data){
+        try{
+            // Comando SQL
+            $sql = "INSERT INTO detalle_venta_producto(idventa, idproducto, cantidad, descuento) VALUES(?,?,?,?)";
+            // COMENZAMOS LA CONEXION CON PDO
+            $pre = $this->DB->prepare($sql);
+            $resul = $pre->execute(array($data->idventa, $data->idproducto, $data->cantidad, $data->descuento));
+            return $resul;
+            if($resul > 0){ 
+                return true;
+            }else{ 
+                return false;
+            }
+        }catch(Throwable $t){
+            die($t->getMessage());
+        }
+     }
+}
 ?>

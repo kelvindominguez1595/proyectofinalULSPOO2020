@@ -273,6 +273,15 @@ class ProductosController{
         require_once 'views/frontend/header.php';
         require_once 'views/frontend/Shopping/Precio.php';
         require_once 'views/frontend/footer.php';
+        require_once 'views/frontend/payment.php';
+    }
+
+    public function Pagar(){
+        // Mostramos la vista donde podra realizar el pago via paypal
+        require_once 'views/frontend/header.php';
+        require_once 'views/frontend/Shopping/Pagos.php';
+        require_once 'views/frontend/footer.php';
+    
     }
 }
 ?>

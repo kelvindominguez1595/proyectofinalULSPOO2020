@@ -73,8 +73,8 @@ class Autentificacion
     }
 
     public function verificarAuten(){
-        if(!isset($_SESSION['state'])){
-            if($_SESSION['state'] == 'backpack'){
+        if(!isset($_SESSION['roles_id'])){
+            if($_SESSION['roles_id'] != 4){
                 header("Location: ?view=Autentificacion");
             }else{
                 header("Location: ./");
