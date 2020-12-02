@@ -30,7 +30,7 @@
 				<div class="jumbotron text-center">
 				<h1 class="display-4">¡Paso Final !</h1>
 				<hr class="my-4">
-				<p class="lead">Esta a punto de pagar con paypal la cantidad de: <h4>$300</h4> </p>
+				<p class="lead">Esta a punto de pagar con paypal la cantidad de: <h4><?php echo $totalVenta; ?></h4> </p>
 				<p class="lead">
 					<div id="paypal-button"></div>
 				</p>

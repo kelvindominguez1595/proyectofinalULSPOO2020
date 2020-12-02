@@ -4,7 +4,7 @@ class Ventas{
     private $DB; // para la conexion de la base de datos
     public $id_venta;
     public $id_usuario;
-    public $fechaCompra;
+    public $key_pago;
     // detalle venta
     public $idventa;
     public $idproducto;
@@ -93,6 +93,25 @@ class Ventas{
             }
         }catch(Throwable $t){
             die($t->getMessage());
+        }
+     }
+
+     public function DesCantidadProducto($data){
+        $commd = $this->DB->prepare("SELECT * FROM productos WHERE id_producto = ?");
+        $commd->execute(array($data->idproducto));
+        $pro = $commd->fetch(PDO::FETCH_OBJ);
+        // metodo para hacer descuento de producto
+        $can = $pro->cantidad - $data->cantidad;
+        // // metodo para actualizar los datos
+        // // Comando SQL
+        $sql = "UPDATE productos SET cantidad = ? WHERE id_producto = ?";
+        // COMENZAMOS LA CONEXION CON PDO
+        $pre = $this->DB->prepare($sql);
+        $resul = $pre->execute(array($can, $data->idproducto));
+        if($resul > 0){ 
+            return true;
+        }else{ 
+            return false;
         }
      }
 }

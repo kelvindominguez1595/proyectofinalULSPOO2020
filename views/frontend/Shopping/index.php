@@ -28,7 +28,6 @@
 			</h3>
 			<!-- //tittle heading -->
 			<div class="checkout-right">
-
 			<?php if(isset($_SESSION['texto'])){?>
 				<div class="alert alert-<?php if($_SESSION['tipo'] == "success"){ echo "success";}else{echo "danger"; }?> alert-dismissible fade show" role="alert">
 				<strong>                   
@@ -50,6 +49,7 @@
                 </h4>
 				<form action="?view=Productos&action=Pagar" method="POST">
 				<div class="table-responsive">
+					<input type="hidden" name="usuario_id" id="" value="<?php if(isset($_SESSION['id'])){ echo $_SESSION['id']; } ?>">
 					<?php  if(!empty($_SESSION['carrito'])) { ?>
 					<table class="timetable_sub">
 						<thead>
@@ -82,15 +82,18 @@
 											<a href="?view=Venta&action=shopping_cart&producto_id=<?php echo $item["ID"]; ?>&btnAction=Restar" class="entry value-minus active">&nbsp;</a>	
 											<div class="entry value">
 												<span><?php echo $item["cantidad"];?></span>
-												<input type="hidden" name="cantidad[]" value="<?php echo $item["cantidad"];?>">
-												<input type="hidden" name="producto_id[]" value="<?php echo $item["ID"];?>">
+												<input type="hidden" name="cantidadpro[]" id="cantidadpro" value="<?php echo $item["cantidad"];?>">
+												
 											</div>			
 											<a href="?view=Venta&action=shopping_cart&producto_id=<?php echo $item["ID"]; ?>&btnAction=plus" class="entry value-plus active">&nbsp;</a>								
 								
 										</div>
 									</div>
 								</td>
-								<td class="invert"><?php echo $item["producto"]; ?></td>
+								<td class="invert">
+									<?php echo $item["producto"]; ?>
+									<input type="hidden" name="idproducto[]" name="idproducto" value="<?php echo $item["ID"];?>">
+								</td>
                                 <td class="invert">$ 
                                     <?php
                                     $subtotal = ($item['precio'] * $item['cantidad']);

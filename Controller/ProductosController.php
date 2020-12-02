@@ -277,6 +277,24 @@ class ProductosController{
     }
 
     public function Pagar(){
+        // para guardar en la tabla ventas
+        $this->modelVentas->id_usuario = $_REQUEST['usuario_id'];
+        $this->modelVentas->key_pago = "0";
+        $ventas = $this->modelVentas->datosVenta($this->modelVentas);
+        $this->modelVentas->idventa = $ventas; // para poder registrar en el detalle
+        foreach ($_REQUEST['idproducto'] as $key => $value) {
+            # para actualizar los productos de la cantidad
+            $this->modelVentas->idproducto = $_REQUEST['idproducto'][$key];
+            $this->modelVentas->cantidad = $_REQUEST['cantidadpro'][$key];
+            $this->modelVentas->descuento = 0;
+            $this->modelVentas->DesCantidadProducto($this->modelVentas);
+            // para registrar los productos en el detalle            
+           $res = $this->modelVentas->detalleVenta($this->modelVentas);
+        }
+        if($res){
+            unset($_SESSION['carrito']);
+        }
+        $totalVenta = $_REQUEST['totalVenta']; // mostrar el total a pagar
         // Mostramos la vista donde podra realizar el pago via paypal
         require_once 'views/frontend/header.php';
         require_once 'views/frontend/Shopping/Pagos.php';
