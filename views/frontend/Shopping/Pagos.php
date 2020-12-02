@@ -86,8 +86,8 @@
     // Configure environment
     env: 'sandbox',
     client: {
-      sandbox: 'demo_sandbox_client_id',
-      production: 'demo_production_client_id'
+      sandbox: 'AfCWJAwzF_iLlf4nebbVhZAZIT4LFSIfA5oi9DdkK-cqi8SacPp71ZOGPFnWOXbKF4KysZpqobLA0U1F',
+      production: 'AeuCPo427BUAfKK2ep8FkFtwuyp2K3-1IyLi0moHDhlmq5LLMpKOgZjzePyCfhWWNO5ByCsAtASQH24M'
     },
     // Customize button (optional)
     locale: 'en_US',
@@ -105,7 +105,7 @@
       return actions.payment.create({
         transactions: [{
           amount: {
-            total: '0.01',
+            total: '<?php echo $totalVenta; ?>',
             currency: 'USD'
           }
         }]
