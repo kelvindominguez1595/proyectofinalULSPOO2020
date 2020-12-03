@@ -42,5 +42,10 @@ class HomeController{
         require_once 'views/frontend/Contacto/index.php';
         require_once 'views/frontend/footer.php';
     }
+    public function Acerca(){
+        require_once 'views/frontend/header.php';
+        require_once 'views/frontend/Home/acerca.php';
+        require_once 'views/frontend/footer.php';
+    }
 }
 ?>

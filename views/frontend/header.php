@@ -310,11 +310,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</li>
 	
 						<li class="nav-item mr-lg-2 mb-lg-0 mb-2">
-							<a class="nav-link" href="about.html">Sobre Nosotros</a>
+							<a class="nav-link" href="?view=Home&action=Acerca">Sobre Nosotros</a>
 						</li>
-						<li class="nav-item mr-lg-2 mb-lg-0 mb-2">
+						<!-- <li class="nav-item mr-lg-2 mb-lg-0 mb-2">
 							<a class="nav-link" href="product.html">Nuevos productos</a>
-						</li>
+						</li> -->
 			
 						<li class="nav-item">
 							<a class="nav-link" href="?view=Home&action=Contacto">Contáctanos</a>
