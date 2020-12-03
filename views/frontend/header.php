@@ -317,7 +317,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</li>
 			
 						<li class="nav-item">
-							<a class="nav-link" href="contact.html">Contáctanos</a>
+							<a class="nav-link" href="?view=Home&action=Contacto">Contáctanos</a>
 						</li>
 					</ul>
 				</div>

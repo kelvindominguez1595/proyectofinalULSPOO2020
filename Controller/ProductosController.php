@@ -311,10 +311,9 @@ class ProductosController{
         $this->modelVentas->paymentID = $_REQUEST['paymentID'];
         $this->modelVentas->paymentToken = $_REQUEST['paymentToken'];
         if($this->modelVentas->ventaPaypal($this->modelVentas)){
-            header("Location: ./"); 
             $texto = "La compra se realizo correctamente";
             $tipo = "success";
-            $ruta = "Home";
+            $ruta = "Home&action=Home";
             $this->model->SesionesMessage($texto, $tipo, $ruta);
         }
 
