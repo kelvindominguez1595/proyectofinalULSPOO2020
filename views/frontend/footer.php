@@ -163,85 +163,14 @@
 		<!-- //footer third section -->
 
 		<!-- footer fourth section -->
-		<div class="agile-sometext py-md-5 py-sm-4 py-3">
-			<div class="container">
-				<!-- brands -->
-				<div class="sub-some mt-4">
-					<h5 class="font-weight-bold mb-2">Computadoras :</h5>
-					<ul>
-						<li class="m-sm-1">
-							<a href="product.html" class="border-right pr-2">Laptops </a>
-						</li>
-						<li class="m-sm-1">
-							<a href="product.html" class="border-right pr-2">Printers</a>
-						</li>
-						<li class="m-sm-1">
-							<a href="product.html" class="border-right pr-2">Routers</a>
-						</li>
-						<li class="m-sm-1">
-							<a href="product.html" class="border-right pr-2">Ink & Toner Cartridges</a>
-						</li>
-						<li class="m-sm-1">
-							<a href="product.html" class="border-right pr-2">Monitors</a>
-						</li>
-						<li class="m-sm-1">
-							<a href="product.html" class="border-right pr-2">Video Games</a>
-						</li>
-						<li class="m-sm-1">
-							<a href="product.html" class="border-right pr-2">Unboxed & Refurbished Laptops</a>
-						</li>
-						<li>
-							<a href="product.html" class="border-right pr-2">Assembled Desktops</a>
-						</li>
-						<li class="m-sm-1">
-							<a href="product2.html" class="border-right pr-2">Data Cards</a>
-						</li>
-					</ul>
-				</div>
-				<!-- //brands -->
-				<!-- payment -->
-				<div class="sub-some child-momu mt-4">
-					<h5 class="font-weight-bold mb-3">Métodos de pago</h5>
-					<ul>
-						<li>
-							<img src="assets/tiendastyles/images/pay2.png" alt="">
-						</li>
-						<li>
-							<img src="assets/tiendastyles/images/pay5.png" alt="">
-						</li>
-						<li>
-							<img src="assets/tiendastyles/images/pay1.png" alt="">
-						</li>
-						<li>
-							<img src="assets/tiendastyles/images/pay4.png" alt="">
-						</li>
-						<li>
-							<img src="assets/tiendastyles/images/pay6.png" alt="">
-						</li>
-						<li>
-							<img src="assets/tiendastyles/images/pay3.png" alt="">
-						</li>
-						<li>
-							<img src="assets/tiendastyles/images/pay7.png" alt="">
-						</li>
-						<li>
-							<img src="assets/tiendastyles/images/pay8.png" alt="">
-						</li>
-						<li>
-							<img src="assets/tiendastyles/images/pay9.png" alt="">
-						</li>
-					</ul>
-				</div>
-				<!-- //payment -->
-			</div>
-		</div>
+
 		<!-- //footer fourth section (text) -->
 	</footer>
 	<!-- //footer -->
 	<!-- copyright -->
 	<div class="copy-right py-3">
 		<div class="container">
-			<p class="text-center text-white">© 2018 Electro Store. All rights reserved | Design by
+			<p class="text-center text-white">© 2020 Tienda Informatica Jerusalen. All rights reserved | Design by
 				<a href="http://w3layouts.com"> W3layouts.</a>
 			</p>
 		</div>
