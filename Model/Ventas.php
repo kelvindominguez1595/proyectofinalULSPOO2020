@@ -4,7 +4,10 @@ class Ventas{
     private $DB; // para la conexion de la base de datos
     public $id_venta;
     public $id_usuario;
-    public $key_pago;
+    public $orderID;
+    public $payerID;
+    public $paymentID;
+    public $paymentToken;
     // detalle venta
     public $idventa;
     public $idproducto;
@@ -63,10 +66,10 @@ class Ventas{
      public function datosVenta($data){
         try{
             // Comando SQL
-            $sql = "INSERT INTO ventas(id_usuario, key_pago ) VALUES(?,?)";
+            $sql = "INSERT INTO ventas(id_usuario, orderID, payerID, paymentID, paymentToken ) VALUES(?,?,?,?,?)";
             // COMENZAMOS LA CONEXION CON PDO    
             $pre = $this->DB->prepare($sql);
-            $resul = $pre->execute(array($data->id_usuario, $data->key_pago));
+            $resul = $pre->execute(array($data->id_usuario, $data->orderID, $data->payerID, $data->paymentID, $data->paymentToken));
             if($resul > 0){ 
                 // para obtener el ultimo id del registro con PDO
                 return $this->DB->lastInsertId();
@@ -108,6 +111,18 @@ class Ventas{
         // COMENZAMOS LA CONEXION CON PDO
         $pre = $this->DB->prepare($sql);
         $resul = $pre->execute(array($can, $data->idproducto));
+        if($resul > 0){ 
+            return true;
+        }else{ 
+            return false;
+        }
+     }
+
+     public function ventaPaypal($data){
+        $sql = "UPDATE ventas SET orderID = ?, payerID = ?, paymentID = ?, paymentToken = ? WHERE id_venta = ?";
+        // COMENZAMOS LA CONEXION CON PDO
+        $pre = $this->DB->prepare($sql);
+        $resul = $pre->execute(array($data->orderID, $data->payerID, $data->paymentID, $data->paymentToken, $data->id_venta));
         if($resul > 0){ 
             return true;
         }else{ 

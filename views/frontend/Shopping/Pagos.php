@@ -30,7 +30,7 @@
 				<div class="jumbotron text-center">
 				<h1 class="display-4">¡Paso Final !</h1>
 				<hr class="my-4">
-				<p class="lead">Esta a punto de pagar con paypal la cantidad de: <h4><?php echo $totalVenta; ?></h4> </p>
+				<p class="lead">Esta a punto de pagar con paypal la cantidad de: <h4>$<?php echo $totalVenta; ?></h4> </p>
 				<p class="lead">
 					<div id="paypal-button"></div>
 				</p>
@@ -107,7 +107,9 @@
           amount: {
             total: '<?php echo $totalVenta; ?>',
             currency: 'USD'
-          }
+          },
+		  description: 'Productos Tienda Jerusalen: $<?php echo $totalVenta; ?>',
+		  custom: '<?php echo $ventas; ?>'
         }]
       });
     },
@@ -115,7 +117,9 @@
     onAuthorize: function(data, actions) {
       return actions.payment.execute().then(function() {
         // Show a confirmation message to the buyer
-        window.alert('Thank you for your purchase!');
+       // window.alert('Thank you for your purchase!');
+		console.log(data);
+		window.location = "?view=Productos&action=ValidarPago&id_venta=<?php echo $ventas; ?>&orderID="+data.orderID+"&payerID="+data.payerID+"&paymentID="+data.paymentID+"&paymentToken="+data.paymentToken;
       });
     }
   }, '#paypal-button');

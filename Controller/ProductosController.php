@@ -279,7 +279,10 @@ class ProductosController{
     public function Pagar(){
         // para guardar en la tabla ventas
         $this->modelVentas->id_usuario = $_REQUEST['usuario_id'];
-        $this->modelVentas->key_pago = "0";
+        $this->modelVentas->orderID = 0;
+        $this->modelVentas->payerID = 0;
+        $this->modelVentas->paymentID = 0;
+        $this->modelVentas->paymentToken = 0;
         $ventas = $this->modelVentas->datosVenta($this->modelVentas);
         $this->modelVentas->idventa = $ventas; // para poder registrar en el detalle
         foreach ($_REQUEST['idproducto'] as $key => $value) {
@@ -298,8 +301,23 @@ class ProductosController{
         // Mostramos la vista donde podra realizar el pago via paypal
         require_once 'views/frontend/header.php';
         require_once 'views/frontend/Shopping/Pagos.php';
-        require_once 'views/frontend/footer.php';
-    
+        require_once 'views/frontend/footer.php';    
+    }
+
+    public function ValidarPago(){
+        $this->modelVentas->id_venta = $_REQUEST['id_venta'];
+        $this->modelVentas->orderID = $_REQUEST['orderID'];
+        $this->modelVentas->payerID = $_REQUEST['payerID'];
+        $this->modelVentas->paymentID = $_REQUEST['paymentID'];
+        $this->modelVentas->paymentToken = $_REQUEST['paymentToken'];
+        if($this->modelVentas->ventaPaypal($this->modelVentas)){
+            header("Location: ./"); 
+            $texto = "La compra se realizo correctamente";
+            $tipo = "success";
+            $ruta = "Home";
+            $this->model->SesionesMessage($texto, $tipo, $ruta);
+        }
+
     }
 }
 ?>
