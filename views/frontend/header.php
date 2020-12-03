@@ -212,7 +212,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="col-md-3 logo_agile">
 					<h1 class="text-center">
 						<a href="./" class="font-weight-bold font-italic">
-							<img src="images/logo2.png" alt=" " class="img-fluid">TIJ
+							<img src="assets/tiendastyles/images/logo2.jpg" alt=" " class="img-fluid">TIJ
 						</a>
 					</h1>
 				</div>

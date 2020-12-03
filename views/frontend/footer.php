@@ -60,7 +60,7 @@
 								<a href="product.html">Mobiles </a>
 							</li>
 							<li class="mb-3">
-								<a href="product.html">Computers</a>
+								<a href="product.html">Computadoras</a>
 							</li>
 							<li class="mb-3">
 								<a href="product.html">TV, Audio</a>
@@ -69,10 +69,10 @@
 								<a href="product2.html">Smartphones</a>
 							</li>
 							<li class="mb-3">
-								<a href="product.html">Washing Machines</a>
+								<a href="product.html">Hardware</a>
 							</li>
 							<li>
-								<a href="product2.html">Refrigerators</a>
+								<a href="product2.html">Componentes</a>
 							</li>
 						</ul>
 					</div>
@@ -82,22 +82,22 @@
 						<h3 class="text-white font-weight-bold mb-3">Enlaces rápidos</h3>
 						<ul>
 							<li class="mb-3">
-								<a href="about.html">About Us</a>
+								<a href="about.html">Acerca de Nosotros</a>
 							</li>
 							<li class="mb-3">
-								<a href="contact.html">Contact Us</a>
+								<a href="contact.html">Contactanos</a>
 							</li>
 							<li class="mb-3">
-								<a href="help.html">Help</a>
+								<a href="help.html">Ayuda</a>
 							</li>
 							<li class="mb-3">
 								<a href="faqs.html">Faqs</a>
 							</li>
 							<li class="mb-3">
-								<a href="terms.html">Terms of use</a>
+								<a href="terms.html">Terminoss de uso</a>
 							</li>
 							<li>
-								<a href="privacy.html">Privacy Policy</a>
+								<a href="privacy.html">Politica de Privacidad</a>
 							</li>
 						</ul>
 					</div>
@@ -105,18 +105,18 @@
 						<h3 class="text-white font-weight-bold mb-3">Ponerse en contacto</h3>
 						<ul>
 							<li class="mb-3">
-								<i class="fas fa-map-marker"></i> 123 Sebastian, USA.</li>
+								<i class="fas fa-map-marker"></i> Santiago Nonualco, El Salvador.</li>
 							<li class="mb-3">
-								<i class="fas fa-mobile"></i> 333 222 3333 </li>
+								<i class="fas fa-mobile"></i> +(503) 2521 4321 </li>
 							<li class="mb-3">
-								<i class="fas fa-phone"></i> +222 11 4444 </li>
+								<i class="fas fa-phone"></i> +(503) 2521 4322 </li>
 							<li class="mb-3">
 								<i class="fas fa-envelope-open"></i>
-								<a href="mailto:example@mail.com"> mail 1@example.com</a>
+								<a href="mailto:example@mail.com"> infoJerusalen@gmail.com</a>
 							</li>
 							<li>
 								<i class="fas fa-envelope-open"></i>
-								<a href="mailto:example@mail.com"> mail 2@example.com</a>
+								<a href="mailto:example@mail.com"> EnviosJerusalen@gmail.com</a>
 							</li>
 						</ul>
 					</div>

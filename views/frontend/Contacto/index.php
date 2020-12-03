@@ -12,7 +12,7 @@
 						<a href="index.html">Home</a>
 						<i>|</i>
 					</li>
-					<li>Contact Us</li>
+					<li>Contactanos</li>
 				</ul>
 			</div>
 		</div>
@@ -24,8 +24,8 @@
 		<div class="container py-xl-4 py-lg-2">
 			<!-- tittle heading -->
 			<h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
-				<span>C</span>ontact
-				<span>U</span>s
+				<span>C</span>ontactanos
+				<span>A</span>qui
 			</h3>
 			<!-- //tittle heading -->
 			<div class="row contact-grids agile-1 mb-5">
@@ -34,9 +34,9 @@
 						<div class="con-ic">
 							<i class="fas fa-map-marker-alt rounded-circle"></i>
 						</div>
-						<h4 class="font-weight-bold mt-sm-4 mt-3 mb-3">Address</h4>
-						<p>1PO Box 8568954 Melbourne
-							<label>Australia.</label>
+						<h4 class="font-weight-bold mt-sm-4 mt-3 mb-3">Direccion</h4>
+						<p>Santiago Nonualco
+							<label>El Salvador.</label>
 						</p>
 					</div>
 				</div>
@@ -45,9 +45,9 @@
 						<div class="con-ic">
 							<i class="fas fa-phone rounded-circle"></i>
 						</div>
-						<h4 class="font-weight-bold mt-sm-4 mt-3 mb-3">Call Us</h4>
-						<p>+(0121) 121 121
-							<label>+(0121) 121 122</label>
+						<h4 class="font-weight-bold mt-sm-4 mt-3 mb-3">Llamanos</h4>
+						<p>+(503) 2521 4321
+							<label>+(503) 2521 4322</label>
 						</p>
 					</div>
 				</div>
@@ -58,9 +58,9 @@
 						</div>
 						<h4 class="font-weight-bold mt-sm-4 mt-3 mb-3">Email</h4>
 						<p>
-							<a href="mailto:info@example.com">info@example1.com</a>
+							<a href="mailto:info@example.com">infoJerusalen@gmail.com</a>
 							<label>
-								<a href="mailto:info@example.com">info@example2.com</a>
+								<a href="mailto:info@example.com">EnviosJerusalen@gmail.com</a>
 							</label>
 						</p>
 					</div>
@@ -71,7 +71,7 @@
 				<div class="contact-grids1 w3agile-6">
 					<div class="row">
 						<div class="col-md-6 col-sm-6 contact-form1 form-group">
-							<label class="col-form-label">Name</label>
+							<label class="col-form-label">Nombre</label>
 							<input type="text" class="form-control" name="Name" placeholder="" required="">
 						</div>
 						<div class="col-md-6 col-sm-6 contact-form1 form-group">
@@ -80,11 +80,11 @@
 						</div>
 					</div>
 					<div class="contact-me animated wow slideInUp form-group">
-						<label class="col-form-label">Message</label>
+						<label class="col-form-label">Mensaje</label>
 						<textarea name="Message" class="form-control" placeholder="" required=""> </textarea>
 					</div>
 					<div class="contact-form">
-						<input type="submit" value="Submit">
+						<input type="submit" value="Enviar">
 					</div>
 				</div>
 			</form>

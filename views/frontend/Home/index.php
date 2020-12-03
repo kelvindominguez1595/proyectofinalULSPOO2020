@@ -12,13 +12,13 @@
 				<div class="container">
 					<div class="w3l-space-banner">
 						<div class="carousel-caption p-lg-5 p-sm-4 p-3">
-							<p>Get flat
-								<span>10%</span> Cashback</p>
-							<h3 class="font-weight-bold pt-2 pb-lg-5 pb-4">The
-								<span>Big</span>
-								Sale
+							<p>Consigue un
+								<span>10%</span> de Cashback</p>
+							<h3 class="font-weight-bold pt-2 pb-lg-5 pb-4">Gran
+								<span>Venta</span>
+								Navideña
 							</h3>
-							<a class="button2" href="product.html">Shop Now </a>
+							<a class="button2" href="product.html">Aprovecha Ya </a>
 						</div>
 					</div>
 				</div>
@@ -27,12 +27,12 @@
 				<div class="container">
 					<div class="w3l-space-banner">
 						<div class="carousel-caption p-lg-5 p-sm-4 p-3">
-							<p>advanced
-								<span>Wireless</span> earbuds</p>
-							<h3 class="font-weight-bold pt-2 pb-lg-5 pb-4">Best
-								<span>Headphone</span>
+							<p>Headsets
+								<span>Inalambricos</span> Gamer</p>
+							<h3 class="font-weight-bold pt-2 pb-lg-5 pb-4">Lo mejor de
+								<span>Razer</span>
 							</h3>
-							<a class="button2" href="product.html">Shop Now </a>
+							<a class="button2" href="product.html">Aprovecha Ya </a>
 						</div>
 					</div>
 				</div>
@@ -41,12 +41,12 @@
 				<div class="container">
 					<div class="w3l-space-banner">
 						<div class="carousel-caption p-lg-5 p-sm-4 p-3">
-							<p>Get flat
-								<span>10%</span> Cashback</p>
-							<h3 class="font-weight-bold pt-2 pb-lg-5 pb-4">New
-								<span>Standard</span>
+							<p>Que esperas
+								<span>Aprovecha</span> Las</p>
+							<h3 class="font-weight-bold pt-2 pb-lg-5 pb-4">Ofertas de
+								<span>Fin de Año</span>
 							</h3>
-							<a class="button2" href="product.html">Shop Now </a>
+							<a class="button2" href="product.html">Aprovecha Ya </a>
 						</div>
 					</div>
 				</div>
@@ -55,10 +55,10 @@
 				<div class="container">
 					<div class="w3l-space-banner">
 						<div class="carousel-caption p-lg-5 p-sm-4 p-3">
-							<p>Get Now
-								<span>40%</span> Discount</p>
-							<h3 class="font-weight-bold pt-2 pb-lg-5 pb-4">Today
-								<span>Discount</span>
+							<p>Consigue hasta un
+								<span>40%</span> De descuento</p>
+							<h3 class="font-weight-bold pt-2 pb-lg-5 pb-4">Ahora al
+								<span>COmprar online</span>
 							</h3>
 							<a class="button2" href="product.html">Shop Now </a>
 						</div>
