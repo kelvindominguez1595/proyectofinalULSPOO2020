@@ -65,7 +65,6 @@
                         </td>
                       <td>                                                    
                         <a href="?view=Venta&action=VerDetalle&id=<?php echo $item->idventa;?>" class="btn btn-primary btn-circle"> <i class="fas fa-eye" data-toggle="tooltip" data-placement="left" title="Ver datella de la venta"></i></a>
-                        <!-- <a href="?view=Usuarios&action=BorrarUsuario&id=<?php echo $item->id;?>" class="btn btn-danger btn-circle" data-toggle="tooltip" data-placement="right" title="Borrar Registro"> <i class="fas fa-trash"></i></a> -->
                       </td>
                     </tr>
                 <?php $i++;} ?>

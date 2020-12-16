@@ -33,7 +33,7 @@ table.customTable thead {
 </style>
 </head>
 <body>
-    <img src="https://<?php echo $_SERVER['HTTP_HOST'];?>/assets/img/logo.jpg" width="90px">
+    <img src="http://localhost/proyectofinalULSPOO2020/assets/img/logo.jpg" width="90px">
     <div class="titulo">
         <h1>Reporte de Ventas</h1>
     </div>

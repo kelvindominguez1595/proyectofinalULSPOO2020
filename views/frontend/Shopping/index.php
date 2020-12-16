@@ -95,19 +95,22 @@
 									<input type="hidden" name="idproducto[]" name="idproducto" value="<?php echo $item["ID"];?>">
 								</td>
                                 <td class="invert">$ 
-                                    <?php
-                                    $subtotal = ($item['precio'] * $item['cantidad']);
+									<?php 
+									// conversion de numeros grandes 
+									$newP = str_replace(',','', $item['precio']);
+									
+						            $subtotal = $item['cantidad'] * $newP;
                                     echo number_format($subtotal, 2);
                                      ?>
                                 </td>
 								<td class="invert">
 									<div class="rem">
-                                        <form action="?view=Venta&action=shopping_cart" method="post">
+                                        <!-- <form action="?view=Venta&action=shopping_cart" method="post">
                                             <input type="hidden" name="producto_id" id="producto_id" value="<?php echo $item["ID"]; ?>">
                                             <input type="hidden" name="vista" value="Home&action=Shopping" />
                                             <input type="hidden" name="btnAction" value="Remove" />
-                                            <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> </button>
-                                        </form>
+                                        </form> -->
+											<a class="btn btn-danger" href="?view=Venta&action=shopping_cart&btnAction=Remove&producto_id=<?php echo $item["ID"]; ?>"><i class="fa fa-trash"></i></a>
 										<!-- <div class="close1"> </div> -->
 									</div>
 								</td>

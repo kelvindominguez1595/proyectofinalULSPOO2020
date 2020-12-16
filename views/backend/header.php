@@ -69,11 +69,11 @@
     <i class="fas fa-fw fa-user"></i>
     <span>Usuarios</span></a>
 </li>
-<li class="nav-item">
+<!-- <li class="nav-item">
   <a class="nav-link" href="?view=Clientes">
     <i class="fas fa-fw fa-user-astronaut"></i>
     <span>Clientes</span></a>
-</li>
+</li> -->
 <li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
     <i class="fas fa-fw fa-file-pdf"></i>

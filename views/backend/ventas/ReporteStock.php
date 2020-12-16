@@ -33,7 +33,7 @@ table.customTable thead {
 </style>
 </head>
 <body>
-    <img src="https://<?php echo $_SERVER['HTTP_HOST'];?>/assets/img/logo.jpg" width="90px">
+    <img src="http://localhost/proyectofinalULSPOO2020//assets/img/logo.jpg" width="90px">
     <div class="titulo">
         <h1>Reporte de Productos</h1>
     </div>
@@ -63,7 +63,7 @@ table.customTable thead {
         <td><?php echo $item->categoria; ?></td>
         <td><?php echo $item->nombre_marca; ?></td>
         <td>
-        <img src="https://<?php echo $_SERVER['HTTP_HOST'];?>/assets/img/<?php echo $item->imagen; ?>" width="70px" class="img-fluid" alt="">
+        <img src="http://localhost/proyectofinalULSPOO2020/assets/img/<?php echo $item->imagen; ?>" width="70px" class="img-fluid" alt="">
         </td>
         <td><?php echo date('d-m-Y', strtotime($item->fechaCompra)); ?></td>
     </tr>

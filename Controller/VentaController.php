@@ -133,7 +133,7 @@ class VentaController{
                 break;
                 case 'Remove':
                     $idPro = $_REQUEST['producto_id'];
-                    $vista = $_REQUEST['vista'];
+                    $vista = "Home&action=Shopping";
                     foreach ($_SESSION['carrito'] as $item => $producto) {
                         if($producto['ID'] == $idPro){
                             unset($_SESSION['carrito'][$item]);
