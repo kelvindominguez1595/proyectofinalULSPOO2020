@@ -22,9 +22,9 @@ class Ventas{
         }
     }
     // Metodo para listar los roles
-    public function ListarUsuarios(){
+    public function ListaVentas(){
         try{        
-            $commd = $this->DB->prepare("SELECT us.id, us.nombres, us.apellidos, us.direccion, us.email, us.usuario, us.pass, us.telefono, us.imagen, rol.nombre as roles, rol.descripcion  FROM usuarios as us INNER JOIN roles_usuario as rol ON us.roles_id = rol.id");
+            $commd = $this->DB->prepare("SELECT dvp.id, u2.nombres, u2.apellidos, dvp.idproducto, dvp.idventa, SUM(dvp.cantidad) as totalCan, SUM(p.precioCompra) as totalPreCo, sum(p.precioVenta) as totalPrecioVenta,p.NombreProducto, p.precioCompra, p.precioVenta , p.fechaCompra, v.fechaCompra as fc FROM ventas v INNER JOIN detalle_venta_producto dvp ON v.id_venta = dvp .idventa INNER JOIN productos p ON dvp.idproducto = p.id_producto INNER join usuarios u2 on u2.id = v.id_usuario  GROUP BY dvp.idventa ");
             $commd->execute();
             return $commd->fetchAll(PDO::FETCH_OBJ);
         }catch(Throwable $t){
@@ -35,9 +35,9 @@ class Ventas{
     // Metodo para obtener un registro en especifico
     public function obtenerRegistro($id){
         try{        
-            $commd = $this->DB->prepare("SELECT * FROM usuarios WHERE id = ?");
+            $commd = $this->DB->prepare("SELECT dvp.id, dvp.idventa , dvp.idproducto, dvp.cantidad as cantiVenta, dvp.descuento, p.NombreProducto, p.precioCompra, p.precioVenta FROM detalle_venta_producto dvp INNER JOIN productos p ON dvp.idproducto = p.id_producto WHERE dvp.idventa = ?");
             $commd->execute(array($id));
-            return $commd->fetch(PDO::FETCH_OBJ);
+            return $commd->fetchAll(PDO::FETCH_OBJ);
         }catch(Throwable $t){
             die($t->getMessage());
         }
@@ -129,5 +129,18 @@ class Ventas{
             return false;
         }
      }
+
+     /** para reporte */
+
+         // Metodo para obtener un registro en especifico
+    public function reportedeVenta(){
+        try{        
+            $commd = $this->DB->prepare("SELECT dvp.id, dvp.idventa , dvp.idproducto, dvp.cantidad as cantiVenta, dvp.descuento, p.NombreProducto, p.precioCompra, p.precioVenta FROM detalle_venta_producto dvp INNER JOIN productos p ON dvp.idproducto = p.id_producto");
+            $commd->execute();
+            return $commd->fetchAll(PDO::FETCH_OBJ);
+        }catch(Throwable $t){
+            die($t->getMessage());
+        }
+    }
 }
 ?>

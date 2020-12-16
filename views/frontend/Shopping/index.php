@@ -130,7 +130,8 @@
                         </tfoot>
 				</table>
 					<?php
-							if(isset($_SESSION['state'])){
+							if(isset($_SESSION['clienteEstado'])){
+                                 if($_SESSION['clienteEstado'] == 'cliente'){
 						?>
 					<div class="checkout-right-basket">
 						<button class="btn btn-primary" type="submit">
@@ -138,13 +139,16 @@
 						</button>
 					</div>
 					</form>
-					<?php }else{ ?>
+                    <?php 
+                    } 
+                    }else{ ?>
 						<div class="checkout-right-basket">
 							<h5>Debe iniciar sesión para realizar el pago</h5>
 								<a href="#" data-toggle="modal" data-target="#exampleModal" class="text-white"><i class="fas fa-sign-in-alt mr-2"></i> Iniciar Sesión </a>
 								<a href="#" data-toggle="modal" data-target="#exampleModal2" class="text-white"><i class="fas fa-sign-out-alt mr-2"></i>Register </a>
 					</div>
-					<?php } ?>
+                    <?php 
+                    } ?>
 		
                     <?php }else{ ?>
                         <div class="alert alert-success" role="alert">

@@ -38,9 +38,9 @@
                 <div class="p-5">
                   <div class="text-center">
                       <?php if(isset($_SESSION['texto'])){?>
-                      <div class="alert alert-<?php if($_SESSION['tipo'] == "success"){ echo "success";}else{echo "danger"; }?> alert-dismissible fade show" role="alert">
+                      <div class="alert alert-<?php if($_SESSION['tipo'] == "success"){ echo "success";}elseif($_SESSION['tipo'] == "info"){ echo "info";}else{echo "danger"; }?> alert-dismissible fade show" role="alert">
                       <strong>                   
-                    <?php if($_SESSION['tipo'] == "success"){ echo "Exitos!!! 😊";}else{echo "Ooops! Ah Ocurrido un error 😱"; }?>
+                    <?php if($_SESSION['tipo'] == "success"){ echo "Exitos!!! 😊";}elseif($_SESSION['tipo'] == "info"){ echo "Ooops! 😱";}else{echo "Ooops! Ah Ocurrido un error 😱"; }?>
                  </strong> 
                        <?php echo $_SESSION['texto'];?>
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">

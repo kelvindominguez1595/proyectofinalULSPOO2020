@@ -1,4 +1,3 @@
-
 <?php
 class ImagenDetails{
     # atributos 
@@ -6,7 +5,6 @@ class ImagenDetails{
     public $id;
     public $producto_id;
     public $imagen;
-
     public function __CONSTRUCT(){
         try{
             $this->DB = Database::Conexion();
@@ -14,7 +12,6 @@ class ImagenDetails{
             die($t->getMessage());
         }
     }
-
     public function registrarImagenes($data){
         try{
             // Comando SQL
@@ -31,7 +28,6 @@ class ImagenDetails{
             die($t->getMessage());
         }
     }
-
     public function actualizarImagenes($data){
         try{
             // Comando SQL
@@ -48,17 +44,15 @@ class ImagenDetails{
             die($t->getMessage());
         }
     }
-
-        // Metodo para obtener un registro en especifico
-        public function listarRegistro($id){
-            try{        
-                $commd = $this->DB->prepare("SELECT * FROM imagen_details WHERE producto_id = ?");
-                $commd->execute(array($id));
-                return $commd->fetchAll(PDO::FETCH_OBJ);
-            }catch(Throwable $t){
-                die($t->getMessage());
-            }
+    // Metodo para obtener un registro en especifico
+    public function listarRegistro($id){
+        try{        
+            $commd = $this->DB->prepare("SELECT * FROM imagen_details WHERE producto_id = ?");
+            $commd->execute(array($id));
+            return $commd->fetchAll(PDO::FETCH_OBJ);
+        }catch(Throwable $t){
+            die($t->getMessage());
         }
-    
+    }
 }
 ?>

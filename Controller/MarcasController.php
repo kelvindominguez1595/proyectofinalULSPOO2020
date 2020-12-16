@@ -13,13 +13,13 @@ class MarcasController{
    /** Inicio de llamado de la vistas */
     public function Index(){
         require_once 'views/backend/header.php';
-        require_once 'views/backend/Marcas/Index.php';
+        require_once 'views/backend/marcas/index.php';
         require_once 'views/backend/footer.php';
     }
 
     public function NuevoMarcas(){
         require_once 'views/backend/header.php';
-        require_once 'views/backend/Marcas/Crear.php';
+        require_once 'views/backend/marcas/crear.php';
         require_once 'views/backend/footer.php';
     }
 
@@ -29,14 +29,14 @@ class MarcasController{
         // crear el metodo para listar un dato especifico
         $data = $this->model->obtenerRegistro($id);
         require_once 'views/backend/header.php';
-        require_once 'views/backend/Marcas/Editar.php';
+        require_once 'views/backend/marcas/editar.php';
         require_once 'views/backend/footer.php';
     }
     public function BorrarMarcas(){
         // Capturamos el id enviado por get
         $id = $_REQUEST['id'];
         require_once 'views/backend/header.php';
-        require_once 'views/backend/Marcas/Borrar.php';
+        require_once 'views/backend/marcas/borrar.php';
         require_once 'views/backend/footer.php';
     }
     /** Fin de llamado de la vistas */

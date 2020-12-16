@@ -68,7 +68,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	
 
 						<?php
-							if(isset($_SESSION['state'])){
+							if(isset($_SESSION['clienteEstado'])){
+                                if($_SESSION['clienteEstado'] == 'cliente'){
 						?>
 						<li class="text-center border-right text-white">
 							<!-- <i class="fas fa-phone mr-2"></i> 001 234 5678 -->
@@ -78,8 +79,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<a href="#" data-toggle="modal" data-target="#exampleModal2" class="text-white">
 								<i class="fas fa-user mr-2"></i>
 								<?php  
-								            $nombre = explode(" ", $_SESSION['nombres']);
-											$apellido = explode(" ", $_SESSION['apellidos']);
+								            $nombre = explode(" ", $_SESSION['nombresCliente']);
+											$apellido = explode(" ", $_SESSION['apellidosCliente']);
 											echo $nombre[0]." ".$apellido[0];
 								?>
 								</a>
@@ -89,9 +90,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<i class="fas fa-sign-in-alt mr-2"></i> Cerrar Sesión </a>
 							</li>			
 						<?php
+                        } 
 							}else{
 						?>
-											<li class="text-center border-right text-white">
+							<li class="text-center border-right text-white">
 							<!-- <a href="#" data-toggle="modal" data-target="#exampleModal" class="text-white">
 								<i class="fas fa-truck mr-2"></i>Track Order</a> -->
 						</li>
@@ -107,7 +109,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 										</a>
 									</li>
-							<?php } ?>
+                            <?php
+                             }
+                            ?>
 					</ul>
 					<!-- //header lists -->
 				</div>

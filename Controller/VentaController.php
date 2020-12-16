@@ -1,15 +1,69 @@
 <?php
 require_once 'Model/Ventas.php';
+require_once 'Model/Productos.php';
+require_once 'assets/dompdf/autoload.inc.php';
+// reference the Dompdf namespace
+use Dompdf\Dompdf;
 class VentaController{
 
     private $model;
-
+    private $modelPro;
     public function __construct()
     {
         $this->model = new Ventas();
+        $this->modelPro = new Productos();
     }
 
-
+    public function Index(){
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/ventas/index.php';
+        require_once 'views/backend/footer.php';
+    }
+    // PARA VER ELD ETALLE DEL PRODUCT
+    public function VerDetalle(){
+        // Capturamos el id enviado por get
+        $id = $_REQUEST['id'];
+        // crear el metodo para listar un dato especifico
+        $data = $this->model->obtenerRegistro($id);
+        require_once 'views/backend/header.php';
+        require_once 'views/backend/ventas/detalle.php';
+        require_once 'views/backend/footer.php';
+    }
+    /** para imprimir reporte de ventas y productos */
+    public function ReporteVentaPDF(){
+        // para guardar el html donde mostramos los datos
+        ob_start(); // no sirve para iniciar un buffer
+        require_once 'views/backend/ventas/ReporteVenta.php';
+        $html = ob_get_clean(); // creo la variable html la cual le borrafe el buffer anterior creado
+        // instantiate and use the dompdf class
+        $dompdf = new Dompdf();
+        $dompdf->set_option('isHtml5ParserEnabled', true);
+        $dompdf->set_option('isRemoteEnabled', true);
+        $dompdf->loadHtml($html);
+        // (Optional) Setup the paper size and orientation
+        $dompdf->setPaper('letter', 'portrait');
+        // Render the HTML as PDF
+        $dompdf->render();
+        // Output the generated PDF to Browser
+       return $dompdf->stream("dompdf_out.pdf", array("Attachment" => false,));
+    }
+    public function ReporteDeProductosPDF(){
+        // para guardar el html donde mostramos los datos
+        ob_start(); // no sirve para iniciar un buffer
+        require_once 'views/backend/ventas/ReporteStock.php';
+        $html = ob_get_clean(); // creo la variable html la cual le borrafe el buffer anterior creado
+        // instantiate and use the dompdf class
+        $dompdf = new Dompdf();
+        $dompdf->set_option('isHtml5ParserEnabled', true);
+        $dompdf->set_option('isRemoteEnabled', true);
+        $dompdf->loadHtml($html);
+        // (Optional) Setup the paper size and orientation
+        $dompdf->setPaper('letter', 'portrait');
+        // Render the HTML as PDF
+        $dompdf->render();
+        // Output the generated PDF to Browser
+        return $dompdf->stream("dompdf_out.pdf", array("Attachment" => false,));
+    }
     // metodo para agregar y quitar productos del carrito de compras
     public function shopping_cart(){
         if(isset($_REQUEST['btnAction'])){
@@ -138,7 +192,5 @@ class VentaController{
             }
         }
     }
-
-
 } 
 ?>

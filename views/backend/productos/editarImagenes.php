@@ -32,7 +32,7 @@
                                 <input type="hidden" name="id" value="<?php echo $value->id ?>">
                                 <input type="hidden" name="producti" value="<?php echo $value->producto_id ?>">
                                 <!-- <div class="custom-file"> -->
-                                    <input type="file" class="form-control" id="" name="imagen"  lang="es" accept="image/x-png,image/gif,image/jpeg" >
+                                    <input type="file" class="form-control" id="" name="imagen"  lang="es" accept="image/x-png,image/gif,image/jpeg,image/webp" >
                                    <!-- // <label class="custom-file-label" for="customFileLang">Subir...</label> -->
                                 <!-- </div> -->
                                 <div class="form-group row ">

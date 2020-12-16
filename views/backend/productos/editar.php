@@ -28,11 +28,11 @@
                                 </div>
                                 <div class="col-sm-4">
                                       <label for="pcompra">P. Compra</label>
-                                    <input type="number" step="any" min="0" name="precioCompra" class="form-control form-control-user" required id="exampleFirstName" placeholder="$ Compra" value="<?php echo number_format($data->precioCompra, 2); ?>" >
+                                    <input type="number" step="any" min="0" name="precioCompra" class="form-control form-control-user" required id="exampleFirstName" placeholder="$ Compra" value="<?php echo $data->precioCompra; ?>" >
                                 </div>
                                 <div class="col-sm-4">
                                        <label for="precioVenta">P. Venta</label>
-                                    <input type="number" step="any" min="0"  name="precioVenta" class="form-control form-control-user" required id="exampleFirstName" placeholder="$ Venta" value="<?php echo number_format($data->precioVenta, 2); ?>" >
+                                    <input type="number" step="any" min="0"  name="precioVenta" class="form-control form-control-user" required id="exampleFirstName" placeholder="$ Venta" value="<?php echo $data->precioVenta; ?>" >
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -89,7 +89,7 @@
                                     <label>Portada de producto</label>
                                     <input type="hidden" name="imgdefault" value="<?php echo $data->imagen; ?>">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFileLang" name="imagen"  lang="es" accept="image/x-png,image/gif,image/jpeg" >
+                                        <input type="file" class="custom-file-input" id="customFileLang" name="imagen"  lang="es" accept="image/x-png,image/gif,image/jpeg,image/webp" >
                                         <label class="custom-file-label" for="customFileLang">Subir...</label>
                                     </div>
                                 </div>
